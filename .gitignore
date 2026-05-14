@@ -1,3 +1,13 @@
+# Cosas proyecto
+
+*.uvgui.*
+*.uvguix.*
+*.uvoptx
+*.uvprojx
+RTE/
+Objects/
+Listings
+
 # Prerequisites
 *.d
 
