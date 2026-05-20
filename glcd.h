@@ -294,9 +294,11 @@ enum glcd_pca9532_ctrl {
 /**
  * @brief   Sobrecarga la estructra de archivos (FILE).
  */
+/*
 struct __FILE{
   int handle;
 };
+*/
 
 int32_t fputc(int c, FILE *file);
 int32_t fgetc(FILE *file);
