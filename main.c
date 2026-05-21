@@ -2,8 +2,12 @@
 #include "snake.h"
 
 
-int main(){
+int main(void){
 
+		pintar_tablero();
 
+		while (1) {
+				
+		}
     return 0;
 }

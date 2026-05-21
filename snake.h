@@ -10,4 +10,6 @@
 
 #define N 50
 
+void pintar_tablero();
+
 #endif // SNAKE_H
