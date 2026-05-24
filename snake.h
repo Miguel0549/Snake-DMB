@@ -8,7 +8,8 @@
 #define BAR_H 205
 #define BAR_V 186
 
-#define N 50
+#define N 468 //limite horizontal
+#define M 256 //limite vertical
 
 void pintar_tablero();
 
