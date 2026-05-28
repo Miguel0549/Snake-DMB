@@ -32,4 +32,12 @@ Punto dequeue(SnakeQueue *snake);
 void moveSnake(SnakeQueue *snake, Punto nextHead, bool ateFood);
 bool verificarColisionCuerpo(SnakeQueue *snake, Punto punto);
 
+void inicializar_juego(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado );
+void generar_comida(Punto* comida, SnakeQueue* serpiente);
+void procesar_entrada(enum joystick_dir *direccion_actual);
+void actualizar_logica(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado);
+void renderizar(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual);
+void dibujar_cuerpo(int x, int y, uint16_t color);
+void dibujar_cabeza_flecha(int x, int y, enum joystick_dir dir, uint16_t color);
+
 #endif // SNAKE_H
