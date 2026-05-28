@@ -1,4 +1,5 @@
 #include "snake.h"
+#include <stdlib.h>
 
 void enqueue(SnakeQueue *snake, Punto newHead) {
     if (snake->size == MAX_SNAKE_LENGTH) return; 
@@ -64,7 +65,7 @@ void inicializar_juego(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enu
     enqueue(serpiente, p2); //
     enqueue(serpiente, p3); //
 
-    generar_comida(comida,serpiente);
+    //generar_comida(comida,serpiente);
 }
 
 void generar_comida(Punto* comida,SnakeQueue* serpiente) {
@@ -122,7 +123,7 @@ void actualizar_logica(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enu
 
     if (ha_comido) {
         *puntuacion += 10;
-        generar_comida(comida,serpiente);
+        //generar_comida(comida,serpiente);
     }
 }
 
