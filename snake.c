@@ -15,7 +15,7 @@ Punto dequeue(SnakeQueue *snake) {
     return removedPoint;
 }
 
-void moveSnake(SnakeQueue *snake, Punto nextHead, bool ateFood) {
+void moveSnake(Snake *snake, Punto direccion, bool ateFood) {
     enqueue(snake, nextHead);
     if (!ateFood) {
         dequeue(snake);

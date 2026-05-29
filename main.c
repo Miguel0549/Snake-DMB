@@ -14,36 +14,47 @@ int main(void) {
 	
 		glcd_xprintf(0,0,WHITE,BLACK,0,"glcd_inicializar();");
 	
-	  SnakeQueue serpiente;
-		Punto comida;
-		int puntuacion = 0;
+	  Snake serpiente;
+		Tablero tab;
+		uint16_t puntuacion = 0;
 		enum joystick_dir direccion_actual = JOYSTICK_DERECHA; 
 		bool juego_terminado = false;
 	
 	  glcd_xprintf(0,0,WHITE,BLACK,0,"Variables iniciales");
 	
 	  //srand(120); 
-      inicializar_juego(&serpiente,&comida,&puntuacion,&direccion_actual,&juego_terminado);
+    inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
 	
 		glcd_xprintf(0,0,WHITE,BLACK,0,"inicializar_juego");
 
+		//inicializar ciclos del timer
+		
 		while(1){
+			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
 			
 			while (!juego_terminado) {
-				glcd_xprintf(0,0,WHITE,BLACK,0,"entra whhile juego");
-			  procesar_entrada(&direccion_actual);
-			
-				glcd_xprintf(0,0,WHITE,BLACK,0,"mirar teclado");
+				glcd_xprintf(0,0,WHITE,BLACK,0,"entra while juego");
 				
-        actualizar_logica(&serpiente,&comida,&puntuacion,&direccion_actual,&juego_terminado);
+				while (1){ //esperar ciclo del timer
+						procesar_entrada(&direccion_actual);
+				}
+				
+				Punto direccion= trans_joy_to_point(direccion_actual);
+				
+        actualizar_logica(&serpiente,&tab,&puntuacion, direccion, &juego_terminado);
 				glcd_xprintf(0,0,WHITE,BLACK,0,"Mover serpiente");
-        renderizar(&serpiente,&comida,&puntuacion,&direccion_actual);
+        renderizarBucle(&serpiente,&tab,&puntuacion, &direccion_actual);
 				glcd_xprintf(0,0,WHITE,BLACK,0,"pintar serpiente");
       }
 
-      // Pantalla de Game Over
-		
-		
+      if (serpiente.tama==MAX_SNAKE_LENGTH){
+				//Pantalla de victoria con puntuación en grande
+			} else {
+				//Pantalla de derrota
+			}
+			//print de continuar?
+			while (joystick_leer() != JOYSTICK_CENTRO){}
+				
 		}
    
 
