@@ -3,7 +3,7 @@
 
 void enqueue(SnakeQueue *snake, Punto newHead) {
     if (snake->size == MAX_SNAKE_LENGTH) return; 
-    snake->rear = (snake->rear + 1) % MAX_SNAKE_LENGTH;
+    snake->rear = newHead;
     snake->body[snake->rear] = newHead;
     snake->size++;
 }
@@ -34,23 +34,28 @@ bool verificarColisionCuerpo(SnakeQueue *snake, Punto punto) {
     return false;
 }
 
-
-void initSnake(SnakeQueue *snake) {
-    snake->front = 0;
-    snake->rear = -1;
+void initTablero(SnakeQueue *snake, Tablero* tablero) {
+	
+		for( int i=0 ; i<7 ; ++i ){
+			for ( int j=0 ; j<14 ; j++ ){
+					tablero->t[i][j] = 0;
+			}
+		}
+	
+		tablero->t[snake->front.x][snake->front.y] = -1;
+		tablero->t[snake->rear.x][snake->rear.y] = -1;
+		
+    snake->front = (Punto){2, 3};
+    snake->rear = (Punto){3, 3};
     snake->size = 0;
-
-    enqueue(snake, (Punto){2, 3}); 
-    enqueue(snake, (Punto){3, 3}); 
-    enqueue(snake, (Punto){4, 3}); 
 }
 
-void inicializar_juego(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado) {
+void inicializar_juego(SnakeQueue* serpiente,Tablero* tablero, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado) {
     puntuacion = 0;
     juego_terminado = false;
     *direccion_actual = JOYSTICK_DERECHA; 
     
-    initSnake(serpiente); //
+    initTablero(serpiente); //
     
     // Forzar vaciado de seguridad de la cola circular
     serpiente->front = 0;
@@ -95,7 +100,7 @@ void procesar_entrada(enum joystick_dir *direccion_actual) {
     if (tecla == JOYSTICK_DERECHA && *direccion_actual != JOYSTICK_IZQUIERDA) *direccion_actual = JOYSTICK_DERECHA;
 }
 
-void actualizar_logica(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado ) {
+void actualizar_logica(SnakeQueue* serpiente, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado ) {
     Punto cabeza_actual = serpiente->body[serpiente->rear];
     Punto siguiente_cabeza = cabeza_actual;
 
@@ -127,7 +132,7 @@ void actualizar_logica(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enu
     }
 }
 
-void renderizar(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joystick_dir *direccion_actual) {
+void renderizar(SnakeQueue* serpiente, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual) {
     glcd_borrar(NEGRO); //
 
     // 1. Cabecera gráfica
@@ -154,7 +159,7 @@ void renderizar(SnakeQueue* serpiente, Punto* comida, int* puntuacion,enum joyst
 }
 
 // Dibuja el cuerpo como un cuadrado regular relleno
-void dibujar_cuerpo(int x, int y, uint16_t color) {
+void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
     int x0 = OFFSET_X + (x * TAM_BLOQUE) + 2; 
     int y0 = OFFSET_Y + (y * TAM_BLOQUE) + 2;
     int x1 = x0 + TAM_BLOQUE - 4;
@@ -163,7 +168,7 @@ void dibujar_cuerpo(int x, int y, uint16_t color) {
 }
 
 // Dibuja la cabeza como una punta de flecha (Triángulo apuntando a la dirección del movimiento)
-void dibujar_cabeza_flecha(int x, int y, enum joystick_dir dir, uint16_t color) {
+void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t color) {
     // Calcular la caja del bloque actual
     int bx = OFFSET_X + (x * TAM_BLOQUE);
     int by = OFFSET_Y + (y * TAM_BLOQUE);
