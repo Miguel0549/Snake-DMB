@@ -41,6 +41,7 @@ void timer_retardo_us(LPC_TIM_TypeDef *timer_regs, uint32_t retardo_en_us);
 void timer_iniciar_ciclos_ms(LPC_TIM_TypeDef *timer_regs, uint32_t periodo_en_ms);
 void timer_iniciar_ciclos_us(LPC_TIM_TypeDef *timer_regs, uint32_t periodo_en_us);
 void timer_esperar_fin_ciclo(LPC_TIM_TypeDef *timer_regs);
+bool timer_fin_ciclo(LPC_TIM_TypeDef *timer_regs);
 
 void timer_iniciar_conteo_ms(LPC_TIM_TypeDef *timer_regs);
 void timer_iniciar_conteo_us(LPC_TIM_TypeDef *timer_regs);
