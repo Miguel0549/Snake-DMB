@@ -218,6 +218,24 @@ void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color) {
     glcd_circulo(comida_centro_x, comida_centro_y, (TAM_BLOQUE / 2) - 4, ROJO);
 }
 
+void pantalla_victoria(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X*7 + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, VERDE, NEGRO, FUENTE16X32, "¡HAS GANADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+}
+
+
+void pantalla_derrota(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¡TE HAS CHOCADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
+}
+
+void pantalla_continuar(){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¿Nueva partida?"); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/6, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE8X16, "Presiona el joystick central para continuar"); 
+}
 
 
 

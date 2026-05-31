@@ -11,6 +11,7 @@ int main(void) {
 	  bajo_consumo();
 		glcd_inicializar();
 		timer_inicializar(TIMER0);
+		timer_inicializar(TIMER1);
 	  __enable_irq();
 	
 		
@@ -45,12 +46,12 @@ int main(void) {
       }
 
       if (serpiente.tama==MAX_SNAKE_LENGTH){
-				//Pantalla de victoria con puntuación en grande
+				pantalla_victoria(&puntuacion);
 			} else {
-				//Pantalla de derrota
+				pantalla_derrota(&puntuacion);
 			}
-			//print de continuar?
-			glcd_xprintf(100,50,WHITE, BLACK, 0, "Continuar?");
+			timer_retardo_ms(TIMER1, 5000);
+			pantalla_continuar();
 			while (joystick_leer() != JOYSTICK_CENTRO){}
 				
 		}

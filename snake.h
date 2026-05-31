@@ -53,6 +53,9 @@ void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joys
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color);
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t color);
 void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color);
+void pantalla_victoria(uint16_t* puntuacion);
+void pantalla_derrota(uint16_t* puntuacion);
+void pantalla_continuar();
 
 
 #endif // SNAKE_H
