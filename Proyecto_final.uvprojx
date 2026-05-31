@@ -10,7 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6220000::V6.22::ARMCLANG</pCCUsed>
+      <pCCUsed>6240000::V6.24::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -393,6 +393,21 @@
               <FileName>base_lpc40xx.lib</FileName>
               <FileType>4</FileType>
               <FilePath>.\base_lpc40xx.lib</FilePath>
+            </File>
+            <File>
+              <FileName>cola.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\cola.h</FilePath>
+            </File>
+            <File>
+              <FileName>cola.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\cola.c</FilePath>
+            </File>
+            <File>
+              <FileName>snake.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\snake.c</FilePath>
             </File>
           </Files>
         </Group>

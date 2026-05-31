@@ -1,94 +1,72 @@
 #include "snake.h"
 #include <stdlib.h>
 
-void enqueue(SnakeQueue *snake, Punto newHead) {
-    if (snake->size == MAX_SNAKE_LENGTH) return; 
-    snake->rear = newHead;
-    snake->body[snake->rear] = newHead;
-    snake->size++;
+void initSnake(Snake *serpi) {
+	
+    serpi->cabeza = constructorPunto(1, 3);
+    serpi->final = constructorPunto(1, 1);
+    serpi->movs_pendientes = crearColas();
+		Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
+    Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
+    serpi->tama = 3;
+	
 }
 
-Punto dequeue(SnakeQueue *snake) {
-    Punto removedPoint = snake->body[snake->front];
-    snake->front = (snake->front + 1) % MAX_SNAKE_LENGTH;
-    snake->size--;
-    return removedPoint;
-}
-
-void moveSnake(SnakeQueue *snake, Punto nextHead, bool ateFood) {
-    enqueue(snake, nextHead);
+void moveSnake(Snake *snake, Punto direccion, bool ateFood) {
+    snake->cabeza=sumarPuntos(snake->cabeza, direccion);
     if (!ateFood) {
-        dequeue(snake);
+        snake->final=sumarPuntos(snake->final, Desencolar(snake->movs_pendientes));
     }
+		Encolar(snake->movs_pendientes, crearNodo(direccion));
 }
 
-bool verificarColisionCuerpo(SnakeQueue *snake, Punto punto) {
-    if (snake->size <= 4) return false;
-    int idx = snake->front;
-    for (int i = 0; i < snake->size - 1; i++) {
-        if (snake->body[idx].x == punto.x && snake->body[idx].y == punto.y) {
-            return true;
-        }
-        idx = (idx + 1) % MAX_SNAKE_LENGTH;
-    }
+bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero* tab) {
+    if (snake->tama <= 4) return false;
+		if (nuevaCabeza.x==snake->final.x && nuevaCabeza.y==snake->final.y) return false;
+		if (nuevaCabeza.x<0 || nuevaCabeza.y<0 || nuevaCabeza.x>6 || nuevaCabeza.y>13){
+			return true;
+	  }else if (tab->t[nuevaCabeza.x][nuevaCabeza.y]==SERPIENTE) return true;
     return false;
 }
 
-void initTablero(SnakeQueue *snake, Tablero* tablero) {
+void initTablero(Snake *snake, Tablero* tab) {
 	
-		for( int i=0 ; i<7 ; ++i ){
-			for ( int j=0 ; j<14 ; j++ ){
-					tablero->t[i][j] = 0;
+		for( int i=0 ; i< 14 ; ++i ){
+			for ( int j=0 ; j< 7 ; j++ ){
+					tab->t[i][j] = VACIA;
 			}
 		}
-	
-		tablero->t[snake->front.x][snake->front.y] = -1;
-		tablero->t[snake->rear.x][snake->rear.y] = -1;
 		
-    snake->front = (Punto){2, 3};
-    snake->rear = (Punto){3, 3};
-    snake->size = 0;
+		tab->t[1][3] = SERPIENTE;
+		tab->t[1][2] = SERPIENTE;
+		tab->t[1][1] = SERPIENTE;
+		
+		generar_comida(snake, tab);
+		generar_comida(snake, tab);
+		generar_comida(snake, tab);
+		
 }
 
-void inicializar_juego(SnakeQueue* serpiente,Tablero* tablero, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado) {
-    puntuacion = 0;
+void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, enum joystick_dir *direccion_actual, bool* juego_terminado) {
+    *puntuacion = 0;
+		
     juego_terminado = false;
     *direccion_actual = JOYSTICK_DERECHA; 
     
-    initTablero(serpiente); //
-    
-    // Forzar vaciado de seguridad de la cola circular
-    serpiente->front = 0;
-    serpiente->rear = -1;
-    serpiente->size = 0;
-
-    // Insertar cuerpo inicial en una zona segura
-    Punto p1 = {3, 3};
-    Punto p2 = {4, 3};
-    Punto p3 = {5, 3}; // Cabeza inicial
-    enqueue(serpiente, p1); //
-    enqueue(serpiente, p2); //
-    enqueue(serpiente, p3); //
-
-    //generar_comida(comida,serpiente);
+    initTablero(serpiente, tablero); 
+		initSnake(serpiente);
+		
 }
 
-void generar_comida(Punto* comida,SnakeQueue* serpiente) {
-    bool posicion_valida = false;
-    while (!posicion_valida) {
-        comida->x = rand() % COLUMNAS;
-        comida->y = rand() % FILAS;
-
-        posicion_valida = true;
-        int idx = serpiente->front;
-        for (int i = 0; i < serpiente->size; i++) {
-            if (serpiente->body[idx].x == comida->x && serpiente->body[idx].y == comida->y) {
-                posicion_valida = false;
-                break;
-            }
-            idx = (idx + 1) % MAX_SNAKE_LENGTH; //
-        }
-    }
+void generar_comida(Snake* serpiente, Tablero* tab) {
+    if (tab->n_frutas==MAX_SNAKE_LENGTH-serpiente->tama) return;
+		
+		Punto p=constructorPunto(4,4); //corregir por número aleatorio
+		while (tab->t[p.x][p.y]!=VACIA){
+			p.y++; //corregir por número aleatorio
+		}
+		tab->t[p.x][p.y]=FRUTA;
+		tab->n_frutas++;
 }
 
 void procesar_entrada(enum joystick_dir *direccion_actual) {
@@ -100,62 +78,67 @@ void procesar_entrada(enum joystick_dir *direccion_actual) {
     if (tecla == JOYSTICK_DERECHA && *direccion_actual != JOYSTICK_IZQUIERDA) *direccion_actual = JOYSTICK_DERECHA;
 }
 
-void actualizar_logica(SnakeQueue* serpiente, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual, bool* juego_terminado ) {
-    Punto cabeza_actual = serpiente->body[serpiente->rear];
-    Punto siguiente_cabeza = cabeza_actual;
+Punto trans_joy_to_point(enum joystick_dir direccion_actual){
+		Punto p;
+		switch (direccion_actual){
+			case JOYSTICK_ARRIBA:
+				p=constructorPunto(0,1);
+				break;
+			case JOYSTICK_ABAJO:
+				p=constructorPunto(0,-1);
+				break;
+			case JOYSTICK_IZQUIERDA:
+				p=constructorPunto(-1,0);
+				break;
+			case JOYSTICK_DERECHA:
+				p=constructorPunto(1,0);
+				break;
+			default:
+				p=constructorPunto(1,0);
+				break;
+		}
+		return p;
+}
 
-    switch (*direccion_actual) {
-        case JOYSTICK_ARRIBA:    siguiente_cabeza.y--; break;
-        case JOYSTICK_ABAJO:     siguiente_cabeza.y++; break;
-        case JOYSTICK_IZQUIERDA: siguiente_cabeza.x--; break;
-        case JOYSTICK_DERECHA:   siguiente_cabeza.x++; break;
-        default: break;
-    }
+void actualizar_logica(Snake* serpiente, Tablero* tab, uint16_t* puntuacion, Punto direccion, bool* juego_terminado ) {
+    Punto siguiente_cabeza = sumarPuntos(serpiente->cabeza, direccion);
 
-    if (siguiente_cabeza.x < 0 || siguiente_cabeza.x >= COLUMNAS ||
-        siguiente_cabeza.y < 0 || siguiente_cabeza.y >= FILAS) {
+    if (verificarColisionCuerpo(serpiente, siguiente_cabeza, tab) || serpiente->tama==MAX_SNAKE_LENGTH) { //
         *juego_terminado = true;
         return;
     }
 
-    if (verificarColisionCuerpo(serpiente, siguiente_cabeza)) { //
-        *juego_terminado = true;
-        return;
-    }
-
-    bool ha_comido = (siguiente_cabeza.x == comida->x && siguiente_cabeza.y == comida->y);
-    moveSnake(serpiente, siguiente_cabeza, ha_comido); //
+    bool ha_comido = (tab->t[siguiente_cabeza.x][siguiente_cabeza.y]==1);
+    moveSnake(serpiente, direccion, ha_comido); //
 
     if (ha_comido) {
-        *puntuacion += 10;
-        //generar_comida(comida,serpiente);
+        *puntuacion += 20;
+        generar_comida(serpiente, tab);
     }
 }
 
-void renderizar(SnakeQueue* serpiente, Punto* comida, uint16_t* puntuacion,enum joystick_dir *direccion_actual) {
-    glcd_borrar(NEGRO); //
-
-    // 1. Cabecera gráfica
-    glcd_xprintf(OFFSET_X, 8, AMARILLO, NEGRO, FUENTE8X16, "SCORE: %05d", *puntuacion); //
-    glcd_rectangulo(OFFSET_X - 1, OFFSET_Y - 1, OFFSET_X + (COLUMNAS * TAM_BLOQUE), OFFSET_Y + (FILAS * TAM_BLOQUE), CIAN_OSCURO); //
+void renderizar(Snake* serpiente, Tablero* tab, uint16_t* puntuacion,enum joystick_dir *direccion_actual) {
+    glcd_borrar(NEGRO); 
+    glcd_rectangulo(OFFSET_X - 1, OFFSET_Y - 1, OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1, OFFSET_Y + (FILAS * TAM_BLOQUE)+1, CIAN_OSCURO); //
     
-    // Comida
-    int comida_centro_x = OFFSET_X + (comida->x * TAM_BLOQUE) + (TAM_BLOQUE / 2);
-    int comida_centro_y = OFFSET_Y + (comida->y * TAM_BLOQUE) + (TAM_BLOQUE / 2);
-    glcd_circulo(comida_centro_x, comida_centro_y, (TAM_BLOQUE / 2) - 4, ROJO); //
+		renderizarBucle(serpiente, tab, puntuacion, direccion_actual);
+}
 
-    // 2. Recorrer y renderizar la serpiente
-    int idx = serpiente->front;
-    for (int i = 0; i < serpiente->size; i++) {
-        if (idx == serpiente->rear) {
-            // Es la cabeza: Dibujamos la Flecha Vectorial orientada
-            dibujar_cabeza_flecha(serpiente->body[idx].x, serpiente->body[idx].y, *direccion_actual, OLIVA);
-        } else {
-            // Es el cuerpo: Dibujamos un Bloque Cuadrado relleno
-            dibujar_cuerpo(serpiente->body[idx].x, serpiente->body[idx].y, VERDE);
-        }
-        idx = (idx + 1) % MAX_SNAKE_LENGTH; //
-    }
+void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joystick_dir *direccion_actual){
+	glcd_xprintf(OFFSET_X, 8, AMARILLO, NEGRO, FUENTE8X16, "SCORE: %05d", *puntuacion); 
+	glcd_rectangulo_relleno(OFFSET_X, OFFSET_Y, OFFSET_X + (COLUMNAS * TAM_BLOQUE), OFFSET_Y + (FILAS * TAM_BLOQUE), NEGRO);
+    for (int i = 0; i < 7; i++) { 
+				for (int j=0; j < 14; j++){
+					if (tab->t[i][j]==SERPIENTE) {
+						if(snake->cabeza.x==i && snake->cabeza.y==j){
+							dibujar_cabeza_flecha(i, j, *direccion_actual, OLIVA);
+						}
+							dibujar_cuerpo(i, j, OLIVA);
+					} else if (tab->t[i][j]==FRUTA) {
+							dibujar_fruta(i, j, ROJO);
+					}
+				}
+		}
 }
 
 // Dibuja el cuerpo como un cuadrado regular relleno
@@ -213,3 +196,18 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t
     // Dibujar un pequeño núcleo central relleno para darle robustez visual a la flecha
     glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); //
 }
+
+
+
+
+// Dibuja la fruta
+void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color) {
+
+}
+
+
+
+
+
+
+
