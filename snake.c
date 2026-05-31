@@ -188,13 +188,12 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t
             break;
     }
 
-    // Dibujar el contorno y silueta de la flecha mediante líneas vectoriales
     glcd_linea(px1, py1, px2, py2, color); //
     glcd_linea(px2, py2, px3, py3, color); //
     glcd_linea(px3, py3, px1, py1, color); //
 
-    // Dibujar un pequeño núcleo central relleno para darle robustez visual a la flecha
-    glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); //
+    
+    glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); 
 }
 
 

@@ -10,6 +10,7 @@ int main(void) {
 		
 	  bajo_consumo();
 		glcd_inicializar();
+	  timer_inicializar(TIMER0);
 	  __enable_irq();
 	
 		
@@ -22,17 +23,17 @@ int main(void) {
 		
 	  //srand(120); 
     inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
-	
 		
 		//inicializar ciclos del timer
+	
+	  timer_iniciar_ciclos_ms(TIMER0,700);
 		
 		while(1){
 			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
 			
 			while (!juego_terminado) {
-				while (1){ //implementa esperar ciclo del timer
-						procesar_entrada(&direccion_actual);
-				}
+				
+				procesar_entrada(&direccion_actual);
 				
 				Punto direccion= trans_joy_to_point(direccion_actual);
 				
@@ -40,6 +41,8 @@ int main(void) {
 				glcd_xprintf(0,0,WHITE,BLACK,0,"Mover serpiente");
         renderizarBucle(&serpiente,&tab,&puntuacion, &direccion_actual);
 				glcd_xprintf(0,0,WHITE,BLACK,0,"pintar serpiente");
+				
+				timer_esperar_fin_ciclo(TIMER0);
       }
 
       if (serpiente.tama==MAX_SNAKE_LENGTH){
