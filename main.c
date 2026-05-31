@@ -32,7 +32,7 @@ int main(void) {
 			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
 			juego_terminado=false;
 			while (!juego_terminado) {
-				while (timer_fin_ciclo(TIMER0)){ //implementa esperar ciclo del timer
+				while (timer_fin_ciclo(TIMER0)){ 
 						procesar_entrada(&direccion_actual);
 				}
 				timer_esperar_fin_ciclo(TIMER0);
