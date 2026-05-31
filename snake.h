@@ -8,9 +8,9 @@
 
 #define MAX_SNAKE_LENGTH 168
 
-#define SERPIENTE -1
+#define SERPIENTE 1
 #define VACIA 0
-#define FRUTA 1
+#define FRUTA 2
 
 #define FILAS 7
 #define COLUMNAS 14
@@ -39,17 +39,9 @@ typedef struct{
 } Snake;
 
 
-inline void initSnake(Snake *serpi) {
-    serpi->cabeza = constructorPunto(1, 3);
-    serpi->final = constructorPunto(1, 1);
-    serpi->movs_pendientes = crearColas();
-		Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
-    Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
-    serpi->tama = 3;
-}
-
+void initSnake(Snake *serpi);
 void moveSnake(Snake *snake, Punto direccion, bool ateFood);
-bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero t);
+bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero* t);
 void initTablero(Snake *snake, Tablero* tab);
 void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, enum joystick_dir *direccion_actual, bool* juego_terminado);
 void generar_comida(Snake* serpiente, Tablero* tab);

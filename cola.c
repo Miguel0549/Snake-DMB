@@ -1,6 +1,12 @@
 #include "cola.h"
-#include <stdio.h>
 #include <stdlib.h>
+ 
+Punto constructorPunto(uint8_t x, uint8_t y){
+	Punto p;
+	p.x=x;
+	p.y=y;
+	return p;
+}
  
 Nodo* crearNodo(Punto valor){
     Nodo* nodo = (Nodo*)malloc(sizeof(Nodo));

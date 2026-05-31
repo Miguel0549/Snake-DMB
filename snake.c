@@ -1,20 +1,31 @@
 #include "snake.h"
 #include <stdlib.h>
 
+void initSnake(Snake *serpi) {
+	
+    serpi->cabeza = constructorPunto(1, 3);
+    serpi->final = constructorPunto(1, 1);
+    serpi->movs_pendientes = crearColas();
+		Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
+    Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
+    serpi->tama = 3;
+	
+}
+
 void moveSnake(Snake *snake, Punto direccion, bool ateFood) {
-    snake->cabeza=sumarPuntos(snake->cabeza, direccion)
+    snake->cabeza=sumarPuntos(snake->cabeza, direccion);
     if (!ateFood) {
         snake->final=sumarPuntos(snake->final, Desencolar(snake->movs_pendientes));
     }
 		Encolar(snake->movs_pendientes, crearNodo(direccion));
 }
 
-bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero t) {
-    if (snake->size <= 4) return false;
-		if (nuevaCabeza=snake->final) return false;
+bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero* tab) {
+    if (snake->tama <= 4) return false;
+		if (nuevaCabeza.x==snake->final.x && nuevaCabeza.y==snake->final.y) return false;
 		if (nuevaCabeza.x<0 || nuevaCabeza.y<0 || nuevaCabeza.x>6 || nuevaCabeza.y>13){
 			return true;
-	  }elseif (t[nuevaCabeza.x][nuevaCabeza.y]=-1) return true;
+	  }else if (tab->t[nuevaCabeza.x][nuevaCabeza.y]==SERPIENTE) return true;
     return false;
 }
 
@@ -22,13 +33,13 @@ void initTablero(Snake *snake, Tablero* tab) {
 	
 		for( int i=0 ; i< 14 ; ++i ){
 			for ( int j=0 ; j< 7 ; j++ ){
-					tab->t[i][j] = 0;
+					tab->t[i][j] = VACIA;
 			}
 		}
 		
-		tab->t[1][3] = -1;
-		tab->t[1][2] = -1;
-		tab->t[1][1] = -1;
+		tab->t[1][3] = SERPIENTE;
+		tab->t[1][2] = SERPIENTE;
+		tab->t[1][1] = SERPIENTE;
 		
 		generar_comida(snake, tab);
 		generar_comida(snake, tab);
@@ -37,22 +48,24 @@ void initTablero(Snake *snake, Tablero* tab) {
 }
 
 void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, enum joystick_dir *direccion_actual, bool* juego_terminado) {
-    puntuacion = 0;
+    *puntuacion = 0;
+		
     juego_terminado = false;
     *direccion_actual = JOYSTICK_DERECHA; 
     
     initTablero(serpiente, tablero); 
-		initSnake(snake);
+		initSnake(serpiente);
+		
 }
 
 void generar_comida(Snake* serpiente, Tablero* tab) {
-    if (tab->n_frutas==FILAS*COLUMNAS-serpiente->tama) return;
+    if (tab->n_frutas==MAX_SNAKE_LENGTH-serpiente->tama) return;
 		
-		Punto p=constructorPunto(0,0); //corregir por número aleatorio
-		while (tab->t[p.x][p.y]!=0){
-			p=constructorPunto(0,0); //corregir por número aleatorio
+		Punto p=constructorPunto(4,4); //corregir por número aleatorio
+		while (tab->t[p.x][p.y]!=VACIA){
+			p.y++; //corregir por número aleatorio
 		}
-		tab->t[p.x][p.y]=1;
+		tab->t[p.x][p.y]=FRUTA;
 		tab->n_frutas++;
 }
 
@@ -95,12 +108,12 @@ void actualizar_logica(Snake* serpiente, Tablero* tab, uint16_t* puntuacion, Pun
         return;
     }
 
-    bool ha_comido = (tab->t[siguiente_cabeza.x][siguiente_cabeza.y]==1;);
+    bool ha_comido = (tab->t[siguiente_cabeza.x][siguiente_cabeza.y]==1);
     moveSnake(serpiente, direccion, ha_comido); //
 
     if (ha_comido) {
         *puntuacion += 20;
-        generar_comida(tab);
+        generar_comida(serpiente, tab);
     }
 }
 
@@ -108,7 +121,7 @@ void renderizar(Snake* serpiente, Tablero* tab, uint16_t* puntuacion,enum joysti
     glcd_borrar(NEGRO); 
     glcd_rectangulo(OFFSET_X - 1, OFFSET_Y - 1, OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1, OFFSET_Y + (FILAS * TAM_BLOQUE)+1, CIAN_OSCURO); //
     
-		renderizarBucle(serpiente, tab, direccion_actual);
+		renderizarBucle(serpiente, tab, puntuacion, direccion_actual);
 }
 
 void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joystick_dir *direccion_actual){
@@ -116,12 +129,12 @@ void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joys
 	glcd_rectangulo_relleno(OFFSET_X, OFFSET_Y, OFFSET_X + (COLUMNAS * TAM_BLOQUE), OFFSET_Y + (FILAS * TAM_BLOQUE), NEGRO);
     for (int i = 0; i < 7; i++) { 
 				for (int j=0; j < 14; j++){
-					if (tab->t[i][j]==-1) {
+					if (tab->t[i][j]==SERPIENTE) {
 						if(snake->cabeza.x==i && snake->cabeza.y==j){
-							dibujar_cabeza_flecha(i, j, direccion_actual, OLIVA);
+							dibujar_cabeza_flecha(i, j, *direccion_actual, OLIVA);
 						}
 							dibujar_cuerpo(i, j, OLIVA);
-					} else if (tab->t[i][j]==1) {
+					} else if (tab->t[i][j]==FRUTA) {
 							dibujar_fruta(i, j, ROJO);
 					}
 				}

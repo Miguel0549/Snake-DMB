@@ -21,12 +21,7 @@ typedef struct tCola{
     Nodo* final;
 }Cola;
 
-inline Punto constructorPunto(uint8_t x, uint8_t y){
-	Punto p;
-	p.x=x;
-	p.y=y;
-	return p;
-}
+Punto constructorPunto(uint8_t x, uint8_t y);
 
 Punto sumarPuntos(Punto a, Punto b);
  

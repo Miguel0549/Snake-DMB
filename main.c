@@ -12,30 +12,25 @@ int main(void) {
 		glcd_inicializar();
 	  __enable_irq();
 	
-		glcd_xprintf(0,0,WHITE,BLACK,0,"glcd_inicializar();");
-	
+		
 	  Snake serpiente;
 		Tablero tab;
 		uint16_t puntuacion = 0;
 		enum joystick_dir direccion_actual = JOYSTICK_DERECHA; 
 		bool juego_terminado = false;
 	
-	  glcd_xprintf(0,0,WHITE,BLACK,0,"Variables iniciales");
-	
+		
 	  //srand(120); 
     inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
 	
-		glcd_xprintf(0,0,WHITE,BLACK,0,"inicializar_juego");
-
+		
 		//inicializar ciclos del timer
 		
 		while(1){
 			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
 			
 			while (!juego_terminado) {
-				glcd_xprintf(0,0,WHITE,BLACK,0,"entra while juego");
-				
-				while (1){ //esperar ciclo del timer
+				while (1){ //implementa esperar ciclo del timer
 						procesar_entrada(&direccion_actual);
 				}
 				
@@ -59,6 +54,7 @@ int main(void) {
    
 
     return 0;
+		
 }
 
 
@@ -66,4 +62,9 @@ void bajo_consumo(void){
   //---------------------------------- UART1  I2C1  I2C2
   LPC_SC->PCONP &= (LPC_SC->PCONP & ~((1<<4)|(1<<19)|(1<<26)));
   LPC_SC->PCONP1 = 0;//Comparador
+}
+
+void _ttywrch(int ch) {
+    // Se deja vacía porque no tenemos consola real
+    (void)ch; 
 }
