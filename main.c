@@ -46,11 +46,14 @@ int main(void) {
       }
 
       if (serpiente.tama==MAX_SNAKE_LENGTH){
-				//Pantalla de victoria con puntuación en grande
+				pantalla_victoria(&puntuacion);
 			} else {
-				//Pantalla de derrota
+				pantalla_derrota(&puntuacion);
 			}
-			//print de continuar?
+			
+			timer_retardo_ms(TIMER0,2000);
+			
+			pantalla_continuar();
 			while (joystick_leer() != JOYSTICK_CENTRO){}
 				
 		}

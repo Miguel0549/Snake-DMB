@@ -141,6 +141,25 @@ void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joys
 		}
 }
 
+void pantalla_victoria(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, VERDE, NEGRO, FUENTE16X32, "!HAS GANADO¡", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+}
+
+
+void pantalla_derrota(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, ROJO, NEGRO, FUENTE16X32, "!TE HAS CHOCADO¡", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
+}
+
+void pantalla_continuar(){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, ROJO, NEGRO, FUENTE16X32, "¿Nuevo juego?"); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Presiona el joystick central para continuar"); 
+}
+
 // Dibuja el cuerpo como un cuadrado regular relleno
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
     int x0 = OFFSET_X + (x * TAM_BLOQUE) + 2; 
