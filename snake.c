@@ -171,12 +171,12 @@ void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
 
 // Dibuja la cabeza como una punta de flecha (Triángulo apuntando a la dirección del movimiento)
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t color) {
-    // Calcular la caja del bloque actual
+
     int bx = OFFSET_X + (x * TAM_BLOQUE);
     int by = OFFSET_Y + (y * TAM_BLOQUE);
 
     int x_centro = bx + (TAM_BLOQUE / 2);
-    int y_centro = by + (TAM_BLOQUE / 2);
+    int y_centro = by + (TAM_BLOQUE / 2);	
 
     // Vértices del triángulo de la flecha
     int px1, py1, px2, py2, px3, py3;
@@ -207,14 +207,13 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t
             break;
     }
 
-    glcd_linea(px1, py1, px2, py2, color); //
-    glcd_linea(px2, py2, px3, py3, color); //
-    glcd_linea(px3, py3, px1, py1, color); //
+    glcd_linea(px1, py1, px2, py2, color); 
+    glcd_linea(px2, py2, px3, py3, color); 
+    glcd_linea(px3, py3, px1, py1, color); 
 
     
     glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); 
 }
-
 
 
 
