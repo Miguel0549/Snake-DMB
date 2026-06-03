@@ -12,16 +12,16 @@ int main(void) {
 		timer_inicializar(TIMER1);
 	  __enable_irq();
 		joystick_inicializar();
-	
+		timer_iniciar_conteo_ms(TIMER1);
 		
 	  Snake serpiente;
 		Tablero tab;
 		uint16_t puntuacion = 0;
 		enum joystick_dir direccion_actual = JOYSTICK_DERECHA; 
 		bool juego_terminado = false;
-	
+		uint32_t seed=timer_leer(TIMER1);
 		
-	  //srand(120); 
+	  srand(seed); 
 		
 	
 		while(1){

@@ -63,9 +63,10 @@ void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, 
 void generar_comida(Snake* serpiente, Tablero* tab) {
     if (tab->n_frutas==MAX_SNAKE_LENGTH-serpiente->tama) return;
 		
-		Punto p=constructorPunto(4,2); //corregir por número aleatorio
+		Punto p=constructorPunto(rand()%FILAS,rand()%COLUMNAS);
 		while (tab->t[p.x][p.y]!=VACIA){
-			p.y++; //corregir por número aleatorio
+			p.x = rand()%FILAS;
+			p.y = rand()%COLUMNAS;
 		}
 		tab->t[p.x][p.y]=FRUTA;
 		tab->n_frutas++;
