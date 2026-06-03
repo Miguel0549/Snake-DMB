@@ -3,27 +3,29 @@
 
 void initSnake(Snake *serpi) {
 	
-    serpi->cabeza = constructorPunto(1, 3);
+    serpi->cabeza = constructorPunto(3, 1);
     serpi->final = constructorPunto(1, 1);
     serpi->movs_pendientes = crearColas();
-		Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
-    Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(0,1)));
+		Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(1,0)));
+    Encolar(serpi->movs_pendientes, crearNodo(constructorPunto(1,0)));
     serpi->tama = 3;
 	
 }
 
-void moveSnake(Snake *snake, Punto direccion, bool ateFood) {
+void moveSnake(Snake *snake, Tablero* tab, Punto direccion, bool ateFood) {
     snake->cabeza=sumarPuntos(snake->cabeza, direccion);
     if (!ateFood) {
+				tab->t[snake->final.x][snake->final.y]=VACIA;
         snake->final=sumarPuntos(snake->final, Desencolar(snake->movs_pendientes));
     }
 		Encolar(snake->movs_pendientes, crearNodo(direccion));
+		tab->t[snake->cabeza.x][snake->cabeza.y]=SERPIENTE;
 }
 
 bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero* tab) {
-    if (snake->tama <= 4) return false;
 		if (nuevaCabeza.x==snake->final.x && nuevaCabeza.y==snake->final.y) return false;
-		if (nuevaCabeza.x<0 || nuevaCabeza.y<0 || nuevaCabeza.x>6 || nuevaCabeza.y>13){
+		if (nuevaCabeza.x<0 || nuevaCabeza.y<0 || nuevaCabeza.x>13 || nuevaCabeza.y>6){
+			glcd_xprintf(50,50,WHITE, BLACK, 0, "FIN?");
 			return true;
 	  }else if (tab->t[nuevaCabeza.x][nuevaCabeza.y]==SERPIENTE) return true;
     return false;
@@ -37,9 +39,9 @@ void initTablero(Snake *snake, Tablero* tab) {
 			}
 		}
 		
-		tab->t[1][3] = SERPIENTE;
-		tab->t[1][2] = SERPIENTE;
 		tab->t[1][1] = SERPIENTE;
+		tab->t[2][1] = SERPIENTE;
+		tab->t[3][1] = SERPIENTE;
 		
 		generar_comida(snake, tab);
 		generar_comida(snake, tab);
@@ -61,7 +63,7 @@ void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, 
 void generar_comida(Snake* serpiente, Tablero* tab) {
     if (tab->n_frutas==MAX_SNAKE_LENGTH-serpiente->tama) return;
 		
-		Punto p=constructorPunto(4,4); //corregir por número aleatorio
+		Punto p=constructorPunto(4,2); //corregir por número aleatorio
 		while (tab->t[p.x][p.y]!=VACIA){
 			p.y++; //corregir por número aleatorio
 		}
@@ -71,21 +73,29 @@ void generar_comida(Snake* serpiente, Tablero* tab) {
 
 void procesar_entrada(enum joystick_dir *direccion_actual) {
     uint8_t tecla = joystick_leer();
-    
-    if (tecla == JOYSTICK_ARRIBA && *direccion_actual != JOYSTICK_ABAJO)     *direccion_actual = JOYSTICK_ARRIBA;
-    if (tecla == JOYSTICK_ABAJO && *direccion_actual != JOYSTICK_ARRIBA)     *direccion_actual = JOYSTICK_ABAJO;
-    if (tecla == JOYSTICK_IZQUIERDA && *direccion_actual != JOYSTICK_DERECHA) *direccion_actual = JOYSTICK_IZQUIERDA;
-    if (tecla == JOYSTICK_DERECHA && *direccion_actual != JOYSTICK_IZQUIERDA) *direccion_actual = JOYSTICK_DERECHA;
+		
+    if (tecla == JOYSTICK_ARRIBA && *direccion_actual != JOYSTICK_ABAJO){     
+			*direccion_actual = JOYSTICK_ARRIBA;
+		}
+    if (tecla == JOYSTICK_ABAJO && *direccion_actual != JOYSTICK_ARRIBA){     
+			*direccion_actual = JOYSTICK_ABAJO;
+		}
+    if (tecla == JOYSTICK_IZQUIERDA && *direccion_actual != JOYSTICK_DERECHA){ 
+			*direccion_actual = JOYSTICK_IZQUIERDA;
+		}
+    if (tecla == JOYSTICK_DERECHA && *direccion_actual != JOYSTICK_IZQUIERDA){ 
+			*direccion_actual = JOYSTICK_DERECHA;
+		}
 }
 
 Punto trans_joy_to_point(enum joystick_dir direccion_actual){
 		Punto p;
 		switch (direccion_actual){
 			case JOYSTICK_ARRIBA:
-				p=constructorPunto(0,1);
+				p=constructorPunto(0,-1);
 				break;
 			case JOYSTICK_ABAJO:
-				p=constructorPunto(0,-1);
+				p=constructorPunto(0,1);
 				break;
 			case JOYSTICK_IZQUIERDA:
 				p=constructorPunto(-1,0);
@@ -108,8 +118,8 @@ void actualizar_logica(Snake* serpiente, Tablero* tab, uint16_t* puntuacion, Pun
         return;
     }
 
-    bool ha_comido = (tab->t[siguiente_cabeza.x][siguiente_cabeza.y]==1);
-    moveSnake(serpiente, direccion, ha_comido); //
+    bool ha_comido = (tab->t[siguiente_cabeza.x][siguiente_cabeza.y]==FRUTA);
+    moveSnake(serpiente, tab, direccion, ha_comido); //
 
     if (ha_comido) {
         *puntuacion += 20;
@@ -127,13 +137,14 @@ void renderizar(Snake* serpiente, Tablero* tab, uint16_t* puntuacion,enum joysti
 void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joystick_dir *direccion_actual){
 	glcd_xprintf(OFFSET_X, 8, AMARILLO, NEGRO, FUENTE8X16, "SCORE: %05d", *puntuacion); 
 	glcd_rectangulo_relleno(OFFSET_X, OFFSET_Y, OFFSET_X + (COLUMNAS * TAM_BLOQUE), OFFSET_Y + (FILAS * TAM_BLOQUE), NEGRO);
-    for (int i = 0; i < 7; i++) { 
-				for (int j=0; j < 14; j++){
+    for (int i = 0; i < 14; i++) { 
+				for (int j=0; j < 7; j++){
 					if (tab->t[i][j]==SERPIENTE) {
 						if(snake->cabeza.x==i && snake->cabeza.y==j){
 							dibujar_cabeza_flecha(i, j, *direccion_actual, OLIVA);
-						}
+						} else {
 							dibujar_cuerpo(i, j, OLIVA);
+						}
 					} else if (tab->t[i][j]==FRUTA) {
 							dibujar_fruta(i, j, ROJO);
 					}
@@ -219,9 +230,29 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t
 
 // Dibuja la fruta
 void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color) {
-
+		int comida_centro_x = OFFSET_X + (x * TAM_BLOQUE) + (TAM_BLOQUE / 2);
+    int comida_centro_y = OFFSET_Y + (y * TAM_BLOQUE) + (TAM_BLOQUE / 2);
+    glcd_circulo(comida_centro_x, comida_centro_y, (TAM_BLOQUE / 2) - 4, ROJO);
 }
 
+void pantalla_victoria(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X*7 + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, VERDE, NEGRO, FUENTE16X32, "¡HAS GANADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+}
+
+
+void pantalla_derrota(uint16_t* puntuacion){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¡TE HAS CHOCADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
+}
+
+void pantalla_continuar(){
+		glcd_borrar(NEGRO);
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¿Nueva partida?"); 
+		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/6, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE8X16, "Presiona el joystick central para continuar"); 
+}
 
 
 

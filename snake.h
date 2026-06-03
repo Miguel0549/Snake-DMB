@@ -27,7 +27,7 @@ typedef enum {
 }DIR;
 
 typedef struct{
-		uint8_t t[7][14];
+		uint8_t t[14][7];
 		uint8_t n_frutas;
 }Tablero;
 
@@ -40,7 +40,7 @@ typedef struct{
 
 
 void initSnake(Snake *serpi);
-void moveSnake(Snake *snake, Punto direccion, bool ateFood);
+void moveSnake(Snake *snake, Tablero* tab, Punto direccion, bool ateFood);
 bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero* t);
 void initTablero(Snake *snake, Tablero* tab);
 void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, enum joystick_dir *direccion_actual, bool* juego_terminado);
@@ -56,6 +56,9 @@ void pantalla_continuar();
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color);
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t color);
 void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color);
+void pantalla_victoria(uint16_t* puntuacion);
+void pantalla_derrota(uint16_t* puntuacion);
+void pantalla_continuar();
 
 
 #endif // SNAKE_H
