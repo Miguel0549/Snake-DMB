@@ -1,5 +1,4 @@
 #include "snake.h"
-//#include <stdlib.h>
 #include <LPC407x_8x_177x_8x.h>
 #include "timer_lpc40xx.h"
 
@@ -20,13 +19,7 @@ int main(void) {
 		uint16_t puntuacion = 0;
 		enum joystick_dir direccion_actual = JOYSTICK_DERECHA; 
 		bool juego_terminado = false;
-	
-		
-	  //srand(120); 
-		
-		//inicializar ciclos del timer
-		
-	
+
 		while(1){
 			timer_iniciar_ciclos_ms (TIMER0, 500);
 			inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);

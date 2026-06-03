@@ -63,9 +63,12 @@ void inicializar_juego(Snake* serpiente,Tablero* tablero, uint16_t* puntuacion, 
 void generar_comida(Snake* serpiente, Tablero* tab) {
     if (tab->n_frutas==MAX_SNAKE_LENGTH-serpiente->tama) return;
 		
-		Punto p=constructorPunto(4,2); //corregir por número aleatorio
+	  srand(serpiente->tama);
+	
+		Punto p=constructorPunto(rand()%FILAS,rand()%COLUMNAS);
 		while (tab->t[p.x][p.y]!=VACIA){
-			p.y++; //corregir por número aleatorio
+			p.x = rand()%FILAS;
+			p.y = rand()%COLUMNAS;
 		}
 		tab->t[p.x][p.y]=FRUTA;
 		tab->n_frutas++;
@@ -150,25 +153,6 @@ void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joys
 					}
 				}
 		}
-}
-
-void pantalla_victoria(uint16_t* puntuacion){
-		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, VERDE, NEGRO, FUENTE16X32, "!HAS GANADO¡", *puntuacion); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
-}
-
-
-void pantalla_derrota(uint16_t* puntuacion){
-		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, ROJO, NEGRO, FUENTE16X32, "!TE HAS CHOCADO¡", *puntuacion); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
-}
-
-void pantalla_continuar(){
-		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, (OFFSET_Y + (FILAS * TAM_BLOQUE))/2, ROJO, NEGRO, FUENTE16X32, "¿Nuevo juego?"); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/2, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/2)+64, AMARILLO, NEGRO, FUENTE12X24, "Presiona el joystick central para continuar"); 
 }
 
 // Dibuja el cuerpo como un cuadrado regular relleno
