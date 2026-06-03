@@ -130,14 +130,14 @@ void actualizar_logica(Snake* serpiente, Tablero* tab, uint16_t* puntuacion, Pun
 
 void renderizar(Snake* serpiente, Tablero* tab, uint16_t* puntuacion,enum joystick_dir *direccion_actual) {
     glcd_borrar(NEGRO); 
-    glcd_rectangulo(OFFSET_X - 1, OFFSET_Y - 1, OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1, OFFSET_Y + (FILAS * TAM_BLOQUE)+1, CIAN_OSCURO); //
+    glcd_rectangulo(OFFSET_X - 1, OFFSET_Y - 1, OFFSET_X + (FILAS * TAM_BLOQUE)+1, OFFSET_Y + (COLUMNAS * TAM_BLOQUE)+1, CIAN_OSCURO); //
     
 		renderizarBucle(serpiente, tab, puntuacion, direccion_actual);
 }
 
 void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joystick_dir *direccion_actual){
 	glcd_xprintf(OFFSET_X, 8, AMARILLO, NEGRO, FUENTE8X16, "SCORE: %05d", *puntuacion); 
-	glcd_rectangulo_relleno(OFFSET_X, OFFSET_Y, OFFSET_X + (COLUMNAS * TAM_BLOQUE), OFFSET_Y + (FILAS * TAM_BLOQUE), NEGRO);
+	glcd_rectangulo_relleno(OFFSET_X, OFFSET_Y, OFFSET_X + (FILAS * TAM_BLOQUE), OFFSET_Y + (COLUMNAS * TAM_BLOQUE), NEGRO);
     for (int i = 0; i < 14; i++) { 
 				for (int j=0; j < 7; j++){
 					if (tab->t[i][j]==SERPIENTE) {
@@ -211,22 +211,27 @@ void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color) {
 
 void pantalla_victoria(uint16_t* puntuacion){
 		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X*7 + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, VERDE, NEGRO, FUENTE16X32, "¡HAS GANADO!", *puntuacion); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+		glcd_xprintf((OFFSET_X*7 + (FILAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4, VERDE, NEGRO, FUENTE16X32, "¡HAS GANADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
 }
 
 void pantalla_derrota(uint16_t* puntuacion){
 		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¡TE HAS CHOCADO!", *puntuacion); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¡TE HAS CHOCADO!", *puntuacion); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion); 
 }
 
 void pantalla_continuar(){
 		glcd_borrar(NEGRO);
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¿Nueva partida?"); 
-		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/6, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE8X16, "Presiona el joystick central para continuar"); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4, ROJO, NEGRO, FUENTE16X32, "¿Nueva partida?"); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/6, ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE8X16, "Presiona el joystick central para continuar"); 
 }
 
+void pantalla_iniciar(){
+		glcd_borrar(NEGRO);
+		glcd_xprintf(((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/2)-40, (OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4, OLIVA, NEGRO, FUENTE16X32, "SNAKE"); 
+		glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE)+1)/6, ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE8X16, "Presiona el joystick central para continuar"); 
+}
 
 
 

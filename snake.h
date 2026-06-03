@@ -12,8 +12,8 @@
 #define VACIA 0
 #define FRUTA 2
 
-#define FILAS 7
-#define COLUMNAS 14
+#define FILAS 14
+#define COLUMNAS 7
 #define TAM_BLOQUE 32
 
 #define OFFSET_X 16
@@ -56,6 +56,7 @@ void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color);
 void pantalla_victoria(uint16_t* puntuacion);
 void pantalla_derrota(uint16_t* puntuacion);
 void pantalla_continuar();
+void pantalla_iniciar();
 
 
 #endif // SNAKE_H
