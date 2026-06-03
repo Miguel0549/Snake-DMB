@@ -10,7 +10,8 @@ int main(void) {
 		
 	  bajo_consumo();
 		glcd_inicializar();
-	  timer_inicializar(TIMER0);
+		timer_inicializar(TIMER0);
+		timer_inicializar(TIMER1);
 	  __enable_irq();
 	
 		
@@ -22,27 +23,26 @@ int main(void) {
 	
 		
 	  //srand(120); 
-    inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
 		
 		//inicializar ciclos del timer
-	
-	  timer_iniciar_ciclos_ms(TIMER0,700);
 		
+	
 		while(1){
+			timer_iniciar_ciclos_ms (TIMER0, 500);
+			inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
 			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
-			
+			juego_terminado=false;
 			while (!juego_terminado) {
-				
-				procesar_entrada(&direccion_actual);
+				while (timer_fin_ciclo(TIMER0)){ 
+						procesar_entrada(&direccion_actual);
+				}
+				timer_esperar_fin_ciclo(TIMER0);
 				
 				Punto direccion= trans_joy_to_point(direccion_actual);
 				
         actualizar_logica(&serpiente,&tab,&puntuacion, direccion, &juego_terminado);
-				glcd_xprintf(0,0,WHITE,BLACK,0,"Mover serpiente");
         renderizarBucle(&serpiente,&tab,&puntuacion, &direccion_actual);
-				glcd_xprintf(0,0,WHITE,BLACK,0,"pintar serpiente");
-				
-				timer_esperar_fin_ciclo(TIMER0);
+				glcd_xprintf(200,5,WHITE,BLACK,0,"pintar serpiente");
       }
 
       if (serpiente.tama==MAX_SNAKE_LENGTH){
@@ -50,9 +50,7 @@ int main(void) {
 			} else {
 				pantalla_derrota(&puntuacion);
 			}
-			
-			timer_retardo_ms(TIMER0,2000);
-			
+			timer_retardo_ms(TIMER1, 5000);
 			pantalla_continuar();
 			while (joystick_leer() != JOYSTICK_CENTRO){}
 				
@@ -71,6 +69,6 @@ void bajo_consumo(void){
 }
 
 void _ttywrch(int ch) {
-    // Se deja vacía porque no tenemos consola real
+    // Se deja vac?a porque no tenemos consola real
     (void)ch; 
 }
