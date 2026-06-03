@@ -31,7 +31,7 @@ void Encolar(Cola* n,Nodo* nodo){
 }
  
 Punto Desencolar(Cola* n){
-    if (n->tamano){
+    if (n->tamano){ // Si el tamaño no es 0
         Punto returnValue;
         Nodo* aux = n->frontal;
         returnValue = aux->valor;

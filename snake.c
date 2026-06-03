@@ -72,7 +72,7 @@ void generar_comida(Snake* serpiente, Tablero* tab) {
 }
 
 void procesar_entrada(enum joystick_dir *direccion_actual) {
-    uint8_t tecla = joystick_leer();
+    uint8_t tecla = joystick_leer2();
 		
     if (tecla == JOYSTICK_ARRIBA && *direccion_actual != JOYSTICK_ABAJO){     
 			*direccion_actual = JOYSTICK_ARRIBA;
@@ -152,7 +152,6 @@ void renderizarBucle(Snake* snake, Tablero* tab, uint16_t* puntuacion, enum joys
 		}
 }
 
-// Dibuja el cuerpo como un cuadrado regular relleno
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
     int x0 = OFFSET_X + (x * TAM_BLOQUE) + 2; 
     int y0 = OFFSET_Y + (y * TAM_BLOQUE) + 2;
@@ -161,16 +160,13 @@ void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
     glcd_rectangulo_relleno(x0, y0, x1, y1, color); //
 }
 
-// Dibuja la cabeza como una punta de flecha (Triángulo apuntando a la dirección del movimiento)
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t color) {
-    // Calcular la caja del bloque actual
     int bx = OFFSET_X + (x * TAM_BLOQUE);
     int by = OFFSET_Y + (y * TAM_BLOQUE);
 
     int x_centro = bx + (TAM_BLOQUE / 2);
     int y_centro = by + (TAM_BLOQUE / 2);
 
-    // Vértices del triángulo de la flecha
     int px1, py1, px2, py2, px3, py3;
 
     switch (dir) {
@@ -199,19 +195,13 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir, uint16_t
             break;
     }
 
-    // Dibujar el contorno y silueta de la flecha mediante líneas vectoriales
-    glcd_linea(px1, py1, px2, py2, color); //
-    glcd_linea(px2, py2, px3, py3, color); //
-    glcd_linea(px3, py3, px1, py1, color); //
+    glcd_linea(px1, py1, px2, py2, color); 
+    glcd_linea(px2, py2, px3, py3, color); 
+    glcd_linea(px3, py3, px1, py1, color); 
 
-    // Dibujar un pequeño núcleo central relleno para darle robustez visual a la flecha
-    glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); //
+    glcd_rectangulo_relleno(x_centro - 2, y_centro - 2, x_centro + 2, y_centro + 2, color); //Ojo
 }
 
-
-
-
-// Dibuja la fruta
 void dibujar_fruta (uint8_t x, uint8_t y, uint16_t color) {
 		int comida_centro_x = OFFSET_X + (x * TAM_BLOQUE) + (TAM_BLOQUE / 2);
     int comida_centro_y = OFFSET_Y + (y * TAM_BLOQUE) + (TAM_BLOQUE / 2);
@@ -223,7 +213,6 @@ void pantalla_victoria(uint16_t* puntuacion){
 		glcd_xprintf((OFFSET_X*7 + (COLUMNAS * TAM_BLOQUE)+1)/4, (OFFSET_Y + (FILAS * TAM_BLOQUE))/4, VERDE, NEGRO, FUENTE16X32, "¡HAS GANADO!", *puntuacion); 
 		glcd_xprintf((OFFSET_X + (COLUMNAS * TAM_BLOQUE)+1)/4, ((OFFSET_Y + (FILAS * TAM_BLOQUE))/4)+64, AMARILLO, NEGRO, FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
 }
-
 
 void pantalla_derrota(uint16_t* puntuacion){
 		glcd_borrar(NEGRO);

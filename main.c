@@ -1,9 +1,7 @@
 #include "snake.h"
-//#include <stdlib.h>
 #include <LPC407x_8x_177x_8x.h>
 #include "timer_lpc40xx.h"
 
-//Prototipos de funciones
 void bajo_consumo(void);
 
 int main(void) { 
@@ -13,6 +11,7 @@ int main(void) {
 		timer_inicializar(TIMER0);
 		timer_inicializar(TIMER1);
 	  __enable_irq();
+		joystick_inicializar();
 	
 		
 	  Snake serpiente;
@@ -24,11 +23,9 @@ int main(void) {
 		
 	  //srand(120); 
 		
-		//inicializar ciclos del timer
-		
 	
 		while(1){
-			timer_iniciar_ciclos_ms (TIMER0, 500);
+			timer_iniciar_ciclos_ms (TIMER0, 2000);
 			inicializar_juego(&serpiente,&tab,&puntuacion,&direccion_actual,&juego_terminado);
 			renderizar(&serpiente,&tab,&puntuacion,&direccion_actual);
 			juego_terminado=false;
@@ -63,12 +60,10 @@ int main(void) {
 
 
 void bajo_consumo(void){
-  //---------------------------------- UART1  I2C1  I2C2
   LPC_SC->PCONP &= (LPC_SC->PCONP & ~((1<<4)|(1<<19)|(1<<26)));
-  LPC_SC->PCONP1 = 0;//Comparador
+  LPC_SC->PCONP1 = 0;
 }
 
 void _ttywrch(int ch) {
-    // Se deja vacía porque no tenemos consola real
     (void)ch; 
 }

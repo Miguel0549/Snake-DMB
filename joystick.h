@@ -41,7 +41,9 @@ enum joystick_dir {
 };
 
 // ===== Joystick - Funciones Publicas =====
+void joystick_inicializar();
 uint8_t joystick_leer(void);
+uint8_t joystick_leer2(void);
 
 
 #endif  // JOYSTICK_H
