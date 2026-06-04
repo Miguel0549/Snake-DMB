@@ -1,3 +1,7 @@
+/**
+ * @file cola.h
+ * @brief Definición de funciones y estructuras de la cola de la serpiente.
+ */
 #ifndef COLA_H
 #define COLA_H
 

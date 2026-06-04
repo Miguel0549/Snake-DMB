@@ -1,3 +1,7 @@
+/**
+ * @file snake.h
+ * @brief Definición de funciones y estructuras para el juego Snake.
+ */
 #ifndef SNAKE_H
 #define SNAKE_H
 
@@ -145,7 +149,6 @@ void inicializar_juego(Snake *serpiente, Tablero *tablero, uint16_t *puntuacion,
  * @param[in]		snake      	 Direccion de la serpiente
  * @param[in]   tablero   	 Direccion del tablero
  *
- * @note Esta funcion llama a initSnake e initTablero para inicializarlo.
  */
 void generar_comida(Snake *serpiente, Tablero *tab);
 

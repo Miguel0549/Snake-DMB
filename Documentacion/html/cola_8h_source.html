@@ -105,83 +105,66 @@ $(function(){initNavTree('cola_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">cola.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef COLA_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define COLA_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<a href="cola_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef COLA_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define COLA_H</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct_punto.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    uint8_t x; </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    uint8_t y; </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>} <a class="code hl_struct" href="struct_punto.html">Punto</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct_punto.html">   16</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  uint8_t x;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  uint8_t y;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>} <a class="code hl_struct" href="struct_punto.html">Punto</a>;</div>
 </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structt_nodo.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structt_nodo.html">tNodo</a>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_struct" href="struct_punto.html">Punto</a> valor;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">struct </span><a class="code hl_struct" href="structt_nodo.html">tNodo</a>* sig;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}Nodo;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structt_nodo.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structt_nodo.html">tNodo</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_struct" href="struct_punto.html">Punto</a> valor;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">struct </span><a class="code hl_struct" href="structt_nodo.html">tNodo</a> *sig;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">   28</a></span>} <a class="code hl_typedef" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a>;</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structt_cola.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structt_cola.html">tCola</a>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> tamano;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    Nodo* frontal;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    Nodo* <span class="keyword">final</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}Cola;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structt_cola.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structt_cola.html">tCola</a> {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordtype">int</span> tamano;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_typedef" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a> *frontal;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_typedef" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a> *<span class="keyword">final</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">   38</a></span>} <a class="code hl_typedef" href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">Cola</a>;</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><a class="code hl_struct" href="struct_punto.html">Punto</a> constructorPunto(uint8_t x, uint8_t y);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><a class="code hl_struct" href="struct_punto.html">Punto</a> sumarPuntos(<a class="code hl_struct" href="struct_punto.html">Punto</a> a, <a class="code hl_struct" href="struct_punto.html">Punto</a> b);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>Nodo* crearNodo(<a class="code hl_struct" href="struct_punto.html">Punto</a> valor);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>Cola* crearColas();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> Encolar(Cola* n,Nodo* nodo);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><a class="code hl_struct" href="struct_punto.html">Punto</a> Desencolar(Cola* n);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astruct_punto_html"><div class="ttname"><a href="struct_punto.html">Punto</a></div><div class="ttdoc">Estructura para guardar un punto (x,y) del tablero.</div><div class="ttdef"><b>Definition</b> cola.h:14</div></div>
-<div class="ttc" id="astructt_cola_html"><div class="ttname"><a href="structt_cola.html">tCola</a></div><div class="ttdoc">Estructura de la cola.</div><div class="ttdef"><b>Definition</b> cola.h:36</div></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="cola_8h.html#a9ade4050f44e3b7934bb7aeb4d779118">   49</a></span><a class="code hl_struct" href="struct_punto.html">Punto</a> <a class="code hl_function" href="cola_8h.html#a9ade4050f44e3b7934bb7aeb4d779118">constructorPunto</a>(uint8_t x, uint8_t y);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="cola_8h.html#aedd9ed435ab2cd29837bd07b0c76c97a">   59</a></span><a class="code hl_struct" href="struct_punto.html">Punto</a> <a class="code hl_function" href="cola_8h.html#aedd9ed435ab2cd29837bd07b0c76c97a">sumarPuntos</a>(<a class="code hl_struct" href="struct_punto.html">Punto</a> a, <a class="code hl_struct" href="struct_punto.html">Punto</a> b);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="cola_8h.html#a0feb4362cfefff21a14cda0974c2b195">   68</a></span><a class="code hl_typedef" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a> *<a class="code hl_function" href="cola_8h.html#a0feb4362cfefff21a14cda0974c2b195">crearNodo</a>(<a class="code hl_struct" href="struct_punto.html">Punto</a> valor);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="cola_8h.html#a906ae75de185691df8efa85fe92d7266">   75</a></span><a class="code hl_typedef" href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">Cola</a> *<a class="code hl_function" href="cola_8h.html#a906ae75de185691df8efa85fe92d7266">crearColas</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="cola_8h.html#adda1573073c78572e5e5c8b7cdf0ca85">   84</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cola_8h.html#adda1573073c78572e5e5c8b7cdf0ca85">Encolar</a>(<a class="code hl_typedef" href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">Cola</a> *n, <a class="code hl_typedef" href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a> *nodo);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="cola_8h.html#a83d499a0de317ef6d95feb1c19e04f54">   92</a></span><a class="code hl_struct" href="struct_punto.html">Punto</a> <a class="code hl_function" href="cola_8h.html#a83d499a0de317ef6d95feb1c19e04f54">Desencolar</a>(<a class="code hl_typedef" href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">Cola</a> *n);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acola_8h_html_a0feb4362cfefff21a14cda0974c2b195"><div class="ttname"><a href="cola_8h.html#a0feb4362cfefff21a14cda0974c2b195">crearNodo</a></div><div class="ttdeci">Nodo * crearNodo(Punto valor)</div><div class="ttdoc">Crea un nuevo elemento de la cola.</div></div>
+<div class="ttc" id="acola_8h_html_a5bce2ecaf1556cfc0dc994b70f41ee2d"><div class="ttname"><a href="cola_8h.html#a5bce2ecaf1556cfc0dc994b70f41ee2d">Nodo</a></div><div class="ttdeci">struct tNodo Nodo</div><div class="ttdoc">Estructura de cada elemento de la cola.</div></div>
+<div class="ttc" id="acola_8h_html_a83d499a0de317ef6d95feb1c19e04f54"><div class="ttname"><a href="cola_8h.html#a83d499a0de317ef6d95feb1c19e04f54">Desencolar</a></div><div class="ttdeci">Punto Desencolar(Cola *n)</div><div class="ttdoc">Saca el primer nodo de la cola.</div></div>
+<div class="ttc" id="acola_8h_html_a906ae75de185691df8efa85fe92d7266"><div class="ttname"><a href="cola_8h.html#a906ae75de185691df8efa85fe92d7266">crearColas</a></div><div class="ttdeci">Cola * crearColas()</div><div class="ttdoc">Crea la cola.</div></div>
+<div class="ttc" id="acola_8h_html_a9ade4050f44e3b7934bb7aeb4d779118"><div class="ttname"><a href="cola_8h.html#a9ade4050f44e3b7934bb7aeb4d779118">constructorPunto</a></div><div class="ttdeci">Punto constructorPunto(uint8_t x, uint8_t y)</div><div class="ttdoc">Convierte las coordenadas x e y del tablero a una estructura Punto(x,y).</div></div>
+<div class="ttc" id="acola_8h_html_acbdaec3ae91dc067c6ef5cd0afec4dc0"><div class="ttname"><a href="cola_8h.html#acbdaec3ae91dc067c6ef5cd0afec4dc0">Cola</a></div><div class="ttdeci">struct tCola Cola</div><div class="ttdoc">Estructura de la cola.</div></div>
+<div class="ttc" id="acola_8h_html_adda1573073c78572e5e5c8b7cdf0ca85"><div class="ttname"><a href="cola_8h.html#adda1573073c78572e5e5c8b7cdf0ca85">Encolar</a></div><div class="ttdeci">void Encolar(Cola *n, Nodo *nodo)</div><div class="ttdoc">Mete al final de la cola el nodo dado.</div></div>
+<div class="ttc" id="acola_8h_html_aedd9ed435ab2cd29837bd07b0c76c97a"><div class="ttname"><a href="cola_8h.html#aedd9ed435ab2cd29837bd07b0c76c97a">sumarPuntos</a></div><div class="ttdeci">Punto sumarPuntos(Punto a, Punto b)</div><div class="ttdoc">Suma dos puntos.</div></div>
+<div class="ttc" id="astruct_punto_html"><div class="ttname"><a href="struct_punto.html">Punto</a></div><div class="ttdoc">Estructura para guardar un punto (x,y) del tablero.</div><div class="ttdef"><b>Definition</b> cola.h:16</div></div>
+<div class="ttc" id="astructt_cola_html"><div class="ttname"><a href="structt_cola.html">tCola</a></div><div class="ttdoc">Estructura de la cola.</div><div class="ttdef"><b>Definition</b> cola.h:34</div></div>
 <div class="ttc" id="astructt_nodo_html"><div class="ttname"><a href="structt_nodo.html">tNodo</a></div><div class="ttdoc">Estructura de cada elemento de la cola.</div><div class="ttdef"><b>Definition</b> cola.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>cola.h</b></li>
+    <li class="navelem"><a class="el" href="cola_8h.html">cola.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
