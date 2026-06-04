@@ -1,10 +1,12 @@
 /**
  * @file    joystick.h
- * @brief   Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088.
+ * @brief   Función básica de lectura del joystick integrado en la tarjeta
+ * Embedded Artist LPC4088.
  *
- * @details Los pulsadores del joystick son activos a nivel bajo: cuando se pulsan ponen el
- * correspondiente pin del microcontrolador a 0 y cuando están sin pulsar ponen el
- * correspondiente pin a 1. Las conexiones entre el joystick el microcontrolador son:
+ * @details Los pulsadores del joystick son activos a nivel bajo: cuando se
+ * pulsan ponen el correspondiente pin del microcontrolador a 0 y cuando están
+ * sin pulsar ponen el correspondiente pin a 1. Las conexiones entre el joystick
+ * el microcontrolador son:
  *
  * Pin uC | Dirección
  * ------ | ---------
@@ -43,5 +45,4 @@ enum joystick_dir {
 // ===== Joystick - Funciones Publicas =====
 uint8_t joystick_leer(void);
 
-
-#endif  // JOYSTICK_H
+#endif // JOYSTICK_H
