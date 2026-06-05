@@ -29,7 +29,6 @@ int main(void) {
       while (timer_fin_ciclo(TIMER0)) {
         procesar_entrada(&direccion_actual);
       }
-      timer_esperar_fin_ciclo(TIMER0);
 
       Punto direccion = trans_joy_to_point(direccion_actual);
 
