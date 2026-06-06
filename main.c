@@ -1,6 +1,6 @@
 #include "snake.h"
-#include <LPC407x_8x_177x_8x.h>
 #include "timer_lpc40xx.h"
+#include <LPC407x_8x_177x_8x.h>
 
 void bajo_consumo(void);
 
@@ -56,10 +56,25 @@ int main(void) {
 		}
    
 
-    return 0;
-		
-}
+      actualizar_logica(&serpiente, &tab, &puntuacion, direccion,
+                        &juego_terminado);
+      renderizarBucle(&serpiente, &tab, &puntuacion, &direccion_actual);
+      glcd_xprintf(200, 5, WHITE, BLACK, 0, "pintar serpiente");
+    }
 
+    if (serpiente.tama == MAX_SNAKE_LENGTH) {
+      pantalla_victoria(&puntuacion);
+    } else {
+      pantalla_derrota(&puntuacion);
+    }
+    timer_retardo_ms(TIMER1, 5000);
+    pantalla_continuar();
+    while (joystick_leer() != JOYSTICK_CENTRO) {
+    }
+  }
+
+  return 0;
+}
 
 void bajo_consumo(void){
   LPC_SC->PCONP &= (LPC_SC->PCONP & ~((1<<4)|(1<<19)|(1<<26)));
