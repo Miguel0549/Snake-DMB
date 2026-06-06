@@ -22,14 +22,19 @@ Cola *crearColas() {
   n->final = NULL;
   return n;
 }
-
-void Encolar(Cola *n, Nodo *nodo) {
-  if (n->frontal == NULL)
-    n->frontal = nodo;
-  else
-    n->final->sig = nodo;
-  n->final = nodo;
-  n->tamano++;
+ 
+Punto Desencolar(Cola* n){
+    if (n->tamano){ // Si el tama�o no es 0
+        Punto returnValue;
+        Nodo* aux = n->frontal;
+        returnValue = aux->valor;
+        n->frontal = n->frontal->sig;
+        free(aux);
+        n->tamano--;
+        return returnValue;
+    }
+		Punto p = constructorPunto(-1, -1);
+    return p; // Indicador de que no hay elementos
 }
 
 Punto Desencolar(Cola *n) {

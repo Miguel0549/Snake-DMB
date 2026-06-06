@@ -242,6 +242,7 @@ void pantalla_derrota(uint16_t *puntuacion);
  *
  */
 void pantalla_continuar();
+void pantalla_iniciar();
 
 /**
  * @brief  Pinta en la pantalla LCD el cuerpo de la serpiente, representado

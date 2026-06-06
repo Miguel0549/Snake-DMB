@@ -65,18 +65,16 @@ void timer_retardo_ms(LPC_TIM_TypeDef *timer_regs, uint32_t retardo_en_ms) {
   if (retardo_en_ms == 0) {
     return;
   }
+  
+  timer_regs->TCR = 0;                          
+  timer_regs->TC = 0;                           
+  timer_regs->PC = 0;                           
+  timer_regs->PR = PeripheralClock * 1e-4 - 1;  
+  timer_regs->MR0 = 10 * retardo_en_ms - 1;     
+  timer_regs->MCR |= 7;                         
+  timer_regs->IR = 1;                           
+  timer_regs->TCR = 1;                          
 
-  timer_regs->TCR = 0; // Detener la cuenta en TCR (bit CEN a 0)
-  timer_regs->TC = 0;  // Reset de la cuenta del TIMER
-  timer_regs->PC = 0;  // Reset de la cuenta de Preescala
-  timer_regs->PR = PeripheralClock * 1e-4 - 1; // 0.0001s = 0.1 ms
-  timer_regs->MR0 = 10 * retardo_en_ms - 1;    // Convertir ms a decimas de ms
-  timer_regs->MCR |= 7; // Bits de STOP, RESET e INTERRUPCIÓN de MR0 activos
-  timer_regs->IR = 1;   // Resetear bit de interrupción de MR0
-  timer_regs->TCR = 1;  // Activar cuenta (bit CEN a 1)
-
-  // Esperar a que se active el bit correspondiente del registro de interrupción
-  // (IR)
   while ((timer_regs->IR & 1) == 0) {
     ;
   }
@@ -133,42 +131,24 @@ void timer_iniciar_ciclos_ms(LPC_TIM_TypeDef *timer_regs,
              timer_regs == TIMER3,
          "TIMER seleccionado incorrecto");
 
-  // Comprobar mediante ASSERT que el periodo no sea 0
-  // ===== COMPLETAR =====
-  ASSERT(periodo_en_ms != 0, "Periodo de timer nulo");
+	ASSERT(periodo_en_ms !=0, "Periodo de timer nulo");
 
-  // Detener la cuenta en TCR (bit CEN a 0)
-  // ===== COMPLETAR =====
-  timer_regs->TCR &= ~(1 << 0);
+	timer_regs -> TCR &= ~(1<<0);
 
-  // Reset de la cuenta del TIMER
-  // ===== COMPLETAR =====
-  timer_regs->PC = 0;
-  timer_regs->TC = 0;
+	timer_regs -> PC = 0;
+	timer_regs -> TC = 0;
 
-  // Reset de la cuenta de Preescala
-  // ===== COMPLETAR =====
-  uint32_t PCLK = 25000000;
+	uint32_t PCLK = 25000000; 
   timer_regs->PR = (PCLK / 10000) - 1;
 
-  // 0.0001s = 0.1 ms
-  // ===== COMPLETAR =====
-  timer_regs->MR0 = periodo_en_ms * 25;
+	timer_regs->MR0 = periodo_en_ms * 25;
 
-  // Convertir ms a decimas de ms
-  // ===== COMPLETAR =====
+	timer_regs->MCR = (timer_regs->MCR & ~0x07) | (1<<1) | (1<<0);
 
-  // Poner los bits 1 (MR0R) y 0 (MR0R) del registro MCR a 1
-  // ===== COMPLETAR =====
-  timer_regs->MCR = (timer_regs->MCR & ~0x07) | (1 << 1) | (1 << 0);
+	timer_regs -> IR |= 1;
 
-  // Resetear bit de interrupción de MR0
-  // ===== COMPLETAR =====
-  timer_regs->IR |= 1;
-
-  // Activar cuenta (bit CEN a 1)
-  // ===== COMPLETAR =====
-  timer_regs->TCR |= (1 << 0);
+	timer_regs -> TCR |= (1<<0);
+  
 }
 
 /**
@@ -212,19 +192,20 @@ void timer_esperar_fin_ciclo(LPC_TIM_TypeDef *timer_regs) {
              timer_regs == TIMER3,
          "TIMER seleccionado incorrecto");
 
-  // Lanzar un error si el timer está detenido
   ASSERT((timer_regs->TCR & 1) == 1, "El TIMER seleccionado está detenido");
 
-  // Esperar a que se active el bit correspondiente del registro de interrupción
-  // (IR)
-  // ===== COMPLETAR =====
-  while ((timer_regs->IR & (1 << 0)) == 0) {
-  }
-  // Resetear bit de interrupción de MR0
-  // ===== COMPLETAR =====
+	while ((timer_regs->IR & (1 << 0)) == 0) {}
+
   timer_regs->IR = (1 << 0);
 }
-
+/**
+ * @brief   Devuelve si el bit de interrupción del match 0 de un timer está a 1. Para cuando quieres hacer algo mientras esperas en un bucle.
+ * @ingroup TIMER
+ *
+ * @param[in] timer_regs  Ptr. al bloque de registros del TIMER.
+ *
+ * @pre El TIMER debe estar inicializado antes de invocar esta función.
+ */
 bool timer_fin_ciclo(LPC_TIM_TypeDef *timer_regs) {
   ASSERT(timer_regs == TIMER0 || timer_regs == TIMER1 || timer_regs == TIMER2 ||
              timer_regs == TIMER3,
@@ -291,9 +272,7 @@ uint32_t timer_leer(const LPC_TIM_TypeDef *timer_regs) {
              timer_regs == TIMER3,
          "TIMER seleccionado incorrecto");
 
-  // Devolver el valor de la cuenta actual
-  // ===== COMPLETAR =====
-  return timer_regs->TC;
+	return timer_regs -> TC;
 }
 
 /**
