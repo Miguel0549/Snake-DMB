@@ -1,6 +1,8 @@
 /**
  * @file    snake.h
- * @brief   
+ * @brief   Macros y funciones para jugar al snake en el LPC4088 Developer's Kit con joystick y la pantalla del kit. 
+ * Empiezas con una serpiente de 3 unidades de longitud, según comes frutas, de las cuales habrá siempre máximo 3, creces y ganas puntos.
+ * El objetivo es crecer al tamaño de la pantalla completa, que es de 14*7 unidades
  *
  * @author  Miguel López Rodríguez | Miguel Catalá Garrido
  * @date    2026
@@ -17,7 +19,7 @@
 /**
  * @defgroup  SNAKE_Macros_Publicas SNAKE - Macros Públicas
  * @ingroup   SNAKE
- * @brief     
+ * @brief     Constantes varias para lógica y tamaños
  * @{
  */
 #define MAX_SNAKE_LENGTH 168
@@ -35,12 +37,14 @@
 //!@}
 
 /**
- * @brief 
+ * @brief Direcciones a las que se puede mover la serpiente
+ * @ingroup SNAKE
  */
 typedef enum { ARRIBA, ABAJO, IZQUIERDA, DERECHA } DIR;
 
 /**
- * @brief 
+ * @brief Estructura del tablero
+ * @ingroup SNAKE
  */
 typedef struct {
   uint8_t t[14][7];
@@ -48,7 +52,8 @@ typedef struct {
 } Tablero;
 
 /**
- * @brief 
+ * @brief Estructura de la serpiente
+ * @ingroup SNAKE
  */
 typedef struct {
   Punto cabeza;

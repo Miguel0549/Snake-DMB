@@ -1,6 +1,6 @@
 /**
  * @file    snake.c
- * @brief   
+ * @brief   Macros y funciones para jugar al snake en el LPC4088 Developer's Kit con joystick y la pantalla del kit
  *
  * @author  Miguel López Rodríguez | Miguel Catalá Garrido
  * @date    2026
@@ -10,10 +10,10 @@
 #include <stdlib.h>
 
 /**
- * @brief   
+ * @brief   Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola
  * @ingroup SNAKE
  *
- * @param[in,out] serpi 
+ * @param[in,out] serpi			Puntero a la serpiente para inicializarla
  */
 void initSnake(Snake *serpi) {
 
@@ -26,13 +26,13 @@ void initSnake(Snake *serpi) {
 }
 
 /**
- * @brief   
+ * @brief   Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas posiciones
  * @ingroup SNAKE
  *
- * @param[in,out] snake     
- * @param[in,out] tab       
- * @param[in]     direccion 
- * @param[in]     ateFood   
+ * @param[in,out] snake     Puntero a la serpiente para moverla
+ * @param[in,out] tab       Puntero al tablero para que tenga la nueva posición de la serpiente
+ * @param[in]     direccion Dirección en la que se tendrá que mover la serpiente
+ * @param[in]     ateFood   Bandera que indica si mover la cola o no en base a haber comido fruta este ciclo
  */
 void moveSnake(Snake *snake, Tablero *tab, Punto direccion, bool ateFood) {
   snake->cabeza = sumarPuntos(snake->cabeza, direccion);
@@ -46,12 +46,13 @@ void moveSnake(Snake *snake, Tablero *tab, Punto direccion, bool ateFood) {
 }
 
 /**
- * @brief   
+ * @brief   Comprueba que la serpiente no se vaya a chocar con nada en el siguiente ciclo, eso incluye los bordes de la pantalla y a si misma
  * @ingroup SNAKE
  *
- * @param[in] snake       
- * @param[in] nuevaCabeza 
- * @param[in] tab         
+ * @param[in] snake       Serpiente para comprobar si la nueva posición sería donde está ahora su cola, lo cual sería posición válida 
+ * porque la cola dejaría paso a la cabeza
+ * @param[in] nuevaCabeza Posición del siguiente ciclo para comprobar las colisiones
+ * @param[in] tab         Tablero para comprobar que hay en la nueva posición
  *
  * @return  
  */
@@ -60,7 +61,6 @@ bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero *tab) {
     return false;
   if (nuevaCabeza.x < 0 || nuevaCabeza.y < 0 || nuevaCabeza.x > 13 ||
       nuevaCabeza.y > 6) {
-    glcd_xprintf(50, 50, WHITE, BLACK, 0, "FIN?");
     return true;
   } else if (tab->t[nuevaCabeza.x][nuevaCabeza.y] == SERPIENTE)
     return true;
@@ -68,11 +68,11 @@ bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero *tab) {
 }
 
 /**
- * @brief   
+ * @brief   Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frutas
  * @ingroup SNAKE
  *
- * @param[in]     snake 
- * @param[in,out] tab   
+ * @param[in]     snake Serpiente para la función de las frutas
+ * @param[in,out] tab   Puntero al tablero a inicializar
  */
 void initTablero(Snake *snake, Tablero *tab) {
 
@@ -92,14 +92,14 @@ void initTablero(Snake *snake, Tablero *tab) {
 }
 
 /**
- * @brief   
+ * @brief   Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la bandera de juego terminado
  * @ingroup SNAKE
  *
- * @param[out] serpiente        
- * @param[out] tablero          
- * @param[out] puntuacion       
- * @param[out] direccion_actual 
- * @param[out] juego_terminado  
+ * @param[in,out] serpiente        Puntero a la serpiente para inicializarla y usarla en la función del tablero
+ * @param[out] tablero          	 Puntero al tablero para inicializarlo
+ * @param[out] puntuacion       	 Puntero a la puntuación para inicializarla a 0
+ * @param[out] direccion_actual 	 Puntero a la última dirección jugada para forzarla a derecha
+ * @param[out] juego_terminado  	 Puntero a la bandera de juego terminado, que como acaba de empezar se pone a false
  */
 void inicializar_juego(Snake *serpiente, Tablero *tablero, uint16_t *puntuacion,
                        enum joystick_dir *direccion_actual,
@@ -109,16 +109,17 @@ void inicializar_juego(Snake *serpiente, Tablero *tablero, uint16_t *puntuacion,
   juego_terminado = false;
   *direccion_actual = JOYSTICK_DERECHA;
 
+	initSnake(serpiente);
   initTablero(serpiente, tablero);
-  initSnake(serpiente);
 }
 
 /**
- * @brief   
+ * @brief   Generador aleatorio de comidas en el tablero. 
+ * Queda como responsabilidad del programador llamar a srand antes que a esta función para generar una semilla como quiera
  * @ingroup SNAKE
  *
- * @param[in]     serpiente 
- * @param[in,out] tab       
+ * @param[in]     serpiente 	Puntero a la serpiente para ver según su tamaño si hay espacio para generar más frutas
+ * @param[in,out] tab       	Puntero al tablero para ver si la posición generada está vacía y poner ahí la fruta
  */
 void generar_comida(Snake *serpiente, Tablero *tab) {
   if (tab->n_frutas == MAX_SNAKE_LENGTH - serpiente->tama)
@@ -134,10 +135,10 @@ void generar_comida(Snake *serpiente, Tablero *tab) {
 }
 
 /**
- * @brief   
+ * @brief   Lee el joystick y devuelve un valor dependiente del anterior, dado que la serpiente no puede darse media vuelta nunca
  * @ingroup SNAKE
  *
- * @param[in,out] direccion_actual 
+ * @param[in,out] direccion_actual 	Puntero a la última dirección elegida para comparar y si se puede actualizarla la recién leída
  */
 void procesar_entrada(enum joystick_dir *direccion_actual) {
   uint8_t tecla = joystick_leer2();
@@ -157,12 +158,16 @@ void procesar_entrada(enum joystick_dir *direccion_actual) {
 }
 
 /**
- * @brief   
+ * @brief   Transforma las direcciones del joycon en puntos, para poder sumar estos como direcciones y trabajar las funciones de movimiento
  * @ingroup SNAKE
  *
  * @param[in] direccion_actual 
  *
- * @return  
+ * @retval   0,-1 si la dirección es arriba.
+ * @retval   0, 1 si la dirección es abajo.
+ * @retval  -1, 0 si la dirección es izquierda.
+ * @retval   1, 0 si la dirección es derecha.
+ * @retval   1, 0 si la dirección es cualquier otra, por seguridad.
  */
 Punto trans_joy_to_point(enum joystick_dir direccion_actual) {
   Punto p;
@@ -187,14 +192,14 @@ Punto trans_joy_to_point(enum joystick_dir direccion_actual) {
 }
 
 /**
- * @brief   
+ * @brief   Avanzar en un ciclo la lógica de la partida
  * @ingroup SNAKE
  *
- * @param[in,out] serpiente       
- * @param[in,out] tab             
- * @param[in,out] puntuacion      
- * @param[in]     direccion       
- * @param[out]    juego_terminado 
+ * @param[in,out] serpiente      	Puntero a la serpiente
+ * @param[in,out] tab             Puntero al tablero 
+ * @param[in,out] puntuacion      Puntero a la puntuación
+ * @param[in]     direccion       Dirección en la que pretende moverse la serpiente este ciclo
+ * @param[out]    juego_terminado Puntero a la bandera de juego terminado
  */
 void actualizar_logica(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
                        Punto direccion, bool *juego_terminado) {
@@ -216,13 +221,13 @@ void actualizar_logica(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
 }
 
 /**
- * @brief   
+ * @brief   Imprime el escenario inicial por pantalla
  * @ingroup SNAKE
  *
- * @param[in] serpiente        
- * @param[in] tab              
- * @param[in] puntuacion       
- * @param[in] direccion_actual 
+ * @param[in] serpiente        Puntero a la serpiente
+ * @param[in] tab              Puntero al tablero
+ * @param[in] puntuacion       Puntero a la puntuación actual
+ * @param[in] direccion_actual Dirección para la cabeza de la serpiente
  */
 void renderizar(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
                 enum joystick_dir *direccion_actual) {
@@ -235,13 +240,13 @@ void renderizar(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
 }
 
 /**
- * @brief   
+ * @brief   Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de la puntuación
  * @ingroup SNAKE
  *
- * @param[in] snake            
- * @param[in] tab              
- * @param[in] puntuacion       
- * @param[in] direccion_actual 
+ * @param[in] snake         		Puntero a la serpiente   
+ * @param[in] tab              	Puntero al tablero
+ * @param[in] puntuacion       	Puntero a la puntuación actual
+ * @param[in] direccion_actual 	Dirección para la cabeza de la serpiente
  */
 void renderizarBucle(Snake *snake, Tablero *tab, uint16_t *puntuacion,
                      enum joystick_dir *direccion_actual) {
@@ -265,12 +270,12 @@ void renderizarBucle(Snake *snake, Tablero *tab, uint16_t *puntuacion,
 }
 
 /**
- * @brief   
+ * @brief   Imprime una celda del cuerpo de la serpiente
  * @ingroup SNAKE
  *
- * @param[in] x     
- * @param[in] y     
- * @param[in] color 
+ * @param[in] x     Posición x en el tablero de la celda
+ * @param[in] y     Posición y en el tablero de la celda
+ * @param[in] color Color para imprimir el cuerpo
  */
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
   int x0 = OFFSET_X + (x * TAM_BLOQUE) + 2;
@@ -281,13 +286,13 @@ void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
 }
 
 /**
- * @brief   
+ * @brief   Imprime la cabeza de la serpiente mirando en dirección correcta
  * @ingroup SNAKE
  *
- * @param[in] x     
- * @param[in] y     
- * @param[in] dir   
- * @param[in] color 
+ * @param[in] x     Posición x en el tablero de la cabeza
+ * @param[in] y     Posición y en el tablero de la cabeza
+ * @param[in] dir   Dirección para la cabeza
+ * @param[in] color Color para imprimir la cabeza
  */
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir,
                            uint16_t color) {
@@ -346,12 +351,12 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir,
 }
 
 /**
- * @brief   
+ * @brief   Imprime la fruta
  * @ingroup SNAKE
  *
- * @param[in] x     
- * @param[in] y     
- * @param[in] color 
+ * @param[in] x     Posición x en el tablero de la fruta
+ * @param[in] y     Posición y en el tablero de la fruta
+ * @param[in] color Color para imprimir la fruta
  */
 void dibujar_fruta(uint8_t x, uint8_t y, uint16_t color) {
   int comida_centro_x = OFFSET_X + (x * TAM_BLOQUE) + (TAM_BLOQUE / 2);
@@ -360,10 +365,10 @@ void dibujar_fruta(uint8_t x, uint8_t y, uint16_t color) {
 }
 
 /**
- * @brief   
+ * @brief   Pantalla de victoria, llamar al ganar la partida
  * @ingroup SNAKE
  *
- * @param[in] puntuacion 
+ * @param[in] puntuacion Puntero a la puntuación final de la partida
  */
 void pantalla_victoria(uint16_t *puntuacion) {
   glcd_borrar(NEGRO);
@@ -376,10 +381,10 @@ void pantalla_victoria(uint16_t *puntuacion) {
 }
 
 /**
- * @brief   
+ * @brief   Pantalla de derrota, llamar cuando pierdes la partida
  * @ingroup SNAKE
  *
- * @param[in] puntuacion 
+ * @param[in] puntuacion Puntero a la puntuación final de la partida
  */
 void pantalla_derrota(uint16_t *puntuacion) {
   glcd_borrar(NEGRO);
@@ -392,7 +397,7 @@ void pantalla_derrota(uint16_t *puntuacion) {
 }
 
 /**
- * @brief   
+ * @brief   Pantalla que te insta a continuar pulsando el botón central
  * @ingroup SNAKE
  */
 void pantalla_continuar() {
@@ -406,7 +411,7 @@ void pantalla_continuar() {
 }
 
 /**
- * @brief   
+ * @brief   Pantalla de bienvenida al juego que te insta a pulsar el botón central para continuar
  * @ingroup SNAKE
  */
 void pantalla_iniciar() {
