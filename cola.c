@@ -1,6 +1,6 @@
 /**
  * @file    cola.c
- * @brief   
+ * @brief   Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica. Es importante tener activada esta memoria en el kit.
  *
  * @author  Miguel López Rodríguez | Miguel Catalá Garrido
  * @date    2026
@@ -10,13 +10,13 @@
 #include <stdlib.h>
 
 /**
- * @brief   
+ * @brief   Devuelve un punto con un valor x y uno y para inicializar otros
  * @ingroup COLA
  *
- * @param[in] x 
- * @param[in] y 
+ * @param[in] x Posición x para el punto
+ * @param[in] y Posición y para el punto
  *
- * @return  
+ * @return  Punto inicializado
  */
 Punto constructorPunto(uint8_t x, uint8_t y) {
   Punto p;
@@ -26,12 +26,12 @@ Punto constructorPunto(uint8_t x, uint8_t y) {
 }
 
 /**
- * @brief   
+ * @brief   Creas un nodo para la cola
  * @ingroup COLA
  *
- * @param[in] valor 
+ * @param[in] valor Punto usado como valor del nodo
  *
- * @return  
+ * @return  Nodo generado para la cola
  */
 Nodo *crearNodo(Punto valor) {
   Nodo *nodo = (Nodo *)malloc(sizeof(Nodo));
@@ -41,10 +41,10 @@ Nodo *crearNodo(Punto valor) {
 }
 
 /**
- * @brief   
+ * @brief   Inicializa la cola, la memoria y los punteros
  * @ingroup COLA
  *
- * @return  
+ * @return  La cola ya inicializada
  */
 Cola *crearColas() {
   Cola *n = (Cola *)malloc(sizeof(Cola));
@@ -55,11 +55,11 @@ Cola *crearColas() {
 }
 
 /**
- * @brief   
+ * @brief   Inserta nodo en la cola, push
  * @ingroup COLA
  *
- * @param[in,out] n    
- * @param[in]     nodo 
+ * @param[in,out] n    	Puntero de la cola
+ * @param[in]     nodo 	Puntero del nodo
  */
 void Encolar(Cola *n, Nodo *nodo) {
   if (n->frontal == NULL)
@@ -71,12 +71,12 @@ void Encolar(Cola *n, Nodo *nodo) {
 }
 
 /**
- * @brief   
+ * @brief   Saca el primer nodo de la cola, pop
  * @ingroup COLA
  *
- * @param[in,out] n 
+ * @param[in,out] n Puntero de la cola
  *
- * @return  
+ * @return El valor del nodo
  */
 Punto Desencolar(Cola *n) {
   if (n->tamano) { // Si el tamaño no es 0
@@ -93,13 +93,13 @@ Punto Desencolar(Cola *n) {
 }
 
 /**
- * @brief   
+ * @brief   Devuelve la suma de dos puntos
  * @ingroup COLA
  *
- * @param[in] a 
- * @param[in] b 
+ * @param[in] a Primer punto a sumar
+ * @param[in] b Segundo punto a sumar
  *
- * @return  
+ * @return  El punto (a.x + b.x, a.y + b.y)
  */
 Punto sumarPuntos(Punto a, Punto b) {
   Punto c;

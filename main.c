@@ -1,6 +1,6 @@
 /**
  * @file    main.c
- * @brief   
+ * @brief   Main para probar las funciones del juego snake
  *
  * @author  Miguel López Rodríguez | Miguel Catalá Garrido
  * @date    2026
@@ -56,7 +56,6 @@ int main(void) {
       actualizar_logica(&serpiente, &tab, &puntuacion, direccion,
                         &juego_terminado);
       renderizarBucle(&serpiente, &tab, &puntuacion, &direccion_actual);
-      glcd_xprintf(200, 5, WHITE, BLACK, 0, "pintar serpiente");
     }
 
     if (serpiente.tama == MAX_SNAKE_LENGTH) {
@@ -74,7 +73,7 @@ int main(void) {
 }
 
 /**
- * @brief   
+ * @brief   Apaga funciones extra para ahorrar recursos como la uart
  */
 void bajo_consumo(void) {
   LPC_SC->PCONP &= (LPC_SC->PCONP & ~((1 << 4) | (1 << 19) | (1 << 26)));
@@ -82,7 +81,7 @@ void bajo_consumo(void) {
 }
 
 /**
- * @brief   
+ * @brief   Reescribe la función homónima para ahorrar problemas con la memoria dinámica. No llamar nunca
  *
  * @param[in] ch 
  */

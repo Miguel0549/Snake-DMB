@@ -1,6 +1,6 @@
 /**
  * @file    cola.h
- * @brief   
+ * @brief   Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica. Es importante tener activada esta memoria en el kit.
  *
  * @author  Miguel López Rodríguez | Miguel Catalá Garrido
  * @date    2026
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /**
- * @brief 
+ * @brief 	Estructura de punto de coordenadas para guardar posiciones en el tablero y direcciones
  */
 typedef struct {
   uint8_t x;
@@ -22,7 +22,7 @@ typedef struct {
 } Punto;
 
 /**
- * @brief 
+ * @brief 	Nodo de la cola enlazada
  */
 typedef struct tNodo {
   Punto valor;
@@ -30,7 +30,7 @@ typedef struct tNodo {
 } Nodo;
 
 /**
- * @brief 
+ * @brief 	Cola enlazada con memoria dinámica
  */
 typedef struct tCola {
   int tamano;

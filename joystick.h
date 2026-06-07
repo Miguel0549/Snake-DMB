@@ -6,6 +6,8 @@
  * correspondiente pin del microcontrolador a 0 y cuando están sin pulsar ponen el
  * correspondiente pin a 1. Las conexiones entre el joystick el microcontrolador son:
  *
+ * Interno
+ *
  * Pin uC | Dirección
  * ------ | ---------
  * P2[25] | ARRIBA
@@ -14,7 +16,17 @@
  * P2[26] | DERECHA
  * P2[22] | CENTRAL
  *
- * @author  Alejandro Lara Doña - alejandro.lara@uca.es | Eduardo Romero
+ * Externo (leer2)
+ *
+ * Pin uC | Dirección
+ * ------ | ---------
+ * P0[24] | ARRIBA
+ * P0[23] | ABAJO
+ * P2[21] | IZQUIERDA
+ * P1[18] | DERECHA
+ * P0[27] | CENTRAL
+ *
+ * @author  Alejandro Lara Doña - alejandro.lara@uca.es | Eduardo Romero 
  * @date    2014/2025
  * @version 2.0
  *
