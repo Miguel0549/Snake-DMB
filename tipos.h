@@ -19,24 +19,22 @@
 
 // ===== Tipos - Tipos estándar =====
 /**
- * @brief Incluir stddef.h, que contiene definiciones para NULL, size_t,
- * ptrdiff_t y wchar_t.
+ * @brief Incluir stddef.h, que contiene definiciones para NULL, size_t, ptrdiff_t y wchar_t.
  */
 #include <stddef.h>
 
 /**
- * @brief Si el compilador es C99 o mayor estarán disponible stdint.h y
- * stdbool.h así que los aprovechamos. El tipo bool_t de define en base al _Bool
- * de stdbool.h.
+ * @brief Si el compilador es C99 o mayor estarán disponible stdint.h y stdbool.h así que los
+ * aprovechamos. El tipo bool_t de define en base al _Bool de stdbool.h.
  */
-#if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L) // C99 o superior
+#if defined ( __STDC_VERSION__ ) && ( __STDC_VERSION__ >= 199901L ) // C99 o superior
 
-#include <stdbool.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 /**
- * @brief Si el compilador es clang ignoramos errores de codificación de
- * caracteres ANSI en vez de UTF-8.
+ * @brief Si el compilador es clang ignoramos errores de codificación de caracteres ANSI
+ * en vez de UTF-8.
  */
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Winvalid-source-encoding"
@@ -46,76 +44,72 @@ typedef _Bool bool_t;
 
 #else
 /**
- * @brief Si no estamos en un compilador C99 y no está definido el símbolo
- * __stdint_h, definir los tipos enteros estandar.
+ * @brief Si no estamos en un compilador C99 y no está definido el símbolo __stdint_h,
+ * definir los tipos enteros estandar.
  */
 #ifndef __stdint_h
 
-typedef signed char int8_t;
-typedef signed short int16_t;
-typedef signed int int32_t;
-typedef signed long long int64_t;
+typedef signed char         int8_t;
+typedef signed short        int16_t;
+typedef signed int          int32_t;
+typedef signed long long    int64_t;
 
-typedef unsigned char uint8_t;
-typedef unsigned short uint16_t;
-typedef unsigned int uint32_t;
-typedef unsigned long long uint64_t;
+typedef unsigned char       uint8_t;
+typedef unsigned short      uint16_t;
+typedef unsigned int        uint32_t;
+typedef unsigned long long  uint64_t;
 
-#endif // __stdint_h
+#endif  // __stdint_h
 
 /**
- * @brief Si no está definido el símbolo __bool_true_false_are_defined definir
- * el tipo bool_t como unsigned char, en caso contrario definir a partir de
- * bool.
+ * @brief Si no está definido el símbolo __bool_true_false_are_defined definir el tipo bool_t como
+ * unsigned char, en caso contrario definir a partir de bool.
  */
 #ifndef __bool_true_false_are_defined
-typedef unsigned char bool_t;
+typedef unsigned char   bool_t;
 #else
-typedef bool bool_t;
+typedef bool            bool_t;
 #endif
 
-#endif // defined ( __STDC_VERSION__ ) && ( __STDC_VERSION__ >= 199901L )
+#endif  // defined ( __STDC_VERSION__ ) && ( __STDC_VERSION__ >= 199901L )
 
 // Si no están definidos los símbolos FALSE y TRUE, definirlos
 #ifndef FALSE
-#define FALSE                                                                  \
-  ((bool_t)0) //!< Definir símbolo FALSE en caso de no estar definido.
+#define FALSE ((bool_t) 0)  //!< Definir símbolo FALSE en caso de no estar definido.
 #endif
 
 #ifndef TRUE
-#define TRUE ((bool_t)1) //!< Definir símbolo TRUE en caso de no estar definido.
+#define TRUE  ((bool_t) 1)  //!< Definir símbolo TRUE en caso de no estar definido.
 #endif
 
 // Definir tipos para datos flotantes que indiquen claramente su tamaño
-typedef float float32_t;  //!< Tipo flotante de 32 bits.
-typedef double float64_t; //!< Tipo flotante de 64 bits.
+typedef float   float32_t;  //!< Tipo flotante de 32 bits.
+typedef double  float64_t;  //!< Tipo flotante de 64 bits.
 
 /**
- * @brief     Tipo estructura corregida del registro de interrupciones del GPIO
- * del LPC40XX.
+ * @brief     Tipo estructura corregida del registro de interrupciones del GPIO del LPC40XX.
  *
- * @details   Los nombres de los registros de las interrupciones de los pines de
- * los puertos P0 y P2 del fichero LPC407x_8x_177x_8x.h no están actualizadosa
- * la última versión del manual del microcontrolador. Aquí se redefinen de forma
- * que coincidan con el manual.
+ * @details   Los nombres de los registros de las interrupciones de los pines de los puertos P0
+ * y P2 del fichero LPC407x_8x_177x_8x.h no están actualizadosa la última versión del manual del
+ * microcontrolador. Aquí se redefinen de forma que coincidan con el manual.
  */
-typedef struct {
-  __I uint32_t STATUS;
-  __I uint32_t STATR0;
-  __I uint32_t STATF0;
-  __O uint32_t CLR0;
-  __IO uint32_t ENR0;
-  __IO uint32_t ENF0;
-  uint32_t RESERVED0[3];
-  __I uint32_t STATR2;
-  __I uint32_t STATF2;
-  __O uint32_t CLR2;
-  __IO uint32_t ENR2;
-  __IO uint32_t ENF2;
+typedef struct{
+  __I   uint32_t STATUS;
+  __I   uint32_t STATR0;
+  __I   uint32_t STATF0;
+  __O   uint32_t CLR0;
+  __IO  uint32_t ENR0;
+  __IO  uint32_t ENF0;
+        uint32_t RESERVED0[3];
+  __I   uint32_t STATR2;
+  __I   uint32_t STATF2;
+  __O   uint32_t CLR2;
+  __IO  uint32_t ENR2;
+  __IO  uint32_t ENF2;
 } LPC_GPIOINT_TypeDef_corregida;
 
-#undef LPC_GPIOINT
-#define LPC_GPIOINT ((LPC_GPIOINT_TypeDef_corregida *)LPC_GPIOINT_BASE)
+#undef  LPC_GPIOINT
+#define LPC_GPIOINT ((LPC_GPIOINT_TypeDef_corregida *) LPC_GPIOINT_BASE)
 
 /**
  * @name Tipos - Funciones Macro Públicas
@@ -128,24 +122,23 @@ typedef struct {
  *
  * @param[in] n   Posición del bit.
  *
- * @details _BIT(n) está pensado para utilizarse en expresiones lógicas tipo
- * "OR" o "AND" ej. "(_BIT(3) | _BIT(7))".
+ * @details _BIT(n) está pensado para utilizarse en expresiones lógicas tipo "OR" o "AND"
+ * ej. "(_BIT(3) | _BIT(7))".
  */
-#undef _BIT
+#undef  _BIT
 #define _BIT(n) (1u << n)
 
 /**
- * @brief   _CAMPO(f, v) establece a el campo que empieza en la posicion 'f' al
- * valor 'v'.
+ * @brief   _CAMPO(f, v) establece a el campo que empieza en la posicion 'f' al valor 'v'.
  * @ingroup Tipos_Funciones
  *
  * @param[in] f   Bit de inicio del campo de bits.
  * @param[in] v   Valor del campo de bits.
  *
- * @details _CAMPO(f, v) está pensado para utilizarse en expresiones lógicas
- * tipo "OR" o "AND". ej. "(_CAMPO(5, 3) | _CAMPO(12, 7))".
+ * @details _CAMPO(f, v) está pensado para utilizarse en expresiones lógicas tipo "OR" o "AND".
+ * ej. "(_CAMPO(5, 3) | _CAMPO(12, 7))".
  */
-#undef _CAMPO
+#undef  _CAMPO
 #define _CAMPO(f, v) (v << f)
 
 /**
@@ -157,12 +150,12 @@ typedef struct {
  * @return El valor redondeado.
  */
 #if !defined(CEIL)
-#define CEIL(x)                                                                \
-  ({                                                                           \
-    __typeof__(x) _x = (x);                                                    \
-    /* La última expresión es el valor de retorno de la macro */               \
-    (_x > 0) ? (long long)(_x + 0.9999999999999999) : (long long)_x;           \
-  })
+#define CEIL(x)           \
+({                        \
+  __typeof__(x) _x = (x); \
+  /* La última expresión es el valor de retorno de la macro */     \
+  (_x > 0) ? (long long)(_x + 0.9999999999999999) : (long long)_x; \
+})
 #endif
 
 /**
@@ -174,11 +167,11 @@ typedef struct {
  * @return El valor redondeado.
  */
 #if !defined(FLOOR)
-#define FLOOR(x)                                                               \
-  ({                                                                           \
-    __typeof__(x) _x = (x);                                                    \
-    _x < 0 ? (long long)(_x - 0.9999999999999999) : (long long)_x;             \
-  })
+#define FLOOR(x)            \
+({                          \
+  __typeof__(x) _x = (x);   \
+  _x < 0 ? (long long)(_x - 0.9999999999999999) : (long long) _x; \
+})
 #endif
 
 /**
@@ -215,16 +208,16 @@ typedef struct {
  *
  * @return El valor más grande entre 'a' y 'b'.
  *
- * @note  Los argumentos se evalúan una sola vez, por lo que es seguro usar
- * expresiones con efectos secundarios (ej. MAX(i++, j--)).
+ * @note  Los argumentos se evalúan una sola vez, por lo que es seguro usar expresiones con
+ * efectos secundarios (ej. MAX(i++, j--)).
  */
 #if !defined(MAX)
-#define MAX(a, b)                                                              \
-  ({                                                                           \
-    __typeof__(a) _a = (a);                                                    \
-    __typeof__(b) _b = (b);                                                    \
-    _a > _b ? _a : _b;                                                         \
-  })
+#define MAX(a, b)           \
+({                          \
+  __typeof__(a) _a = (a);   \
+  __typeof__(b) _b = (b);   \
+  _a > _b ? _a : _b;        \
+})
 #endif
 
 /**
@@ -237,12 +230,12 @@ typedef struct {
  * @return El valor más pequeño entre 'a' y 'b'.
  */
 #if !defined(MIN)
-#define MIN(a, b)                                                              \
-  ({                                                                           \
-    __typeof__(a) _a = (a);                                                    \
-    __typeof__(b) _b = (b);                                                    \
-    _a < _b ? _a : _b;                                                         \
-  })
+#define MIN(a, b)           \
+({                          \
+  __typeof__(a) _a = (a);   \
+  __typeof__(b) _b = (b);   \
+  _a < _b ? _a : _b;        \
+})
 #endif
 
 /**
@@ -254,11 +247,11 @@ typedef struct {
  * @return El valor absoluto de 'x'.
  */
 #if !defined(ABS)
-#define ABS(x)                                                                 \
-  ({                                                                           \
-    __typeof__(x) _x = (x);                                                    \
-    _x > 0 ? _x : -_x;                                                         \
-  })
+#define ABS(x)              \
+({                          \
+  __typeof__(x) _x = (x);   \
+  _x > 0 ? _x : -_x;        \
+})
 #endif
 
 /**
@@ -269,17 +262,16 @@ typedef struct {
  * @param[in] low   El límite inferior del rango.
  * @param[in] high  El límite superior del rango.
  *
- * @return 'amt' si está dentro de [low, high]. 'low' si 'amt' es menor, 'high'
- * si 'amt' es mayor.
+ * @return 'amt' si está dentro de [low, high]. 'low' si 'amt' es menor, 'high' si 'amt' es mayor.
  */
 #if !defined(CONSTRAIN)
-#define CONSTRAIN(amt, low, high)                                              \
-  ({                                                                           \
-    __typeof__(amt) _amt = (amt);                                              \
-    __typeof__(low) _low = (low);                                              \
-    __typeof__(high) _high = (high);                                           \
-    _amt < _low ? _low : (_amt > _high ? _high : _amt);                        \
-  })
+#define CONSTRAIN(amt, low, high)   \
+({                                  \
+  __typeof__(amt) _amt = (amt);     \
+  __typeof__(low) _low = (low);     \
+  __typeof__(high) _high = (high);  \
+  _amt < _low ? _low : (_amt > _high ? _high : _amt);  \
+})
 #endif
 
 /**
@@ -291,20 +283,19 @@ typedef struct {
  * @return El resultado de 'x' multiplicado por sí mismo.
  */
 #if !defined(SQ)
-#define SQ(x)                                                                  \
-  ({                                                                           \
-    __typeof__(x) _x = (x);                                                    \
-    _x *_x;                                                                    \
-  })
+#define SQ(x)               \
+({                          \
+  __typeof__(x) _x = (x);   \
+  _x * _x;                  \
+})
 #endif
 
 /**
  * @brief   Mapea un número de un rango de entrada a un rango de salida.
  * @ingroup Tipos_Funciones
  *
- * @details Realiza una interpolación lineal para reescalar un valor de un rango
- * [in_min, in_max] a un nuevo rango [out_min, out_max]. No limita el valor si
- * se sale de los rangos.
+ * @details Realiza una interpolación lineal para reescalar un valor de un rango [in_min, in_max]
+ * a un nuevo rango [out_min, out_max]. No limita el valor si se sale de los rangos.
  *
  * @param[in] x         El valor a mapear.
  * @param[in] in_min    El límite inferior del rango de entrada.
@@ -314,20 +305,20 @@ typedef struct {
  *
  * @return El valor `x` reescalado al rango de salida.
  *
- * @note Esta versión es más segura que la tradicional, ya que evalúa cada
- * argumento una sola vez y preserva los tipos de datos.
+ * @note Esta versión es más segura que la tradicional, ya que evalúa cada argumento una sola vez
+ * y preserva los tipos de datos.
  */
 #if !defined(MAP)
-#define MAP(x, in_min, in_max, out_min, out_max)                               \
-  ({                                                                           \
-    __typeof__(x) _x = (x);                                                    \
-    __typeof__(in_min) _in_min = (in_min);                                     \
-    __typeof__(in_max) _in_max = (in_max);                                     \
-    __typeof__(out_min) _out_min = (out_min);                                  \
-    __typeof__(out_max) _out_max = (out_max);                                  \
-    (_x - _in_min) * (_out_max - _out_min) / (_in_max - _in_min) + _out_min;   \
-  })
+#define MAP(x, in_min, in_max, out_min, out_max)  \
+({                                                \
+  __typeof__(x) _x = (x);                         \
+  __typeof__(in_min) _in_min = (in_min);          \
+  __typeof__(in_max) _in_max = (in_max);          \
+  __typeof__(out_min) _out_min = (out_min);       \
+  __typeof__(out_max) _out_max = (out_max);       \
+  (_x - _in_min) * (_out_max - _out_min) / (_in_max - _in_min) + _out_min;        \
+})
 #endif
 //!@}
 
-#endif // TIPOS_H
+#endif  // TIPOS_H

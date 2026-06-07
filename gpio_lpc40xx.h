@@ -1,7 +1,6 @@
 /**
  * @file    gpio_lpc40xx.h
- * @brief   Constantes y funciones para manejar los puertos E/S digital del
- * LPC40xx.
+ * @brief   Constantes y funciones para manejar los puertos E/S digital del LPC40xx.
  *
  * @author  Alejandro Lara Doña - alejandro.lara@uca.es | Eduardo Romero
  * @date    2014/2025
@@ -13,8 +12,8 @@
 #ifndef GPIO_LPC40XX_H
 #define GPIO_LPC40XX_H
 
-#include "tipos.h"
 #include <LPC407x_8x_177x_8x.h>
+#include "tipos.h"
 
 // ===== GPIO - Constantes Publicas =====
 /**
@@ -23,12 +22,12 @@
  * @brief     Símbolos alternativos de los puertos GPIO.
  * @{
  */
-#define PORT0 LPC_GPIO0
-#define PORT1 LPC_GPIO1
-#define PORT2 LPC_GPIO2
-#define PORT3 LPC_GPIO3
-#define PORT4 LPC_GPIO4
-#define PORT5 LPC_GPIO5
+#define PORT0   LPC_GPIO0
+#define PORT1   LPC_GPIO1
+#define PORT2   LPC_GPIO2
+#define PORT3   LPC_GPIO3
+#define PORT4   LPC_GPIO4
+#define PORT5   LPC_GPIO5
 
 #define PUERTO0 PORT0
 #define PUERTO1 PORT1
@@ -100,9 +99,9 @@ enum gpio_direccion {
   DIR_SALIDA = 1u
 };
 
+
 #ifndef inline
-#define inline                                                                 \
-  __inline //!< Definición del cualificador inline no disponible en modo C90.
+  #define inline __inline  //!< Definición del cualificador inline no disponible en modo C90.
 #endif
 
 // ===== GPIO - Funciones Publicas =====
@@ -116,11 +115,10 @@ enum gpio_direccion {
  * @retval  FALSE   El pin está a 0.
  *          TRUE    El pin está a 1.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
-inline bool_t gpio_leer_pin(const LPC_GPIO_TypeDef *gpio_regs,
-                            uint32_t mascara_pin) {
+inline bool_t gpio_leer_pin(const LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
   return (gpio_regs->PIN & mascara_pin) != 0;
 }
 
@@ -132,8 +130,8 @@ inline bool_t gpio_leer_pin(const LPC_GPIO_TypeDef *gpio_regs,
  *
  * @return    Valor leído del puerto.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
 inline uint32_t gpio_leer_puerto(const LPC_GPIO_TypeDef *gpio_regs) {
   return gpio_regs->PIN;
@@ -147,11 +145,10 @@ inline uint32_t gpio_leer_puerto(const LPC_GPIO_TypeDef *gpio_regs) {
  * @param[in]   mascara_pin   Máscara de selección del pin o pines.
  * @param[in]   valor         FALSE => poner a 0, TRUE => poner a 1.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
-inline void gpio_escribir_pin(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin,
-                              bool_t valor) {
+inline void gpio_escribir_pin(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin, bool_t valor) {
   if (valor) {
     gpio_regs->SET = mascara_pin;
   } else {
@@ -166,8 +163,8 @@ inline void gpio_escribir_pin(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin,
  * @param[in]   gpio_regs   Puntero al bloque de registros del puerto.
  * @param[in]   valor       Valor a escribir en el puerto.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
 inline void gpio_escribir_puerto(LPC_GPIO_TypeDef *gpio_regs, uint32_t valor) {
   gpio_regs->PIN = valor;
@@ -180,8 +177,8 @@ inline void gpio_escribir_puerto(LPC_GPIO_TypeDef *gpio_regs, uint32_t valor) {
  * @param[in]   gpio_regs     Puntero al bloque de registros del puerto.
  * @param[in]   mascara_pin   Máscara de selección del pin o pines.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
 inline void gpio_pin_a_1(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
   gpio_regs->SET = mascara_pin;
@@ -194,8 +191,8 @@ inline void gpio_pin_a_1(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
  * @param[in]   gpio_regs     Puntero al bloque de registros del puerto.
  * @param[in]   mascara_pin   Máscara de selección del pin o pines.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
 inline void gpio_pin_a_0(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
   gpio_regs->CLR = mascara_pin;
@@ -208,18 +205,15 @@ inline void gpio_pin_a_0(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
  * @param[in]   gpio_regs     Puntero al bloque de registros del puerto.
  * @param[in]   mascara_pin   Máscara de selección del pin o pines.
  *
- * @warning No se comprueba la validez de los argumentos para que el tiempo de
- * ejecución sea corto y reducir el tamaño de la expansión en línea.
+ * @warning No se comprueba la validez de los argumentos para que el tiempo de ejecución sea
+ * corto y reducir el tamaño de la expansión en línea.
  */
-inline void gpio_invertir_pin(LPC_GPIO_TypeDef *gpio_regs,
-                              uint32_t mascara_pin) {
+inline void gpio_invertir_pin(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin) {
   gpio_regs->PIN ^= mascara_pin;
 }
 
 // ===== Prototipos de funciones definidas en gpio_lpc40xx.c =====
-void gpio_ajustar_dir(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin,
-                      uint32_t direccion);
-uint32_t gpio_obtener_dir(const LPC_GPIO_TypeDef *gpio_regs,
-                          uint32_t mascara_pin);
+void gpio_ajustar_dir(LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin, uint32_t direccion);
+uint32_t gpio_obtener_dir(const LPC_GPIO_TypeDef *gpio_regs, uint32_t mascara_pin);
 
-#endif // GPIO_LPC40XX_H
+#endif  // GPIO_LPC40XX_H

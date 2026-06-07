@@ -1,12 +1,10 @@
 /**
  * @file    leds.h
- * @brief   Funciones para manejar cuatro de los LEDs de la tarjeta Embedded
- * Artist LPC4088.
+ * @brief   Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088.
  *
- * @details Los LEDs son activos a nivel bajo: cuando uno de estos pines del
- * microcontrolador se pone a 1 el correspondiente LED se apaga y cuando se pone
- * a 0 el LED se enciende. Las conexiones entre los LEDs de la tarjeta y el
- * microcontrolador son las siguientes:
+ * @details Los LEDs son activos a nivel bajo: cuando uno de estos pines del microcontrolador se
+ * pone a 1 el correspondiente LED se apaga y cuando se pone a 0 el LED se enciende. Las conexiones
+ * entre los LEDs de la tarjeta y el microcontrolador son las siguientes:
  *
  * Pin uC | Nombre | Color
  * ------ | ------ | ------
@@ -28,16 +26,15 @@
 #include "tipos.h"
 
 // ===== LEDs - Constantes Publicas =====
-/**
- * @brief   Constantes para refererise a los LEDs de la tarjeta Embedded Artist
- * LPC4088.
+ /**
+ * @brief   Constantes para refererise a los LEDs de la tarjeta Embedded Artist LPC4088.
  * @ingroup LEDs
  */
 enum leds_tarjeta_ea {
-  LED1 = 1, //!< LED rojo conectado al pin P1[5]
-  LED2 = 2, //!< LED verde conectado al pin P0[14]
-  LED3 = 3, //!< LED verde conectado al pin P0[13]
-  LED4 = 4  //!< LED verde conectado al pin P1[18]
+  LED1 = 1,  //!< LED rojo conectado al pin P1[5]
+  LED2 = 2,  //!< LED verde conectado al pin P0[14]
+  LED3 = 3,  //!< LED verde conectado al pin P0[13]
+  LED4 = 4   //!< LED verde conectado al pin P1[18]
 };
 
 /**
@@ -45,10 +42,10 @@ enum leds_tarjeta_ea {
  * @ingroup LEDs
  */
 enum leds_estado {
-  LED_APAGADO = FALSE,  //!< LED apagado.
-  LED_ENCENDIDO = TRUE, //!< LED encendido.
-  LED_OFF = FALSE,      //!< LED apagado.
-  LED_ON = TRUE         //!< LED encendido.
+  LED_APAGADO = FALSE,    //!< LED apagado.
+  LED_ENCENDIDO = TRUE,   //!< LED encendido.
+  LED_OFF = FALSE,        //!< LED apagado.
+  LED_ON = TRUE           //!< LED encendido.
 };
 
 // ===== LEDs - Funciones Publicas =====
@@ -58,4 +55,4 @@ void leds_apagar(uint8_t numero_led);
 void leds_invertir(uint8_t numero_led);
 void leds_ajustar(uint8_t numero_led, bool_t estado);
 
-#endif // LEDS_H
+#endif  // LEDS_H
