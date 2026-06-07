@@ -1,6 +1,20 @@
+/**
+ * @file    snake.c
+ * @brief   
+ *
+ * @author  Miguel López Rodríguez | Miguel Catalá Garrido
+ * @date    2026
+ */
+
 #include "snake.h"
 #include <stdlib.h>
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in,out] serpi 
+ */
 void initSnake(Snake *serpi) {
 
   serpi->cabeza = constructorPunto(3, 1);
@@ -11,6 +25,15 @@ void initSnake(Snake *serpi) {
   serpi->tama = 3;
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in,out] snake     
+ * @param[in,out] tab       
+ * @param[in]     direccion 
+ * @param[in]     ateFood   
+ */
 void moveSnake(Snake *snake, Tablero *tab, Punto direccion, bool ateFood) {
   snake->cabeza = sumarPuntos(snake->cabeza, direccion);
   if (!ateFood) {
@@ -22,6 +45,16 @@ void moveSnake(Snake *snake, Tablero *tab, Punto direccion, bool ateFood) {
   tab->t[snake->cabeza.x][snake->cabeza.y] = SERPIENTE;
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] snake       
+ * @param[in] nuevaCabeza 
+ * @param[in] tab         
+ *
+ * @return  
+ */
 bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero *tab) {
   if (nuevaCabeza.x == snake->final.x && nuevaCabeza.y == snake->final.y)
     return false;
@@ -34,6 +67,13 @@ bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero *tab) {
   return false;
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in]     snake 
+ * @param[in,out] tab   
+ */
 void initTablero(Snake *snake, Tablero *tab) {
 
   for (int i = 0; i < 14; ++i) {
@@ -51,6 +91,16 @@ void initTablero(Snake *snake, Tablero *tab) {
   generar_comida(snake, tab);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[out] serpiente        
+ * @param[out] tablero          
+ * @param[out] puntuacion       
+ * @param[out] direccion_actual 
+ * @param[out] juego_terminado  
+ */
 void inicializar_juego(Snake *serpiente, Tablero *tablero, uint16_t *puntuacion,
                        enum joystick_dir *direccion_actual,
                        bool *juego_terminado) {
@@ -63,6 +113,13 @@ void inicializar_juego(Snake *serpiente, Tablero *tablero, uint16_t *puntuacion,
   initSnake(serpiente);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in]     serpiente 
+ * @param[in,out] tab       
+ */
 void generar_comida(Snake *serpiente, Tablero *tab) {
   if (tab->n_frutas == MAX_SNAKE_LENGTH - serpiente->tama)
     return;
@@ -76,6 +133,12 @@ void generar_comida(Snake *serpiente, Tablero *tab) {
   tab->n_frutas++;
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in,out] direccion_actual 
+ */
 void procesar_entrada(enum joystick_dir *direccion_actual) {
   uint8_t tecla = joystick_leer2();
 
@@ -93,6 +156,14 @@ void procesar_entrada(enum joystick_dir *direccion_actual) {
   }
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] direccion_actual 
+ *
+ * @return  
+ */
 Punto trans_joy_to_point(enum joystick_dir direccion_actual) {
   Punto p;
   switch (direccion_actual) {
@@ -115,6 +186,16 @@ Punto trans_joy_to_point(enum joystick_dir direccion_actual) {
   return p;
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in,out] serpiente       
+ * @param[in,out] tab             
+ * @param[in,out] puntuacion      
+ * @param[in]     direccion       
+ * @param[out]    juego_terminado 
+ */
 void actualizar_logica(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
                        Punto direccion, bool *juego_terminado) {
   Punto siguiente_cabeza = sumarPuntos(serpiente->cabeza, direccion);
@@ -134,6 +215,15 @@ void actualizar_logica(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
   }
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] serpiente        
+ * @param[in] tab              
+ * @param[in] puntuacion       
+ * @param[in] direccion_actual 
+ */
 void renderizar(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
                 enum joystick_dir *direccion_actual) {
   glcd_borrar(NEGRO);
@@ -144,6 +234,15 @@ void renderizar(Snake *serpiente, Tablero *tab, uint16_t *puntuacion,
   renderizarBucle(serpiente, tab, puntuacion, direccion_actual);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] snake            
+ * @param[in] tab              
+ * @param[in] puntuacion       
+ * @param[in] direccion_actual 
+ */
 void renderizarBucle(Snake *snake, Tablero *tab, uint16_t *puntuacion,
                      enum joystick_dir *direccion_actual) {
   glcd_xprintf(OFFSET_X, 8, AMARILLO, NEGRO, FUENTE8X16, "SCORE: %05d",
@@ -165,6 +264,14 @@ void renderizarBucle(Snake *snake, Tablero *tab, uint16_t *puntuacion,
   }
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] x     
+ * @param[in] y     
+ * @param[in] color 
+ */
 void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
   int x0 = OFFSET_X + (x * TAM_BLOQUE) + 2;
   int y0 = OFFSET_Y + (y * TAM_BLOQUE) + 2;
@@ -173,6 +280,15 @@ void dibujar_cuerpo(uint8_t x, uint8_t y, uint16_t color) {
   glcd_rectangulo_relleno(x0, y0, x1, y1, color); //
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] x     
+ * @param[in] y     
+ * @param[in] dir   
+ * @param[in] color 
+ */
 void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir,
                            uint16_t color) {
   int bx = OFFSET_X + (x * TAM_BLOQUE);
@@ -229,12 +345,26 @@ void dibujar_cabeza_flecha(uint8_t x, uint8_t y, enum joystick_dir dir,
                           y_centro + 2, color); // Ojo
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] x     
+ * @param[in] y     
+ * @param[in] color 
+ */
 void dibujar_fruta(uint8_t x, uint8_t y, uint16_t color) {
   int comida_centro_x = OFFSET_X + (x * TAM_BLOQUE) + (TAM_BLOQUE / 2);
   int comida_centro_y = OFFSET_Y + (y * TAM_BLOQUE) + (TAM_BLOQUE / 2);
   glcd_circulo(comida_centro_x, comida_centro_y, (TAM_BLOQUE / 2) - 4, ROJO);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] puntuacion 
+ */
 void pantalla_victoria(uint16_t *puntuacion) {
   glcd_borrar(NEGRO);
   glcd_xprintf((OFFSET_X * 7 + (FILAS * TAM_BLOQUE) + 1) / 4,
@@ -245,6 +375,12 @@ void pantalla_victoria(uint16_t *puntuacion) {
                FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ *
+ * @param[in] puntuacion 
+ */
 void pantalla_derrota(uint16_t *puntuacion) {
   glcd_borrar(NEGRO);
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 4,
@@ -255,6 +391,10 @@ void pantalla_derrota(uint16_t *puntuacion) {
                FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ */
 void pantalla_continuar() {
   glcd_borrar(NEGRO);
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 4,
@@ -265,6 +405,10 @@ void pantalla_continuar() {
                FUENTE8X16, "Presiona el joystick central para continuar");
 }
 
+/**
+ * @brief   
+ * @ingroup SNAKE
+ */
 void pantalla_iniciar() {
   glcd_borrar(NEGRO);
   glcd_xprintf(((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 2) - 40,

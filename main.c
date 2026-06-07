@@ -1,9 +1,22 @@
+/**
+ * @file    main.c
+ * @brief   
+ *
+ * @author  Miguel López Rodríguez | Miguel Catalá Garrido
+ * @date    2026
+ */
+
 #include "snake.h"
 #include "timer_lpc40xx.h"
 #include <LPC407x_8x_177x_8x.h>
 
 void bajo_consumo(void);
 
+/**
+ * @brief   
+ *
+ * @return  
+ */
 int main(void) {
 
   bajo_consumo();
@@ -60,9 +73,17 @@ int main(void) {
   return 0;
 }
 
+/**
+ * @brief   
+ */
 void bajo_consumo(void) {
   LPC_SC->PCONP &= (LPC_SC->PCONP & ~((1 << 4) | (1 << 19) | (1 << 26)));
   LPC_SC->PCONP1 = 0;
 }
 
+/**
+ * @brief   
+ *
+ * @param[in] ch 
+ */
 void _ttywrch(int ch) { (void)ch; }

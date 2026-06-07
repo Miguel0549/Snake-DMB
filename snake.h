@@ -1,3 +1,11 @@
+/**
+ * @file    snake.h
+ * @brief   
+ *
+ * @author  Miguel López Rodríguez | Miguel Catalá Garrido
+ * @date    2026
+ */
+
 #ifndef SNAKE_H
 #define SNAKE_H
 
@@ -6,6 +14,12 @@
 #include "joystick.h"
 #include <stdbool.h>
 
+/**
+ * @defgroup  SNAKE_Macros_Publicas SNAKE - Macros Públicas
+ * @ingroup   SNAKE
+ * @brief     
+ * @{
+ */
 #define MAX_SNAKE_LENGTH 168
 
 #define SERPIENTE 1
@@ -18,14 +32,24 @@
 
 #define OFFSET_X 16
 #define OFFSET_Y 32
+//!@}
 
+/**
+ * @brief 
+ */
 typedef enum { ARRIBA, ABAJO, IZQUIERDA, DERECHA } DIR;
 
+/**
+ * @brief 
+ */
 typedef struct {
   uint8_t t[14][7];
   uint8_t n_frutas;
 } Tablero;
 
+/**
+ * @brief 
+ */
 typedef struct {
   Punto cabeza;
   Punto final;
@@ -33,6 +57,7 @@ typedef struct {
   uint8_t tama;
 } Snake;
 
+// ===== SNAKE - Funciones Publicas =====
 void initSnake(Snake *serpi);
 void moveSnake(Snake *snake, Tablero *tab, Punto direccion, bool ateFood);
 bool verificarColisionCuerpo(Snake *snake, Punto nuevaCabeza, Tablero *t);
