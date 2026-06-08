@@ -377,7 +377,7 @@ void pantalla_victoria(uint16_t *puntuacion) {
                FUENTE16X32, "¡HAS GANADO!", *puntuacion);
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 4,
                ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE)) / 4) + 64, AMARILLO, NEGRO,
-               FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+               FUENTE12X24, "Tu puntuación: %05d", *puntuacion);
 }
 
 /**
@@ -393,7 +393,7 @@ void pantalla_derrota(uint16_t *puntuacion) {
                FUENTE16X32, "¡TE HAS CHOCADO!", *puntuacion);
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 4,
                ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE)) / 4) + 64, AMARILLO, NEGRO,
-               FUENTE12X24, "Tu puntuacion: %05d", *puntuacion);
+               FUENTE12X24, "Tu puntuación: %05d", *puntuacion);
 }
 
 /**
@@ -407,7 +407,7 @@ void pantalla_continuar() {
                FUENTE16X32, "¿Nueva partida?");
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 6,
                ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE)) / 4) + 64, AMARILLO, NEGRO,
-               FUENTE8X16, "Presiona el joystick central para continuar");
+               FUENTE8X16, "Presiona el botón central para continuar");
 }
 
 /**
@@ -421,5 +421,5 @@ void pantalla_iniciar() {
                FUENTE16X32, "SNAKE");
   glcd_xprintf((OFFSET_X + (FILAS * TAM_BLOQUE) + 1) / 6,
                ((OFFSET_Y + (COLUMNAS * TAM_BLOQUE)) / 4) + 64, AMARILLO, NEGRO,
-               FUENTE8X16, "Presiona el joystick central para continuar");
+               FUENTE8X16, "Presiona el botón central para continuar");
 }
