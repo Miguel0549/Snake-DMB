@@ -1,0 +1,7 @@
+<map id="snake.h" name="snake.h">
+<area shape="rect" id="Node000001" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="46,5,113,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="5,80,66,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="66,45,45,81,41,78,61,46"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="90,80,157,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,43,119,80,113,79,94,48"/>
+</map>

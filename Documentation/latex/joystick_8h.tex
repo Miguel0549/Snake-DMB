@@ -1,0 +1,155 @@
+\doxysection{joystick.\+h File Reference}
+\label{joystick_8h}\index{joystick.h@{joystick.h}}
+
+
+Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088.  
+
+
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+Include dependency graph for joystick.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{joystick_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{joystick_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\label{joystick_8h_aa3a9a26c5c7753341a574e9e4c967f26} 
+enum \textbf{ joystick\+\_\+dir} \{ \newline
+{\bfseries JOYSTICK\+\_\+\+NADA} = 0
+, {\bfseries JOYSTICK\+\_\+\+ARRIBA} = 1
+, {\bfseries JOYSTICK\+\_\+\+ABAJO} = 2
+, {\bfseries JOYSTICK\+\_\+\+IZQUIERDA} = 3
+, \newline
+{\bfseries JOYSTICK\+\_\+\+DERECHA} = 4
+, {\bfseries JOYSTICK\+\_\+\+CENTRO} = 5
+ \}
+\begin{DoxyCompactList}\small\item\em Constantes para indicar la dirección hacia donde se pulsó el Joystick. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{joystick_8h_ac12f9733f8f08eca65c3fbb1bb2b9c40} 
+void {\bfseries joystick\+\_\+inicializar} ()
+\item 
+uint8\+\_\+t \textbf{ joystick\+\_\+leer} (void)
+\begin{DoxyCompactList}\small\item\em Leer el joystick del kit y retornar un número diferente según la dirección que se esté pulsando. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ joystick\+\_\+leer2} (void)
+\begin{DoxyCompactList}\small\item\em Leer el joystick externo y retornar un número diferente según la dirección que se esté pulsando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088. 
+
+Los pulsadores del joystick son activos a nivel bajo:\+ cuando se pulsan ponen el correspondiente pin del microcontrolador a 0 y cuando están sin pulsar ponen el correspondiente pin a 1. Las conexiones entre el joystick el microcontrolador son:\+
+
+Interno
+
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Pin uC  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Dirección  \\
+P2[25]  &ARRIBA  \\
+P2[27]  &ABAJO  \\
+P2[23]  &IZQUIERDA  \\
+P2[26]  &DERECHA  \\
+P2[22]  &CENTRAL  \\
+\end{DoxyTable}
+
+
+Externo (leer2)
+
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Pin uC  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Dirección  \\
+P0[24]  &ARRIBA  \\
+P0[23]  &ABAJO  \\
+P2[21]  &IZQUIERDA  \\
+P1[18]  &DERECHA  \\
+P0[27]  &CENTRAL  \\
+\end{DoxyTable}
+
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{joystick_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\index{joystick.h@{joystick.h}!joystick\_leer@{joystick\_leer}}
+\index{joystick\_leer@{joystick\_leer}!joystick.h@{joystick.h}}
+\doxysubsubsection{joystick\_leer()}
+{\footnotesize\ttfamily \label{joystick_8h_afbfb28eae92a3b7733c2e3367f0bcd34} 
+uint8\+\_\+t joystick\+\_\+leer (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Leer el joystick del kit y retornar un número diferente según la dirección que se esté pulsando. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em JOYSTICK\+\_\+\+NADA/\+0} & si no se está pulsando ningúna dirección. \\
+\hline
+{\em JOYSTICK\+\_\+\+ARRIBA/\+1} & si el joystick está pulsado hacia ARRIBA. \\
+\hline
+{\em JOYSTICK\+\_\+\+ABAJO/\+2} & si el joystick está pulsado hacia ABAJO. \\
+\hline
+{\em JOYSTICK\+\_\+\+IZQUIERDA/\+3} & si el joystick está pulsado hacia la IZQUIERDA. \\
+\hline
+{\em JOYSTICK\+\_\+\+DERECHA/\+4} & si el joystick está pulsado hacia la DERECHA. \\
+\hline
+{\em JOYSTICK\+\_\+\+CENTRO/\+5} & si el joystick está pulsado hacia el CENTRO. \\
+\hline
+\end{DoxyRetVals}
+\index{joystick.h@{joystick.h}!joystick\_leer2@{joystick\_leer2}}
+\index{joystick\_leer2@{joystick\_leer2}!joystick.h@{joystick.h}}
+\doxysubsubsection{joystick\_leer2()}
+{\footnotesize\ttfamily \label{joystick_8h_a64d7c2ab77302caa263652717725cfce} 
+uint8\+\_\+t joystick\+\_\+leer2 (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Leer el joystick externo y retornar un número diferente según la dirección que se esté pulsando. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em JOYSTICK\+\_\+\+NADA/\+0} & si no se está pulsando ningúna dirección. \\
+\hline
+{\em JOYSTICK\+\_\+\+ARRIBA/\+1} & si el joystick está pulsado hacia ARRIBA. \\
+\hline
+{\em JOYSTICK\+\_\+\+ABAJO/\+2} & si el joystick está pulsado hacia ABAJO. \\
+\hline
+{\em JOYSTICK\+\_\+\+IZQUIERDA/\+3} & si el joystick está pulsado hacia la IZQUIERDA. \\
+\hline
+{\em JOYSTICK\+\_\+\+DERECHA/\+4} & si el joystick está pulsado hacia la DERECHA. \\
+\hline
+{\em JOYSTICK\+\_\+\+CENTRO/\+5} & si el joystick está pulsado hacia el CENTRO. \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{joystick_8h_a64d7c2ab77302caa263652717725cfce_icgraph}
+\end{center}
+\end{figure}

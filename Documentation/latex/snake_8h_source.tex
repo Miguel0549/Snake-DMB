@@ -1,0 +1,69 @@
+\doxysection{snake.\+h}
+\label{snake_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ SNAKE\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ SNAKE\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}cola.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}glcd.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}joystick.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ MAX\_SNAKE\_LENGTH\ 168}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ SERPIENTE\ 1}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ VACIA\ 0}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FRUTA\ 2}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ FILAS\ 14}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ COLUMNAS\ 7}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ TAM\_BLOQUE\ 32}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ OFFSET\_X\ 16}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ OFFSET\_Y\ 32}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{\ ARRIBA,\ ABAJO,\ IZQUIERDA,\ DERECHA\ \}\ DIR;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00050\ \ \ uint8\_t\ t[14][7];}
+\DoxyCodeLine{00051\ \ \ uint8\_t\ n\_frutas;}
+\DoxyCodeLine{00052\ \}\ Tablero;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00059\ \ \ Punto\ cabeza;}
+\DoxyCodeLine{00060\ \ \ Punto\ \textcolor{keyword}{final};}
+\DoxyCodeLine{00061\ \ \ Cola\ *movs\_pendientes;}
+\DoxyCodeLine{00062\ \ \ uint8\_t\ tama;}
+\DoxyCodeLine{00063\ \}\ Snake;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ =====\ SNAKE\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ initSnake(Snake\ *serpi);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ moveSnake(Snake\ *snake,\ Tablero\ *tab,\ Punto\ direccion,\ \textcolor{keywordtype}{bool}\ ateFood);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{bool}\ verificarColisionCuerpo(Snake\ *snake,\ Punto\ nuevaCabeza,\ Tablero\ *t);}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ initTablero(Snake\ *snake,\ Tablero\ *tab);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ inicializar\_juego(Snake\ *serpiente,\ Tablero\ *tablero,\ uint16\_t\ *puntuacion,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ joystick\_dir\ *direccion\_actual,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *juego\_terminado);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ generar\_comida(Snake\ *serpiente,\ Tablero\ *tab);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ procesar\_entrada(\textcolor{keyword}{enum}\ joystick\_dir\ *direccion\_actual);}
+\DoxyCodeLine{00075\ Punto\ trans\_joy\_to\_point(\textcolor{keyword}{enum}\ joystick\_dir\ direccion\_actual);}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ actualizar\_logica(Snake\ *serpiente,\ Tablero\ *tab,\ uint16\_t\ *puntuacion,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Punto\ direccion,\ \textcolor{keywordtype}{bool}\ *juego\_terminado);}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ renderizar(Snake\ *serpiente,\ Tablero\ *tab,\ uint16\_t\ *puntuacion,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ joystick\_dir\ *direccion\_actual);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ renderizarBucle(Snake\ *snake,\ Tablero\ *tab,\ uint16\_t\ *puntuacion,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ joystick\_dir\ *direccion\_actual);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ dibujar\_cuerpo(uint8\_t\ x,\ uint8\_t\ y,\ uint16\_t\ color);}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ dibujar\_cabeza\_flecha(uint8\_t\ x,\ uint8\_t\ y,\ \textcolor{keyword}{enum}\ joystick\_dir\ dir,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ color);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ dibujar\_fruta(uint8\_t\ x,\ uint8\_t\ y,\ uint16\_t\ color);}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ pantalla\_victoria(uint16\_t\ *puntuacion);}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ pantalla\_derrota(uint16\_t\ *puntuacion);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ pantalla\_continuar();}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ pantalla\_iniciar();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SNAKE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{leds.\+h}
+\label{leds_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ LEDS\_H}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LEDS\_H}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}tipos.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ =====\ LEDs\ -\/\ Constantes\ Publicas\ =====}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{enum}\ leds\_tarjeta\_ea\ \{}
+\DoxyCodeLine{00034\ \ \ LED1\ =\ 1,\ \ }
+\DoxyCodeLine{00035\ \ \ LED2\ =\ 2,\ \ }
+\DoxyCodeLine{00036\ \ \ LED3\ =\ 3,\ \ }
+\DoxyCodeLine{00037\ \ \ LED4\ =\ 4\ \ \ }
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{enum}\ leds\_estado\ \{}
+\DoxyCodeLine{00045\ \ \ LED\_APAGADO\ =\ FALSE,\ \ \ \ }
+\DoxyCodeLine{00046\ \ \ LED\_ENCENDIDO\ =\ TRUE,\ \ \ }
+\DoxyCodeLine{00047\ \ \ LED\_OFF\ =\ FALSE,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ LED\_ON\ =\ TRUE\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ =====\ LEDs\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ leds\_inicializar(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ leds\_encender(uint8\_t\ numero\_led);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ leds\_apagar(uint8\_t\ numero\_led);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ leds\_invertir(uint8\_t\ numero\_led);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ leds\_ajustar(uint8\_t\ numero\_led,\ bool\_t\ estado);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LEDS\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,12 @@
+<map id="cola.c" name="cola.c">
+<area shape="rect" id="Node000001" title="Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica...." alt="" coords="137,5,194,32"/>
+<area shape="rect" id="Node000002" href="$cola_8h.html" title="Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica...." alt="" coords="105,80,162,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,31,147,67,143,64,158,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="178,155,241,181"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="171,31,204,140,199,139,167,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,70,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,107,68,147,65,143,114,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="94,155,154,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="134,105,130,141,125,138,130,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="148,105,188,144,183,144,146,110"/>
+</map>

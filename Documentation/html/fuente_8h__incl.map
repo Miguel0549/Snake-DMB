@@ -1,0 +1,11 @@
+<map id="fuente.h" name="fuente.h">
+<area shape="rect" id="Node000001" title="Tipos y constantes para el manejo de las fuentes para la pantalla GLCD." alt="" coords="189,5,257,32"/>
+<area shape="rect" id="Node000002" href="$tipos_8h.html" title="Definiciones de tipos para el compilador ARM." alt="" coords="193,80,253,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,30,225,65,221,63,221,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,169,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,107,125,149,123,145,197,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,155,254,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="225,105,225,140,221,138,221,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="278,155,346,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="239,105,288,145,282,145,238,110"/>
+</map>

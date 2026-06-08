@@ -1,0 +1,5 @@
+<map id="Desencolar" name="Desencolar">
+<area shape="rect" id="Node000001" title="Saca el primer nodo de la cola, pop." alt="" coords="5,5,93,32"/>
+<area shape="rect" id="Node000002" href="$cola_8c.html#a9ade4050f44e3b7934bb7aeb4d779118" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="141,5,261,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,16,127,18,122,19,93,21"/>
+</map>

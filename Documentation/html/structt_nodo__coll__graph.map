@@ -1,0 +1,6 @@
+<map id="tNodo" name="tNodo">
+<area shape="rect" id="Node000001" title="Nodo de la cola enlazada." alt="" coords="5,104,62,131"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="77,107,85,111,88,118,80,127,62,129,62,124,77,122,83,117,81,114,77,112"/>
+<area shape="rect" id="Node000002" href="$struct_punto.html" title="Estructura de punto de coordenadas para guardar posiciones en el tablero y direcciones." alt="" coords="6,5,61,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="36,47,36,104,31,103,31,49"/>
+</map>

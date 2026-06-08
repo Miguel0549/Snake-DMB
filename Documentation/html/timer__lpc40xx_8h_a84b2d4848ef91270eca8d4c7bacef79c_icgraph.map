@@ -1,0 +1,5 @@
+<map id="timer_esperar_fin_ciclo" name="timer_esperar_fin_ciclo">
+<area shape="rect" id="Node000001" title="Espera a que el bit de petición de interrupción del match 0 de un TIMER se ponga a 1...." alt="" coords="103,5,258,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,20,55,21,55,16,90,18"/>
+</map>

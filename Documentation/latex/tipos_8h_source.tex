@@ -1,0 +1,169 @@
+\doxysection{tipos.\+h}
+\label{tipos_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ TIPOS\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TIPOS\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <LPC407x\_8x\_177x\_8x.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <math.h>}\ \textcolor{comment}{//\ Necesario\ para\ pow()\ en\ ROUND}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ =====\ Tipos\ -\/\ Tipos\ estándar\ =====}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#if\ defined\ (\ \_\_STDC\_VERSION\_\_\ )\ \&\&\ (\ \_\_STDC\_VERSION\_\_\ >=\ 199901L\ )\ }\textcolor{comment}{//\ C99\ o\ superior}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ \_\_clang\_\_}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#pragma\ clang\ diagnostic\ ignored\ "{}-\/Winvalid-\/source-\/encoding"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \_Bool\ bool\_t;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#else}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ \_\_stdint\_h}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ int8\_t;}
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ int16\_t;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ int32\_t;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ int64\_t;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ uint8\_t;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ uint16\_t;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ uint32\_t;}
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ uint64\_t;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_\_stdint\_h}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifndef\ \_\_bool\_true\_false\_are\_defined}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ bool\_t;}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ bool\_t;}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ defined\ (\ \_\_STDC\_VERSION\_\_\ )\ \&\&\ (\ \_\_STDC\_VERSION\_\_\ >=\ 199901L\ )}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ Si\ no\ están\ definidos\ los\ símbolos\ FALSE\ y\ TRUE,\ definirlos}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifndef\ FALSE}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ FALSE\ ((bool\_t)\ 0)\ \ }}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifndef\ TRUE}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ TRUE\ \ ((bool\_t)\ 1)\ \ }}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ Definir\ tipos\ para\ datos\ flotantes\ que\ indiquen\ claramente\ su\ tamaño}}
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ float32\_t;\ \ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ float64\_t;\ \ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00097\ \ \ \_\_I\ \ \ uint32\_t\ STATUS;}
+\DoxyCodeLine{00098\ \ \ \_\_I\ \ \ uint32\_t\ STATR0;}
+\DoxyCodeLine{00099\ \ \ \_\_I\ \ \ uint32\_t\ STATF0;}
+\DoxyCodeLine{00100\ \ \ \_\_O\ \ \ uint32\_t\ CLR0;}
+\DoxyCodeLine{00101\ \ \ \_\_IO\ \ uint32\_t\ ENR0;}
+\DoxyCodeLine{00102\ \ \ \_\_IO\ \ uint32\_t\ ENF0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ uint32\_t\ RESERVED0[3];}
+\DoxyCodeLine{00104\ \ \ \_\_I\ \ \ uint32\_t\ STATR2;}
+\DoxyCodeLine{00105\ \ \ \_\_I\ \ \ uint32\_t\ STATF2;}
+\DoxyCodeLine{00106\ \ \ \_\_O\ \ \ uint32\_t\ CLR2;}
+\DoxyCodeLine{00107\ \ \ \_\_IO\ \ uint32\_t\ ENR2;}
+\DoxyCodeLine{00108\ \ \ \_\_IO\ \ uint32\_t\ ENF2;}
+\DoxyCodeLine{00109\ \}\ LPC\_GPIOINT\_TypeDef\_corregida;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#undef\ \ LPC\_GPIOINT}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ LPC\_GPIOINT\ ((LPC\_GPIOINT\_TypeDef\_corregida\ *)\ LPC\_GPIOINT\_BASE)}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#undef\ \ \_BIT}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ \_BIT(n)\ (1u\ <<\ n)}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#undef\ \ \_CAMPO}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ \_CAMPO(f,\ v)\ (v\ <<\ f)}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#if\ !defined(CEIL)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ CEIL(x)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(x)\ \_x\ =\ (x);\ \(\backslash\)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ }\textcolor{comment}{/*\ La\ última\ expresión\ es\ el\ valor\ de\ retorno\ de\ la\ macro\ */}\textcolor{preprocessor}{\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ (\_x\ >\ 0)\ ?\ (long\ long)(\_x\ +\ 0.9999999999999999)\ :\ (long\ long)\_x;\ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#if\ !defined(FLOOR)}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ FLOOR(x)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(x)\ \_x\ =\ (x);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \_x\ <\ 0\ ?\ (long\ long)(\_x\ -\/\ 0.9999999999999999)\ :\ (long\ long)\ \_x;\ \(\backslash\)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#if\ !defined(FIX)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ FIX(x)\ ((long\ long)(x))}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#if\ !defined(ROUND)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ ROUND(x,\ n)\ (FLOOR(((x)\ *\ pow(10,\ (n)))\ +\ 0.5)\ /\ pow(10,\ (n)))}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#if\ !defined(MAX)}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ MAX(a,\ b)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(a)\ \_a\ =\ (a);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(b)\ \_b\ =\ (b);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \_a\ >\ \_b\ ?\ \_a\ :\ \_b;\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#if\ !defined(MIN)}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ MIN(a,\ b)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(a)\ \_a\ =\ (a);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(b)\ \_b\ =\ (b);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\ \ \_a\ <\ \_b\ ?\ \_a\ :\ \_b;\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#if\ !defined(ABS)}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ ABS(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(x)\ \_x\ =\ (x);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \_x\ >\ 0\ ?\ \_x\ :\ -\/\_x;\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#if\ !defined(CONSTRAIN)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ CONSTRAIN(amt,\ low,\ high)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(amt)\ \_amt\ =\ (amt);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(low)\ \_low\ =\ (low);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(high)\ \_high\ =\ (high);\ \ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \_amt\ <\ \_low\ ?\ \_low\ :\ (\_amt\ >\ \_high\ ?\ \_high\ :\ \_amt);\ \ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#if\ !defined(SQ)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ SQ(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(x)\ \_x\ =\ (x);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \_x\ *\ \_x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#if\ !defined(MAP)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ MAP(x,\ in\_min,\ in\_max,\ out\_min,\ out\_max)\ \ \(\backslash\)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{(\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(x)\ \_x\ =\ (x);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(in\_min)\ \_in\_min\ =\ (in\_min);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(in\_max)\ \_in\_max\ =\ (in\_max);\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(out\_min)\ \_out\_min\ =\ (out\_min);\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \_\_typeof\_\_(out\_max)\ \_out\_max\ =\ (out\_max);\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ (\_x\ -\/\ \_in\_min)\ *\ (\_out\_max\ -\/\ \_out\_min)\ /\ (\_in\_max\ -\/\ \_in\_min)\ +\ \_out\_min;\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\})}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ TIPOS\_H}}
+
+\end{DoxyCode}

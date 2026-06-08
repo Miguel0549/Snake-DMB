@@ -1,0 +1,14 @@
+<map id="crearNodo" name="crearNodo">
+<area shape="rect" id="Node000001" title="Creas un nodo para la cola." alt="" coords="407,31,489,57"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a2a38e895d91c248931213be0dc6025ca" title="Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola." alt="" coords="276,5,352,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,34,352,28,353,23,395,33"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#a81dab5a93199d281b727a11cb19f95b9" title="Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas po..." alt="" coords="269,56,359,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="395,54,360,63,359,58,389,55"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html#a22665ff452eb912e82a1c9ee750f942c" title="Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la ..." alt="" coords="105,5,218,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="258,19,219,21,219,16,263,18"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="88,34,56,42,54,37,92,31"/>
+<area shape="rect" id="Node000006" href="$snake_8c.html#ae3388ad00263081be5b426713c5ed416" title="Avanzar en un ciclo la lógica de la partida." alt="" coords="103,56,221,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="250,69,222,72,222,67,256,69"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="85,56,55,51,55,46,90,54"/>
+</map>

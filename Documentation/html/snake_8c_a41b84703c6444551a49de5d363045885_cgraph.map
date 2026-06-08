@@ -1,0 +1,7 @@
+<map id="dibujar_cabeza_flecha" name="dibujar_cabeza_flecha">
+<area shape="rect" id="Node000001" title="Imprime la cabeza de la serpiente mirando en dirección correcta." alt="" coords="5,31,156,57"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html#a6072040078c30c5b6c38f374ea23266b" title="Dibuja en la pantlla LCD un segmento de línea recta definido por las coordenadas de sus extremos...." alt="" coords="243,5,322,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,32,230,25,225,26,156,37"/>
+<area shape="rect" id="Node000003" href="$glcd_8h.html#abd9afd22e98c2ca005af90cedd3fbe18" title="Dibuja en la pantalla LCD un rectángulo relleno definido por las coordenadas de los vértices de una d..." alt="" coords="204,56,361,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,51,191,57,185,58,156,56"/>
+</map>

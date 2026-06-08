@@ -1,0 +1,13 @@
+<map id="moveSnake" name="moveSnake">
+<area shape="rect" id="Node000001" title="Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas po..." alt="" coords="5,81,96,108"/>
+<area shape="rect" id="Node000002" href="$cola_8c.html#a0feb4362cfefff21a14cda0974c2b195" title="Creas un nodo para la cola." alt="" coords="152,5,234,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,79,142,42,154,38,150,41,145,46,78,83"/>
+<area shape="rect" id="Node000003" href="$cola_8c.html#a83d499a0de317ef6d95feb1c19e04f54" title="Saca el primer nodo de la cola, pop." alt="" coords="149,56,236,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,84,136,78,131,81,97,89"/>
+<area shape="rect" id="Node000005" href="$cola_8c.html#adda1573073c78572e5e5c8b7cdf0ca85" title="Inserta nodo en la cola, push." alt="" coords="160,107,226,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="96,100,147,110,142,113,96,105"/>
+<area shape="rect" id="Node000006" href="$cola_8c.html#aedd9ed435ab2cd29837bd07b0c76c97a" title="Devuelve la suma de dos puntos." alt="" coords="144,157,242,184"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="77,106,145,143,154,150,149,149,142,148,76,111"/>
+<area shape="rect" id="Node000004" href="$cola_8c.html#a9ade4050f44e3b7934bb7aeb4d779118" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="290,56,410,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="236,67,277,69,272,70,237,72"/>
+</map>

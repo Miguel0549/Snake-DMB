@@ -1,0 +1,42 @@
+\doxysection{timer\+\_\+lpc40xx.\+h}
+\label{timer__lpc40xx_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ TIMER\_LPC40XX\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ TIMER\_LPC40XX\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}tipos.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <LPC407x\_8x\_177x\_8x.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ TIMER0\ LPC\_TIM0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ TIMER1\ LPC\_TIM1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ TIMER2\ LPC\_TIM2}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ TIMER3\ LPC\_TIM3}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LPC\_TIMER0\ LPC\_TIM0}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LPC\_TIMER1\ LPC\_TIM1}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LPC\_TIMER2\ LPC\_TIM2}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LPC\_TIMER3\ LPC\_TIM3}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ =====\ Timer\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ timer\_inicializar(\textcolor{keyword}{const}\ LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ timer\_retardo\_ms(LPC\_TIM\_TypeDef\ *timer\_regs,\ uint32\_t\ retardo\_en\_ms);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ timer\_retardo\_us(LPC\_TIM\_TypeDef\ *timer\_regs,\ uint32\_t\ retardo\_en\_us);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ timer\_iniciar\_ciclos\_ms(LPC\_TIM\_TypeDef\ *timer\_regs,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ periodo\_en\_ms);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ timer\_iniciar\_ciclos\_us(LPC\_TIM\_TypeDef\ *timer\_regs,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ periodo\_en\_us);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ timer\_esperar\_fin\_ciclo(LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{bool}\ timer\_fin\_ciclo(LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ timer\_iniciar\_conteo\_ms(LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ timer\_iniciar\_conteo\_us(LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00050\ uint32\_t\ timer\_leer(\textcolor{keyword}{const}\ LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ timer\_poner\_contador\_a\_0(LPC\_TIM\_TypeDef\ *timer\_regs);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TIMER\_LPC40XX\_H}}
+
+\end{DoxyCode}

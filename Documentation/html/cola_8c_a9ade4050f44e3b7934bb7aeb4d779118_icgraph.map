@@ -1,0 +1,25 @@
+<map id="constructorPunto" name="constructorPunto">
+<area shape="rect" id="Node000001" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="578,132,698,159"/>
+<area shape="rect" id="Node000002" href="$cola_8c.html#a83d499a0de317ef6d95feb1c19e04f54" title="Saca el primer nodo de la cola, pop." alt="" coords="429,31,517,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="599,123,496,60,497,55,604,124"/>
+<area shape="rect" id="Node000006" href="$snake_8c.html#acc3d562198ac8b791b982d5b582aa120" title="Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a sra..." alt="" coords="416,107,530,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="559,134,530,131,530,126,565,134"/>
+<area shape="rect" id="Node000009" href="$snake_8c.html#a2a38e895d91c248931213be0dc6025ca" title="Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola." alt="" coords="286,157,361,184"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="559,152,361,170,361,165,565,151"/>
+<area shape="rect" id="Node000010" href="$snake_8c.html#a62696bc6aeb952b163f6e3d19dd0b63e" title="Transforma las direcciones del joycon en puntos, para poder sumar estos como direcciones y trabajar l..." alt="" coords="103,195,230,221"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="565,161,530,171,450,187,369,199,231,209,230,203,368,193,449,181,529,165,560,162"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html#a81dab5a93199d281b727a11cb19f95b9" title="Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas po..." alt="" coords="278,5,368,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,35,369,29,369,24,416,33"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#ae3388ad00263081be5b426713c5ed416" title="Avanzar en un ciclo la lógica de la partida." alt="" coords="107,56,226,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="263,39,211,58,209,53,267,36"/>
+<area shape="rect" id="Node000005" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,119,55,145"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="120,92,57,123,54,119,123,87"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="403,103,368,97,226,78,226,72,369,92,408,102"/>
+<area shape="rect" id="Node000007" href="$snake_8c.html#ad51a966173731ee073b23be87e8646be" title="Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frut..." alt="" coords="283,107,363,133"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="398,120,364,123,363,117,404,120"/>
+<area shape="rect" id="Node000008" href="$snake_8c.html#a22665ff452eb912e82a1c9ee750f942c" title="Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la ..." alt="" coords="110,119,223,145"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="265,125,224,130,223,125,270,123"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="92,134,56,135,54,129,96,130"/>
+<area shape="poly" id="edge11_Node000009_Node000008" title=" " alt="" coords="268,158,223,149,223,143,273,157"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="125,188,55,148,56,143,130,185"/>
+</map>

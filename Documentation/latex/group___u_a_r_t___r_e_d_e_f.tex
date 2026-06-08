@@ -1,0 +1,30 @@
+\doxysubsection{UART -\/ Redefinición de la UART1 y UART4 }
+\label{group___u_a_r_t___r_e_d_e_f}\index{UART -\/ Redefinición de la UART1 y UART4@{UART -\/ Redefinición de la UART1 y UART4}}
+
+
+Redefinición de la UART1 y la UART4 como UARTs de tipo LPC\+\_\+\+UART\+\_\+\+Type\+Def.  
+
+
+Collaboration diagram for UART -\/ Redefinición de la UART1 y UART4:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___u_a_r_t___r_e_d_e_f}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\label{group___u_a_r_t___r_e_d_e_f_gac7492935d0fd67fd9587cc1e5324007b} 
+\+\#define {\bfseries LPC\+\_\+\+UART1\+\_\+}~((LPC\+\_\+\+UART\+\_\+\+Type\+Def $\ast$) LPC\+\_\+\+UART1\+\_\+\+BASE)
+\item 
+\label{group___u_a_r_t___r_e_d_e_f_gae77a866ec2bbfc7f2bbf6b4c348f6169} 
+\+\#define {\bfseries LPC\+\_\+\+UART4\+\_\+}~((LPC\+\_\+\+UART\+\_\+\+Type\+Def $\ast$) LPC\+\_\+\+UART4\+\_\+\+BASE)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Redefinición de la UART1 y la UART4 como UARTs de tipo LPC\+\_\+\+UART\+\_\+\+Type\+Def. 
+
+Las funciones de este módulo no usan ninguna de las características especiales de las UARTs 1 y 4. Las posiciones de los registros comunes a todas las UARTs coinciden, así que todas se manejarán mediante punteros a estructura de tipo LPC\+\_\+\+UART\+\_\+\+Type\+Def. 

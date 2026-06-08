@@ -1,0 +1,5 @@
+<map id="dibujar_cuerpo" name="dibujar_cuerpo">
+<area shape="rect" id="Node000001" title="Imprime una celda del cuerpo de la serpiente." alt="" coords="5,5,111,32"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html#abd9afd22e98c2ca005af90cedd3fbe18" title="Dibuja en la pantalla LCD un rectángulo relleno definido por las coordenadas de los vértices de una d..." alt="" coords="159,5,316,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,16,146,18,141,19,111,21"/>
+</map>

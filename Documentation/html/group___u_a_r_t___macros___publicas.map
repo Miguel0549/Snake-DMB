@@ -1,0 +1,4 @@
+<map id="UART &#45; Macros Públicas" name="UART &#45; Macros Públicas">
+<area shape="rect" id="Node000001" title="Símbolos alternativos para las UARTs." alt="" coords="5,13,172,40"/>
+<area shape="rect" id="Node000002" href="$group___u_a_r_t___r_e_d_e_f.html" title="Redefinición de la UART1 y la UART4 como UARTs de tipo LPC_UART_TypeDef." alt="" coords="220,5,378,48"/>
+</map>

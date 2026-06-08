@@ -1,0 +1,39 @@
+\doxysection{error.\+h}
+\label{error_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ ERROR\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ERROR\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}tipos.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ EA\_GLCD}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ HABILITAR\_ASSERT\ 1}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ =====\ Error\ -\/\ Funciones\ Macro\ Publicas\ =====}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ ERROR(mensaje)\ \ parar\_con\_error(\_\_FILE\_\_,\ \_\_FUNCTION\_\_,\ \_\_LINE\_\_,\ mensaje)}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#if\ HABILITAR\_ASSERT\ !=\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ ASSERT(expr,\ mensaje)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ if\ (expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ ;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \}\ else\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ parar\_con\_error(\_\_FILE\_\_,\ \_\_FUNCTION\_\_,\ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LINE\_\_,\ mensaje);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\}\ while\ (0)}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ ASSERT(expr,\ mensaje)\ \ }}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ =====\ Error\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ parar\_con\_error(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fichero,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *funcion,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ linea,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *mensaje);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
+
+\end{DoxyCode}

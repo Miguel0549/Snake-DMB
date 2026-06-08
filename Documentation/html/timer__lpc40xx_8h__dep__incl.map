@@ -1,0 +1,7 @@
+<map id="timer_lpc40xx.h" name="timer_lpc40xx.h">
+<area shape="rect" id="Node000001" title="Funciones de uso de los timers del LPC40xx." alt="" coords="34,5,147,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="5,80,66,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,44,47,81,43,78,69,45"/>
+<area shape="rect" id="Node000003" href="$timer__lpc40xx_8c.html" title="Funciones para el uso de los timers del LPC40xx." alt="" coords="90,80,203,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,42,139,80,134,80,108,47"/>
+</map>

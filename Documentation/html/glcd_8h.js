@@ -1,0 +1,106 @@
+var glcd_8h =
+[
+    [ "glcd_config_texto_t", "structglcd__config__texto__t.html", null ],
+    [ "__FILE", "struct_____f_i_l_e.html", null ],
+    [ "GLCD_PCA9532_AUTO_INC", "group___g_l_c_d___p_c_a9532.html#gad067a417ef7981f921a389dd97a3aad5", null ],
+    [ "GLCD_PCA9532_I2C_ADDR", "group___g_l_c_d___p_c_a9532.html#ga62e8e121ff5cce96ea44518c47ca3451", null ],
+    [ "GLCD_VRAM_BASE_ADDR", "glcd_8h.html#a7e3699c214c8b26be44ae25f3d6b8900", null ],
+    [ "NUMERO_FUENTES", "glcd_8h.html#a4600a341179ab8c42f7efb7ee1e15ec6", null ],
+    [ "RGB", "glcd_8h.html#a4a118ad3ee36468a3fa616977a64864e", null ],
+    [ "fuentes_lcd", "glcd_8h.html#a94e9851762d57b995e67d662aca837b7", [
+      [ "FUENTE8X16", "glcd_8h.html#a94e9851762d57b995e67d662aca837b7aae9d9cbb8629b5f3fb2c9cb857a75316", null ],
+      [ "FUENTE12X24", "glcd_8h.html#a94e9851762d57b995e67d662aca837b7a897163b5c834d15f47c3693592e38266", null ],
+      [ "FUENTE16X32", "glcd_8h.html#a94e9851762d57b995e67d662aca837b7a1f4a2c1d6d06ee8ae371ec339bc5613d", null ]
+    ] ],
+    [ "glcd_bits_por_pixel", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9", [
+      [ "GLCD_BPP_1", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9a3b4ee73a950bf5ca5a9f498a9f7895c8", null ],
+      [ "GLCD_BPP_2", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9aa1ce2ff81c3088808e6bffaa3d4d8f66", null ],
+      [ "GLCD_BPP_4", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9ae05ea4546bdbe29fdb56322d9b230525", null ],
+      [ "GLCD_BPP_8", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9a836ee7edf05b80058b2562f5a2c022f4", null ],
+      [ "GLCD_BPP_16", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9a195e5c89fb9507d1368cfcaf8fa89f55", null ],
+      [ "GLCD_BPP_24", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9a56514f5ed4da48981c1b5954d4344309", null ],
+      [ "GLCD_BPP_565", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9afad3896e7f8b95de1ee51b2b95bbd22c", null ],
+      [ "GLCD_BPP_12", "glcd_8h.html#a4095b5275df7c54ae673ceeff5b9e7c9a4399c287478fcf7b4fa3cbc2a11b9d0e", null ]
+    ] ],
+    [ "glcd_color_t", "glcd_8h.html#a005c4e8de86acc1179c572cc3230ad51", null ],
+    [ "glcd_ctrl_bits", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22f", [
+      [ "GLCD_CTRL_EN_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22facc0eafd240b416b06fb579b3024a2ace", null ],
+      [ "GLCD_CTRL_BPP", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fae144617b314257619f99935dce56a527", null ],
+      [ "GLCD_CTRL_BW_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa8a898140ae7a56af2aa6c8e851e58c08", null ],
+      [ "GLCD_CTRL_TFT_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa27ee13dd62862c6ba14deea79fbeaa11", null ],
+      [ "GLCD_CTRL_MONO8_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fac2ed16a70d3bb7b28f427ddbe1472e09", null ],
+      [ "GLCD_CTRL_LCDDUAL_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa37c7f3a00df7eaee434689f1d94d6344", null ],
+      [ "GLCD_CTRL_BGR_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa87f308a27c7455edac3308046db217fe", null ],
+      [ "GLCD_CTRL_BYTEORDER_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22faa359047659829871a9f4cf27b8158a36", null ],
+      [ "GLCD_CTRL_BITORDER_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa8ec8c463922eb64d0e7872471b88bf6f", null ],
+      [ "GLCD_CTRL_PWR_BIT", "glcd_8h.html#af77b54e8396e9fcae7c704fd6344b22fa2a3e37fb0bf8ad4ed4190c29941e628b", null ]
+    ] ],
+    [ "glcd_parametros", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472", [
+      [ "GLCD_PIXELES_POR_LINEA", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a425a02b103b0976ea91f66930a3f902e", null ],
+      [ "GLCD_LINEAS_POR_PANEL", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472afa3ea048abc57eb1c2029ab19724dcae", null ],
+      [ "GLCD_HSYNC_PULSE_WIDTH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472aa1f676fa66bbfea398fd531ddb08d8e7", null ],
+      [ "GLCD_HSYNC_FRONT_PORCH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472aa981d60bf2dbc13c5b6e058dc555aa9d", null ],
+      [ "GLCD_HSYNC_BACK_PORCH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a927a67481df173504225aeed91c8f5f4", null ],
+      [ "GLCD_VSYNC_PULSE_WIDTH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472afb67ec2ddf5898449668df06b0f562b8", null ],
+      [ "GLCD_VSYNC_FRONT_PORCH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a76c9485ab4e488105933efc291d9b2e7", null ],
+      [ "GLCD_VSYNC_BACK_PORCH", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472aff0d335967e823d388b0430bfbebc089", null ],
+      [ "GLCD_INVERTIR_SALIDA", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472adf047bd5208377732c0f1fae08318110", null ],
+      [ "GLCD_INVERTIR_RELOJ", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a0356b429f6647efd586235f070c9bc61", null ],
+      [ "GLCD_INVERTIR_HSYNC", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472aacb6e3e321dbb2662af177aa5c77d7cf", null ],
+      [ "GLCD_INVERTIR_VSYNC", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a28fadeda1e660367c854efeed0c7b44a", null ],
+      [ "GLCD_CICLOS_POR_LINEA", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472ae30e22fb2bd59e18db1a890a15612487", null ],
+      [ "GLCD_RELOJ_LCD", "glcd_8h.html#a7eeab3a6c11822b8be279f788a1f0472a4129787c444e72249198c31ff1ad1b98", null ]
+    ] ],
+    [ "glcd_pca9532_ctrl", "group___g_l_c_d___p_c_a9532.html#ga1c139779bceb0d271228537040a3405d", [
+      [ "GLCD_PCACTRL_3V3", "group___g_l_c_d___p_c_a9532.html#gga1c139779bceb0d271228537040a3405da049cef076c874959b10c8bdb06ded7d0", null ],
+      [ "GLCD_PCACTRL_5V", "group___g_l_c_d___p_c_a9532.html#gga1c139779bceb0d271228537040a3405da5fd9fdd8c45b54cf836b5538b303b7ab", null ],
+      [ "GLCD_PCACTRL_DISP_EN", "group___g_l_c_d___p_c_a9532.html#gga1c139779bceb0d271228537040a3405da0586329788949558a40ed59ff797f891", null ],
+      [ "GLCD_PCACTRL_BL_EN", "group___g_l_c_d___p_c_a9532.html#gga1c139779bceb0d271228537040a3405dae9befdf65de11b08a052bfb68054ab58", null ],
+      [ "GLCD_PCACTRL_BL_C", "group___g_l_c_d___p_c_a9532.html#gga1c139779bceb0d271228537040a3405dacadceaeed9c3a93c17f03d8a85a996f3", null ]
+    ] ],
+    [ "glcd_pca9532_ls_modos", "group___g_l_c_d___p_c_a9532.html#ga084b297e1c3d425d230e82f0c9009184", [
+      [ "GLCD_LS_MODO_OFF", "group___g_l_c_d___p_c_a9532.html#gga084b297e1c3d425d230e82f0c9009184aa3810cd68405f784c60ad2da3962d600", null ],
+      [ "GLCD_LS_MODO_ON", "group___g_l_c_d___p_c_a9532.html#gga084b297e1c3d425d230e82f0c9009184a66435d764e16daf6c6e771cd5a19c5ed", null ],
+      [ "GLCD_LS_MODO_PWM0", "group___g_l_c_d___p_c_a9532.html#gga084b297e1c3d425d230e82f0c9009184a3f93ab8308bda3f46f1670249a1ecd8d", null ],
+      [ "GLCD_LS_MODO_PWM1", "group___g_l_c_d___p_c_a9532.html#gga084b297e1c3d425d230e82f0c9009184a4ba6ff8ba7ab014b2832f7dad793b0a1", null ]
+    ] ],
+    [ "glcd_pca9532_registros", "group___g_l_c_d___p_c_a9532.html#ga24eec86b944b6fc365e24bfeafc047cc", null ],
+    [ "glcd_pol_bits", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657", [
+      [ "GLCD_POL_PCD_LO", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657ae9048755d1dec7ff57ffedd6ede7dd94", null ],
+      [ "GLCD_POL_CLKSEL_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657a00403f64b69f4bdf7f4c19e330316315", null ],
+      [ "GLCD_POL_ACB", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657ab140a38b3147346f067665a8f5ee939f", null ],
+      [ "GLCD_POL_IVS_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657ac57cf957d1cafde7fd60ce72531cf1ac", null ],
+      [ "GLCD_POL_IHS_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657a34e6355d64259f2db8f81cbdce38fd42", null ],
+      [ "GLCD_POL_IPC_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657a4a2dfacd9d07a8b5126327fc779b765c", null ],
+      [ "GLCD_POL_IOE_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657a15a4a8ec073c05c24505ed4d812ec1fd", null ],
+      [ "GLCD_POL_CPL", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657accd1fa59048e8fd383235055a5d68492", null ],
+      [ "GLCD_POL_BCD_BIT", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657a7f26431b7899503f79302ef84d44ee80", null ],
+      [ "GLCD_POL_PCD_HI", "glcd_8h.html#aa1b4467ff3cd41a236f704cd52245657aa866a0a1a3f39b27b4dde419aed0beb1", null ]
+    ] ],
+    [ "glcd_tamano", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9", [
+      [ "GLCD_TAMANO_X", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9a62c4620274ed922fb361412296b030f5", null ],
+      [ "GLCD_TAMANO_Y", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9a08878e12f5508c2c7e3f6bb20eedbbc9", null ],
+      [ "GLCD_X_MINIMO", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9aa4030bc4f15da6cc050c1bb4b10a25d7", null ],
+      [ "GLCD_X_MAXIMO", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9ad6c5334c8cb592bad8ed87b8e17d71ca", null ],
+      [ "GLCD_Y_MINIMO", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9aa1918f21d3b0ce990d02abff381b5bb2", null ],
+      [ "GLCD_Y_MAXIMO", "glcd_8h.html#a03e34b25c70277d50858b44f3324cea9a5436f18d94777b99d3f98c2549e0481b", null ]
+    ] ],
+    [ "glcd_activar_desplazamiento", "glcd_8h.html#aed3cd8e364844cb77851cfa5ea5e5795", null ],
+    [ "glcd_borrar", "glcd_8h.html#aeef99bde10486881fdf9d1ba36dea33c", null ],
+    [ "glcd_caracter", "glcd_8h.html#a2fdd80c0e729f2db7c608f10e742ab14", null ],
+    [ "glcd_circulo", "glcd_8h.html#a8a0cfc7e0a84943f7fe511a04112e7f3", null ],
+    [ "glcd_circunferencia", "glcd_8h.html#a591520a1b8e1744175665c4ca8f5f566", null ],
+    [ "glcd_color_texto", "glcd_8h.html#a6500d806d5099a7b4db844543c0f676f", null ],
+    [ "glcd_desplazar", "glcd_8h.html#a0cabeee3a85912af7514930ae95df44b", null ],
+    [ "glcd_fondo_texto", "glcd_8h.html#ae7d297813478e7a627ae8085860392b4", null ],
+    [ "glcd_inicializar", "glcd_8h.html#aea6d6136114afbcdeb236f28bc7f3049", null ],
+    [ "glcd_linea", "glcd_8h.html#a6072040078c30c5b6c38f374ea23266b", null ],
+    [ "glcd_printf", "glcd_8h.html#aff6c2de45fce32689351e87796b0a803", null ],
+    [ "glcd_punto", "glcd_8h.html#a2c1b15bdd87cb2915e72e0a93b11c530", null ],
+    [ "glcd_rectangulo", "glcd_8h.html#adb0885aacc0ae45d024b4f3cb7fd0315", null ],
+    [ "glcd_rectangulo_relleno", "glcd_8h.html#abd9afd22e98c2ca005af90cedd3fbe18", null ],
+    [ "glcd_seleccionar_fuente", "glcd_8h.html#a7f3a66082771f8ae0267c8cf8a3cefd1", null ],
+    [ "glcd_texto", "glcd_8h.html#a7b430c62ef4a5d9954cb4971c9f2d4e3", null ],
+    [ "glcd_xprintf", "glcd_8h.html#aaa82fb16582c7947bfd6f8dd17406028", null ],
+    [ "glcd_xy_texto", "glcd_8h.html#a2515d384a9022779446d541dc06a5030", null ]
+];

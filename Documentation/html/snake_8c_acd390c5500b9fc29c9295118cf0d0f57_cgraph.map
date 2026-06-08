@@ -1,0 +1,5 @@
+<map id="dibujar_fruta" name="dibujar_fruta">
+<area shape="rect" id="Node000001" title="Imprime la fruta." alt="" coords="5,5,98,32"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html#a8a0cfc7e0a84943f7fe511a04112e7f3" title="Dibuja un circulo relleno en la pantalla LCD. Se dibuja la parte del cículo contenido entre los límit..." alt="" coords="146,5,236,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,16,133,18,128,19,98,21"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="timer_lpc40xx.c" name="timer_lpc40xx.c">
+<area shape="rect" id="Node000001" title="Funciones para el uso de los timers del LPC40xx." alt="" coords="112,5,225,32"/>
+<area shape="rect" id="Node000002" href="$timer__lpc40xx_8h.html" title="Funciones de uso de los timers del LPC40xx." alt="" coords="112,80,225,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,30,171,65,166,64,167,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,229,169,256"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="144,35,122,54,101,81,90,115,84,150,86,214,80,213,79,150,84,114,97,79,118,51,148,31"/>
+<area shape="rect" id="Node000007" href="$error_8h.html" title="Librería para el tratamiento de errores." alt="" coords="248,80,307,107"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="188,30,249,71,244,72,187,35"/>
+<area shape="rect" id="Node000003" href="$tipos_8h.html" title="Definiciones de tipos para el compilador ARM." alt="" coords="193,155,253,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="179,105,207,142,202,142,177,110"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="164,107,104,217,99,214,159,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="202,181,125,224,123,219,197,182"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="192,229,254,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="225,180,225,215,221,212,221,184"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="278,229,346,256"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="239,179,288,220,282,219,238,184"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="270,106,243,144,240,140,266,109"/>
+</map>

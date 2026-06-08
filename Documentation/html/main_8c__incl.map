@@ -1,0 +1,40 @@
+<map id="main.c" name="main.c">
+<area shape="rect" id="Node000001" title="Main para probar las funciones del juego snake." alt="" coords="580,5,640,32"/>
+<area shape="rect" id="Node000002" href="$snake_8h.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="318,80,385,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="577,30,401,81,399,76,582,27"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="529,379,692,405"/>
+<area shape="poly" id="edge22_Node000001_Node000009" title=" " alt="" coords="626,30,651,53,678,85,699,123,705,145,708,167,708,244,701,282,684,317,661,346,638,371,635,366,657,343,679,314,696,280,702,244,702,167,700,146,694,126,673,88,647,57,625,35"/>
+<area shape="rect" id="Node000016" href="$timer__lpc40xx_8h.html" title="Funciones de uso de los timers del LPC40xx." alt="" coords="554,229,667,256"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="612,31,613,215,608,213,608,34"/>
+<area shape="rect" id="Node000003" href="$cola_8h.html" title="Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica...." alt="" coords="121,155,177,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,109,193,154,190,149,320,105"/>
+<area shape="rect" id="Node000007" href="$glcd_8h.html" title="Funciones de manejo del LCD de 4.3&quot; desde la tarjeta Embedded Artist Developer&#39;s Kit." alt="" coords="324,155,380,181"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="353,105,354,140,349,138,350,110"/>
+<area shape="rect" id="Node000014" href="$joystick_8h.html" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="441,155,518,181"/>
+<area shape="poly" id="edge16_Node000002_Node000014" title=" " alt="" coords="374,105,447,146,441,147,374,110"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="225,155,300,181"/>
+<area shape="poly" id="edge18_Node000002_Node000015" title=" " alt="" coords="334,109,291,147,288,143,338,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,229,157,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="146,180,136,216,132,213,144,184"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="182,229,242,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="160,179,194,217,188,218,160,185"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,229,69,256"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="128,184,71,223,67,219,131,180"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="325,183,251,224,249,219,329,180"/>
+<area shape="rect" id="Node000008" href="$tipos_8h.html" title="Definiciones de tipos para el compilador ARM." alt="" coords="422,304,482,331"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="339,180,323,199,310,217,303,236,307,255,327,276,353,291,380,302,409,311,404,311,379,307,350,296,324,280,303,257,297,236,305,214,319,195,335,183"/>
+<area shape="rect" id="Node000012" href="$sdram_8h.html" title="Funciones para utilizar la SDRAM con la pantalla LCD de EA para el LPC4088." alt="" coords="318,229,386,256"/>
+<area shape="poly" id="edge12_Node000007_Node000012" title=" " alt="" coords="353,180,354,215,349,212,350,184"/>
+<area shape="rect" id="Node000013" href="$fuente_8h.html" title="Tipos y constantes para el manejo de las fuentes para la pantalla GLCD." alt="" coords="410,229,478,256"/>
+<area shape="poly" id="edge14_Node000007_Node000013" title=" " alt="" coords="368,179,419,220,413,220,367,185"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="480,329,571,372,566,372,479,334"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="429,379,490,405"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="455,329,459,365,454,361,451,333"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="336,379,404,405"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="440,330,397,371,394,366,435,332"/>
+<area shape="poly" id="edge13_Node000012_Node000008" title=" " alt="" coords="370,254,425,295,419,294,368,259"/>
+<area shape="poly" id="edge15_Node000013_Node000008" title=" " alt="" coords="447,254,451,290,446,287,443,259"/>
+<area shape="poly" id="edge17_Node000014_Node000008" title=" " alt="" coords="486,180,495,215,496,236,493,257,474,294,470,290,488,255,491,236,490,216,483,184"/>
+<area shape="poly" id="edge20_Node000016_Node000008" title=" " alt="" coords="585,256,494,300,492,295,580,257"/>
+<area shape="poly" id="edge21_Node000016_Node000009" title=" " alt="" coords="612,255,613,365,608,362,608,258"/>
+</map>

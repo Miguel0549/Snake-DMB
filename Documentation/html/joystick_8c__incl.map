@@ -1,0 +1,18 @@
+<map id="joystick.c" name="joystick.c">
+<area shape="rect" id="Node000001" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="124,5,201,32"/>
+<area shape="rect" id="Node000002" href="$joystick_8h.html" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="16,80,93,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,35,88,73,84,69,145,30"/>
+<area shape="rect" id="Node000003" href="$tipos_8h.html" title="Definiciones de tipos para el compilador ARM." alt="" coords="96,155,157,181"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="162,31,136,141,131,139,158,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,229,347,256"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="185,30,214,50,238,79,254,113,263,149,268,215,264,213,257,150,249,115,234,81,211,54,185,35"/>
+<area shape="rect" id="Node000007" href="$leds_8h.html" title="Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088." alt="" coords="168,80,224,107"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="169,30,187,66,181,66,168,35"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="68,105,106,143,101,144,67,110"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="151,179,230,221,225,222,150,184"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,229,67,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="113,181,65,222,62,218,108,183"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="91,229,160,256"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="128,180,128,215,123,213,125,184"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="186,105,151,145,147,141,182,109"/>
+</map>

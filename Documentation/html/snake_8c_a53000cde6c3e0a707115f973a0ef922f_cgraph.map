@@ -1,0 +1,7 @@
+<map id="pantalla_victoria" name="pantalla_victoria">
+<area shape="rect" id="Node000001" title="Pantalla de victoria, llamar al ganar la partida." alt="" coords="5,31,121,57"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html#aeef99bde10486881fdf9d1ba36dea33c" title="Borra la pantalla LCD rellenándola con el color indicado." alt="" coords="170,5,256,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,32,157,28,152,29,122,37"/>
+<area shape="rect" id="Node000003" href="$glcd_8h.html#aaa82fb16582c7947bfd6f8dd17406028" title="Función parecida a glcd_printf pero pudiendo indicar las coordedadas donde aparece el texto,..." alt="" coords="169,56,257,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="121,51,156,59,151,60,121,56"/>
+</map>

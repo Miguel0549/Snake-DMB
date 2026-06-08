@@ -1,0 +1,12 @@
+<map id="generar_comida" name="generar_comida">
+<area shape="rect" id="Node000001" title="Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a sra..." alt="" coords="397,31,511,57"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#ae3388ad00263081be5b426713c5ed416" title="Avanzar en un ciclo la lógica de la partida." alt="" coords="103,5,221,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,39,221,26,221,21,385,37"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#ad51a966173731ee073b23be87e8646be" title="Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frut..." alt="" coords="269,56,349,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="385,56,350,65,350,60,379,57"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,35,56,42,54,37,90,31"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#a22665ff452eb912e82a1c9ee750f942c" title="Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la ..." alt="" coords="105,56,218,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="251,69,219,72,219,67,256,69"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="87,57,55,51,55,46,92,54"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Snake" name="Snake">
+<area shape="rect" id="Node000001" title="Estructura de la serpiente." alt="" coords="5,323,64,349"/>
+<area shape="rect" id="Node000002" href="$struct_punto.html" title="Estructura de punto de coordenadas para guardar posiciones en el tablero y direcciones." alt="" coords="7,5,62,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="34,45,32,155,36,322,31,322,27,155,33,50"/>
+<area shape="rect" id="Node000004" href="$structt_nodo.html" title="Nodo de la cola enlazada." alt="" coords="58,104,115,131"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="48,43,82,103,77,104,48,48"/>
+<area shape="rect" id="Node000003" href="$structt_cola.html" title="Cola enlazada con memoria dinámica." alt="" coords="59,224,111,251"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,265,43,324,39,321,69,264"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,144,88,224,83,223,85,149"/>
+<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="129,107,138,111,141,118,133,127,116,129,114,124,130,122,136,117,134,114,131,112"/>
+</map>

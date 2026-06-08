@@ -1,0 +1,7 @@
+<map id="glcd_rectangulo" name="glcd_rectangulo">
+<area shape="rect" id="Node000001" title="Dibuja en la pantalla LCD un rectángulo definido por las coordenadas de los vértices de una diagonal...." alt="" coords="229,5,341,32"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a982f9d120923030a7b2f590ab4b59e2d" title="Imprime el escenario inicial por pantalla." alt="" coords="103,5,181,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,19,181,21,181,16,216,19"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,20,55,21,55,16,90,18"/>
+</map>

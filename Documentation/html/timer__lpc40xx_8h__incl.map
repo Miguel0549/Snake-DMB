@@ -1,0 +1,12 @@
+<map id="timer_lpc40xx.h" name="timer_lpc40xx.h">
+<area shape="rect" id="Node000001" title="Funciones de uso de los timers del LPC40xx." alt="" coords="97,5,210,32"/>
+<area shape="rect" id="Node000002" href="$tipos_8h.html" title="Definiciones de tipos para el compilador ARM." alt="" coords="176,80,236,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,30,191,67,185,67,162,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,155,169,181"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="151,32,101,142,97,139,145,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="188,107,122,149,119,144,182,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,155,254,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="210,105,219,140,214,138,207,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="278,155,346,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="225,105,284,146,278,146,223,110"/>
+</map>

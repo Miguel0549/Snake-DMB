@@ -1,0 +1,232 @@
+\doxysection{glcd.\+h}
+\label{glcd_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ GLCD\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ GLCD\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}tipos.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}sdram.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}fuente.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ =====\ GLCD\ -\/\ Constantes\ Publicas\ =====}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ GLCD\_VRAM\_BASE\_ADDR\ (SDRAM\_BASE\ +\ 0x0010000)}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{enum}\ glcd\_parametros\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Parámetros\ de\ la\ LCD}}
+\DoxyCodeLine{00035\ \ \ GLCD\_PIXELES\_POR\_LINEA\ \ =\ 480,\ \ }
+\DoxyCodeLine{00036\ \ \ GLCD\_LINEAS\_POR\_PANEL\ \ \ =\ 272,\ \ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Ajustes\ del\ controlador}}
+\DoxyCodeLine{00039\ \ \ GLCD\_HSYNC\_PULSE\_WIDTH\ \ =\ 2u,\ \ \ }
+\DoxyCodeLine{00040\ \ \ GLCD\_HSYNC\_FRONT\_PORCH\ \ =\ 5u,\ \ \ }
+\DoxyCodeLine{00041\ \ \ GLCD\_HSYNC\_BACK\_PORCH\ \ \ =\ 40u,\ \ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ GLCD\_VSYNC\_PULSE\_WIDTH\ \ =\ 2u,\ \ \ }
+\DoxyCodeLine{00044\ \ \ GLCD\_VSYNC\_FRONT\_PORCH\ \ =\ 8u,\ \ \ }
+\DoxyCodeLine{00045\ \ \ GLCD\_VSYNC\_BACK\_PORCH\ \ \ =\ 8u,\ \ \ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ GLCD\_INVERTIR\_SALIDA\ \ \ \ =\ 0u,\ \ \ }
+\DoxyCodeLine{00048\ \ \ GLCD\_INVERTIR\_RELOJ\ \ \ \ \ =\ 0u,\ \ \ }
+\DoxyCodeLine{00049\ \ \ GLCD\_INVERTIR\_HSYNC\ \ \ \ \ =\ 1u,\ \ \ }
+\DoxyCodeLine{00050\ \ \ GLCD\_INVERTIR\_VSYNC\ \ \ \ \ =\ 1u,\ \ \ }
+\DoxyCodeLine{00051\ \ \ GLCD\_CICLOS\_POR\_LINEA\ \ \ =\ GLCD\_PIXELES\_POR\_LINEA,\ \ \ }
+\DoxyCodeLine{00052\ \ \ GLCD\_RELOJ\_LCD\ \ \ \ \ \ \ \ \ \ =\ 9000000\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{enum}\ glcd\_tamano\ \{}
+\DoxyCodeLine{00060\ \ \ GLCD\_TAMANO\_X\ =\ GLCD\_PIXELES\_POR\_LINEA,\ \ \ }
+\DoxyCodeLine{00061\ \ \ GLCD\_TAMANO\_Y\ =\ GLCD\_LINEAS\_POR\_PANEL,\ \ \ \ }
+\DoxyCodeLine{00062\ \ \ GLCD\_X\_MINIMO\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ GLCD\_X\_MAXIMO\ =\ (GLCD\_TAMANO\_X\ -\/\ 1),\ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ GLCD\_Y\_MINIMO\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ GLCD\_Y\_MAXIMO\ =\ (GLCD\_TAMANO\_Y\ -\/\ 1)\ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{enum}\ glcd\_ctrl\_bits\ \{}
+\DoxyCodeLine{00073\ \ \ GLCD\_CTRL\_EN\_BIT\ \ \ \ \ \ \ \ =\ (1u\ <<\ 0),\ \ \ \ }
+\DoxyCodeLine{00074\ \ \ GLCD\_CTRL\_BPP\ \ \ \ \ \ \ \ \ \ \ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ GLCD\_CTRL\_BW\_BIT\ \ \ \ \ \ \ \ =\ (1u\ <<\ 4),\ \ \ \ }
+\DoxyCodeLine{00076\ \ \ GLCD\_CTRL\_TFT\_BIT\ \ \ \ \ \ \ =\ (1u\ <<\ 5),\ \ \ \ }
+\DoxyCodeLine{00077\ \ \ GLCD\_CTRL\_MONO8\_BIT\ \ \ \ \ =\ (1u\ <<\ 6),\ \ \ \ }
+\DoxyCodeLine{00078\ \ \ GLCD\_CTRL\_LCDDUAL\_BIT\ \ \ =\ (1u\ <<\ 7),\ \ \ \ }
+\DoxyCodeLine{00079\ \ \ GLCD\_CTRL\_BGR\_BIT\ \ \ \ \ \ \ =\ (1u\ <<\ 8),\ \ \ \ }
+\DoxyCodeLine{00080\ \ \ GLCD\_CTRL\_BYTEORDER\_BIT\ =\ (1u\ <<\ 9),\ \ \ \ }
+\DoxyCodeLine{00081\ \ \ GLCD\_CTRL\_BITORDER\_BIT\ \ =\ (1u\ <<\ 10),\ \ \ }
+\DoxyCodeLine{00082\ \ \ GLCD\_CTRL\_PWR\_BIT\ \ \ \ \ \ \ =\ (1u\ <<\ 11)\ \ \ \ }
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{enum}\ glcd\_bits\_por\_pixel\ \{}
+\DoxyCodeLine{00090\ \ \ GLCD\_BPP\_1\ \ \ =\ 0,\ \ \ }
+\DoxyCodeLine{00091\ \ \ GLCD\_BPP\_2\ \ \ =\ 1u,\ \ }
+\DoxyCodeLine{00092\ \ \ GLCD\_BPP\_4\ \ \ =\ 2u,\ \ }
+\DoxyCodeLine{00093\ \ \ GLCD\_BPP\_8\ \ \ =\ 3u,\ \ }
+\DoxyCodeLine{00094\ \ \ GLCD\_BPP\_16\ \ =\ 4u,\ \ }
+\DoxyCodeLine{00095\ \ \ GLCD\_BPP\_24\ \ =\ 5u,\ \ }
+\DoxyCodeLine{00096\ \ \ GLCD\_BPP\_565\ =\ 6u,\ \ }
+\DoxyCodeLine{00097\ \ \ GLCD\_BPP\_12\ \ =\ 7u\ \ \ }
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{enum}\ glcd\_pol\_bits\ \{}
+\DoxyCodeLine{00105\ \ \ GLCD\_POL\_PCD\_LO\ \ \ \ \ \ \ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ GLCD\_POL\_CLKSEL\_BIT\ \ \ =\ (1u\ <<\ 5),\ \ \ \ }
+\DoxyCodeLine{00107\ \ \ GLCD\_POL\_ACB\ \ \ \ \ \ \ \ \ \ =\ 6,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ GLCD\_POL\_IVS\_BIT\ \ \ \ \ \ =\ (1u\ <<\ 11),\ \ \ }
+\DoxyCodeLine{00109\ \ \ GLCD\_POL\_IHS\_BIT\ \ \ \ \ \ =\ (1u\ <<\ 12),\ \ \ }
+\DoxyCodeLine{00110\ \ \ GLCD\_POL\_IPC\_BIT\ \ \ \ \ \ =\ (1u\ <<\ 13),\ \ \ }
+\DoxyCodeLine{00111\ \ \ GLCD\_POL\_IOE\_BIT\ \ \ \ \ \ =\ (1u\ <<\ 14),\ \ \ }
+\DoxyCodeLine{00112\ \ \ GLCD\_POL\_CPL\ \ \ \ \ \ \ \ \ \ =\ 16,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ GLCD\_POL\_BCD\_BIT\ \ \ \ \ \ =\ (1u\ <<\ 26),\ \ \ }
+\DoxyCodeLine{00114\ \ \ GLCD\_POL\_PCD\_HI\ \ \ \ \ \ \ =\ 27\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ RGB(r,\ g,\ b)\ \ \ \ ((((r)\ \&\ 0xF8)\ <<\ 8)\ |\ (((g)\ \&\ 0xFC)\ <<\ 3)\ |\ (((b)\ \&\ 0xF8)\ >>\ 3))}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{enum}\ glcd\_color\_t\ \{}
+\DoxyCodeLine{00136\ \ \ NEGRO\ =\ \ \ \ \ \ \ \ \ RGB(0,\ 0,\ 0),}
+\DoxyCodeLine{00137\ \ \ AZUL\_OSCURO\ =\ \ \ RGB(0,\ 0,\ 128),}
+\DoxyCodeLine{00138\ \ \ VERDE\_OSCURO\ =\ \ RGB(0,\ 128,\ 0),}
+\DoxyCodeLine{00139\ \ \ CIAN\_OSCURO\ =\ \ \ RGB(0,\ 128,\ 128),}
+\DoxyCodeLine{00140\ \ \ MARRON\ =\ \ \ \ \ \ \ \ RGB(128,\ 0,\ 0),}
+\DoxyCodeLine{00141\ \ \ PURPURA\ =\ \ \ \ \ \ \ RGB(128,\ 0,\ 128),}
+\DoxyCodeLine{00142\ \ \ OLIVA\ =\ \ \ \ \ \ \ \ \ RGB(128,\ 255,\ 0),}
+\DoxyCodeLine{00143\ \ \ NARANJA\ =\ \ \ \ \ \ \ RGB(255,\ 128,\ 0),}
+\DoxyCodeLine{00144\ \ \ GRIS\_CLARO\ =\ \ \ \ RGB(192,\ 192,\ 192),}
+\DoxyCodeLine{00145\ \ \ GRIS\_OSCURO\ =\ \ \ RGB(128,\ 128,\ 128),}
+\DoxyCodeLine{00146\ \ \ AZUL\ =\ \ \ \ \ \ \ \ \ \ RGB(0,\ 0,\ 255),}
+\DoxyCodeLine{00147\ \ \ VERDE\ =\ \ \ \ \ \ \ \ \ RGB(0,\ 255,\ 0),}
+\DoxyCodeLine{00148\ \ \ CIAN\ =\ \ \ \ \ \ \ \ \ \ RGB(0,\ 255,\ 255),}
+\DoxyCodeLine{00149\ \ \ ROJO\ =\ \ \ \ \ \ \ \ \ \ RGB(255,\ 0,\ 0),}
+\DoxyCodeLine{00150\ \ \ MAGENTA\ =\ \ \ \ \ \ \ RGB(255,\ 0,\ 255),}
+\DoxyCodeLine{00151\ \ \ AMARILLO\ =\ \ \ \ \ \ RGB(255,\ 255,\ 0),}
+\DoxyCodeLine{00152\ \ \ BLANCO\ =\ \ \ \ \ \ \ \ RGB(255,\ 255,\ 255),}
+\DoxyCodeLine{00153\ \ \ BLACK\ =\ \ \ \ \ \ \ \ \ RGB(0,\ 0,\ 0),}
+\DoxyCodeLine{00154\ \ \ DARKBLUE\ =\ \ \ \ \ \ RGB(0,\ 0,\ 128),}
+\DoxyCodeLine{00155\ \ \ DARKGREEN\ =\ \ \ \ \ RGB(0,\ 128,\ 0),}
+\DoxyCodeLine{00156\ \ \ DARKCYAN\ =\ \ \ \ \ \ RGB(0,\ 128,\ 128),}
+\DoxyCodeLine{00157\ \ \ MAROON\ =\ \ \ \ \ \ \ \ RGB(128,\ 0,\ 0),}
+\DoxyCodeLine{00158\ \ \ PURPLE\ =\ \ \ \ \ \ \ \ RGB(128,\ 0,\ 128),}
+\DoxyCodeLine{00159\ \ \ OLIVE\ =\ \ \ \ \ \ \ \ \ RGB(128,\ 255,\ 0),}
+\DoxyCodeLine{00160\ \ \ ORANGE\ =\ \ \ \ \ \ \ \ RGB(255,\ 128,\ 0),}
+\DoxyCodeLine{00161\ \ \ LIGHTGREY\ =\ \ \ \ \ RGB(192,\ 192,\ 192),}
+\DoxyCodeLine{00162\ \ \ DARKGREY\ =\ \ \ \ \ \ RGB(128,\ 128,\ 128),}
+\DoxyCodeLine{00163\ \ \ BLUE\ =\ \ \ \ \ \ \ \ \ \ RGB(0,\ 0,\ 255),}
+\DoxyCodeLine{00164\ \ \ GREEN\ =\ \ \ \ \ \ \ \ \ RGB(0,\ 255,\ 0),}
+\DoxyCodeLine{00165\ \ \ CYAN\ =\ \ \ \ \ \ \ \ \ \ RGB(0,\ 255,\ 255),}
+\DoxyCodeLine{00166\ \ \ RED\ =\ \ \ \ \ \ \ \ \ \ \ RGB(255,\ 0,\ 0),}
+\DoxyCodeLine{00167\ \ \ YELLOW\ =\ \ \ \ \ \ \ \ RGB(255,\ 255,\ 0),}
+\DoxyCodeLine{00168\ \ \ WHITE\ =\ \ \ \ \ \ \ \ \ RGB(255,\ 255,\ 255)}
+\DoxyCodeLine{00169\ \};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{enum}\ fuentes\_lcd\ \{}
+\DoxyCodeLine{00176\ \ \ FUENTE8X16\ =\ 0,\ \ \ }
+\DoxyCodeLine{00177\ \ \ FUENTE12X24\ =\ 1,\ \ }
+\DoxyCodeLine{00178\ \ \ FUENTE16X32\ =\ 2\ \ \ }
+\DoxyCodeLine{00179\ \};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ NUMERO\_FUENTES\ \ 3}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{comment}{//\ =====\ GLCD\ -\/\ Tipos\ Publicos\ =====}}
+\DoxyCodeLine{00193\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00194\ \ \ uint16\_t\ color;}
+\DoxyCodeLine{00195\ \ \ uint16\_t\ color\_fondo;}
+\DoxyCodeLine{00196\ \ \ uint32\_t\ fuente;}
+\DoxyCodeLine{00197\ \ \ uint16\_t\ pos\_x;}
+\DoxyCodeLine{00198\ \ \ uint16\_t\ pos\_y;}
+\DoxyCodeLine{00199\ \ \ bool\_t\ desplazamiento\_activado;}
+\DoxyCodeLine{00200\ \}\ glcd\_config\_texto\_t;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ GLCD\_PCA9532\_I2C\_ADDR\ \ \ 0x64\ \ }}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ GLCD\_PCA9532\_AUTO\_INC\ \ \ 0x10}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{enum}\ glcd\_pca9532\_registros\ \{}
+\DoxyCodeLine{00225\ \ \ GLCD\_PCA9532\_INPUT0\ =\ 0x00,}
+\DoxyCodeLine{00226\ \ \ GLCD\_PCA9532\_INPUT1\ =\ 0x01,}
+\DoxyCodeLine{00227\ \ \ GLCD\_PCA9532\_PSC0\ =\ 0x02,}
+\DoxyCodeLine{00228\ \ \ GLCD\_PCA9532\_PWM0\ =\ 0x03,}
+\DoxyCodeLine{00229\ \ \ GLCD\_PCA9532\_PSC1\ =\ 0x04,}
+\DoxyCodeLine{00230\ \ \ GLCD\_PCA9532\_PWM1\ =\ 0x05,}
+\DoxyCodeLine{00231\ \ \ GLCD\_PCA9532\_LS0\ =\ 0x06,}
+\DoxyCodeLine{00232\ \ \ GLCD\_PCA9532\_LS1\ =\ 0x07,}
+\DoxyCodeLine{00233\ \ \ GLCD\_PCA9532\_LS2\ =\ 0x08,}
+\DoxyCodeLine{00234\ \ \ GLCD\_PCA9532\_LS3\ =\ 0x09}
+\DoxyCodeLine{00235\ \};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00240\ \textcolor{keyword}{enum}\ glcd\_pca9532\_ls\_modos\ \{}
+\DoxyCodeLine{00241\ \ \ GLCD\_LS\_MODO\_OFF\ =\ 0x00,\ \ \ \ \ \ }
+\DoxyCodeLine{00242\ \ \ GLCD\_LS\_MODO\_ON\ =\ 0x01,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00243\ \ \ GLCD\_LS\_MODO\_PWM0\ =\ 0x02,\ \ \ }
+\DoxyCodeLine{00244\ \ \ GLCD\_LS\_MODO\_PWM1\ =\ 0x03\ \ \ \ }
+\DoxyCodeLine{00245\ \};}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00250\ \textcolor{keyword}{enum}\ glcd\_pca9532\_ctrl\ \{}
+\DoxyCodeLine{00251\ \ \ GLCD\_PCACTRL\_3V3\ =\ 0x0001,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00252\ \ \ GLCD\_PCACTRL\_5V\ =\ 0x0002,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00253\ \ \ GLCD\_PCACTRL\_DISP\_EN\ =\ 0x0010,\ \ \ }
+\DoxyCodeLine{00254\ \ \ GLCD\_PCACTRL\_BL\_EN\ =\ 0x0080,\ \ \ \ \ }
+\DoxyCodeLine{00255\ \ \ GLCD\_PCACTRL\_BL\_C\ =\ 0x0100\ \ \ \ \ \ \ }
+\DoxyCodeLine{00256\ \};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#if\ (\_\_ARMCC\_VERSION\ >=\ 6000000L)}}
+\DoxyCodeLine{00288\ \ \ \_\_asm(\textcolor{stringliteral}{"{}.global\ \_\_use\_no\_semihosting\(\backslash\)n\(\backslash\)t"{}});\ \ }
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \#pragma\ import(\_\_use\_no\_semihosting\_swi)\ \ \ \ }}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{comment}{//\ =====\ Reimplementación\ de\ funciones\ que\ utilizan\ semihosting\ =====}}
+\DoxyCodeLine{00297\ \textcolor{keyword}{struct\ }\_\_FILE\{}
+\DoxyCodeLine{00298\ \ \ \textcolor{keywordtype}{int}\ handle;}
+\DoxyCodeLine{00299\ \};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ int32\_t\ fputc(\textcolor{keywordtype}{int}\ c,\ FILE\ *file);}
+\DoxyCodeLine{00302\ int32\_t\ fgetc(FILE\ *file);}
+\DoxyCodeLine{00303\ int32\_t\ ferror(FILE\ *file);}
+\DoxyCodeLine{00304\ \textcolor{keywordtype}{void}\ \_sys\_exit(int32\_t\ return\_code);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{comment}{//\ =====\ GLCD\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00312\ \textcolor{keywordtype}{void}\ glcd\_inicializar(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00320\ \textcolor{keywordtype}{void}\ glcd\_borrar(uint16\_t\ color);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00339\ int32\_t\ glcd\_printf(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00366\ int32\_t\ glcd\_xprintf(uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ color,\ uint16\_t\ color\_fondo,\ uint32\_t\ fuente,}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00383\ \textcolor{keywordtype}{void}\ glcd\_caracter(\textcolor{keywordtype}{char}\ c,\ uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ color,\ uint16\_t\ color\_fondo,}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fuente);}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00400\ \textcolor{keywordtype}{void}\ glcd\_texto(uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ color,\ uint16\_t\ color\_fondo,\ uint32\_t\ fuente,}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00409\ \textcolor{keywordtype}{void}\ glcd\_color\_texto(uint16\_t\ color);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00417\ \textcolor{keywordtype}{void}\ glcd\_fondo\_texto(uint16\_t\ color\_fondo);}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{void}\ glcd\_xy\_texto(uint16\_t\ x,\ uint16\_t\ y);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00436\ \textcolor{keywordtype}{void}\ glcd\_desplazar(uint16\_t\ lineas);}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00445\ \textcolor{keywordtype}{void}\ glcd\_activar\_desplazamiento(bool\_t\ activo);}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00454\ \textcolor{keywordtype}{void}\ glcd\_seleccionar\_fuente(uint32\_t\ fuente);}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00464\ \textcolor{keywordtype}{void}\ glcd\_punto(uint16\_t\ x,\ uint16\_t\ y,\ uint16\_t\ color);}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00478\ \textcolor{keywordtype}{void}\ glcd\_linea(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color);}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00491\ \textcolor{keywordtype}{void}\ glcd\_rectangulo(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color);}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00505\ \textcolor{keywordtype}{void}\ glcd\_rectangulo\_relleno(uint16\_t\ x0,\ uint16\_t\ y0,\ uint16\_t\ x1,\ uint16\_t\ y1,\ uint16\_t\ color);}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00517\ \textcolor{keywordtype}{void}\ glcd\_circunferencia(uint16\_t\ xc,\ uint16\_t\ yc,\ uint16\_t\ radio,\ uint16\_t\ color);}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00529\ \textcolor{keywordtype}{void}\ glcd\_circulo(uint16\_t\ xc,\ uint16\_t\ yc,\ uint16\_t\ radio,\ uint16\_t\ color);}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ GLCD\_H}}
+
+\end{DoxyCode}

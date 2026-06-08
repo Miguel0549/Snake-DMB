@@ -1,0 +1,18 @@
+<map id="inicializar_juego" name="inicializar_juego">
+<area shape="rect" id="Node000001" title="Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la ..." alt="" coords="5,131,119,158"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a2a38e895d91c248931213be0dc6025ca" title="Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola." alt="" coords="169,81,244,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,128,157,111,152,114,104,133"/>
+<area shape="rect" id="Node000007" href="$snake_8c.html#ad51a966173731ee073b23be87e8646be" title="Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frut..." alt="" coords="167,157,247,183"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="119,152,154,160,149,161,119,157"/>
+<area shape="rect" id="Node000003" href="$cola_8c.html#a9ade4050f44e3b7934bb7aeb4d779118" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="456,81,577,107"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,78,248,45,270,28,294,15,325,6,351,3,378,6,409,15,456,39,494,70,488,70,453,43,407,20,376,12,351,8,326,11,296,20,273,32,252,49,220,82"/>
+<area shape="rect" id="Node000004" href="$cola_8c.html#a906ae75de185691df8efa85fe92d7266" title="Inicializa la cola, la memoria y los punteros." alt="" coords="310,30,394,57"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="244,78,300,61,295,63,246,83"/>
+<area shape="rect" id="Node000005" href="$cola_8c.html#a0feb4362cfefff21a14cda0974c2b195" title="Creas un nodo para la cola." alt="" coords="311,81,392,107"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="245,91,298,93,293,95,246,97"/>
+<area shape="rect" id="Node000006" href="$cola_8c.html#adda1573073c78572e5e5c8b7cdf0ca85" title="Inserta nodo en la cola, push." alt="" coords="319,131,384,158"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="245,104,307,128,302,128,245,110"/>
+<area shape="rect" id="Node000008" href="$snake_8c.html#acc3d562198ac8b791b982d5b582aa120" title="Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a sra..." alt="" coords="295,182,408,209"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="248,174,282,183,277,183,247,180"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="385,179,407,168,483,118,488,116,410,172,386,184"/>
+</map>

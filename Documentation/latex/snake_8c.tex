@@ -1,0 +1,634 @@
+\doxysection{snake.\+c File Reference}
+\label{snake_8c}\index{snake.c@{snake.c}}
+
+
+Macros y funciones para jugar al snake en el LPC4088 Developer\textquotesingle{}s Kit con joystick y la pantalla del kit.  
+
+
+{\ttfamily \+\#include "{}snake.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for snake.\+c:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ init\+Snake} (\textbf{ Snake} $\ast$serpi)
+\begin{DoxyCompactList}\small\item\em Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola. \end{DoxyCompactList}\item 
+void \textbf{ move\+Snake} (\textbf{ Snake} $\ast$snake, \textbf{ Tablero} $\ast$tab, \textbf{ Punto} direccion, bool ate\+Food)
+\begin{DoxyCompactList}\small\item\em Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas posiciones. \end{DoxyCompactList}\item 
+bool \textbf{ verificar\+Colision\+Cuerpo} (\textbf{ Snake} $\ast$snake, \textbf{ Punto} nueva\+Cabeza, \textbf{ Tablero} $\ast$tab)
+\begin{DoxyCompactList}\small\item\em Comprueba que la serpiente no se vaya a chocar con nada en el siguiente ciclo, eso incluye los bordes de la pantalla y a si misma. \end{DoxyCompactList}\item 
+void \textbf{ init\+Tablero} (\textbf{ Snake} $\ast$snake, \textbf{ Tablero} $\ast$tab)
+\begin{DoxyCompactList}\small\item\em Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frutas. \end{DoxyCompactList}\item 
+void \textbf{ inicializar\+\_\+juego} (\textbf{ Snake} $\ast$serpiente, \textbf{ Tablero} $\ast$tablero, uint16\+\_\+t $\ast$puntuacion, enum \textbf{ joystick\+\_\+dir} $\ast$direccion\+\_\+actual, bool $\ast$juego\+\_\+terminado)
+\begin{DoxyCompactList}\small\item\em Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la bandera de juego terminado. \end{DoxyCompactList}\item 
+void \textbf{ generar\+\_\+comida} (\textbf{ Snake} $\ast$serpiente, \textbf{ Tablero} $\ast$tab)
+\begin{DoxyCompactList}\small\item\em Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a srand antes que a esta función para generar una semilla como quiera. \end{DoxyCompactList}\item 
+void \textbf{ procesar\+\_\+entrada} (enum \textbf{ joystick\+\_\+dir} $\ast$direccion\+\_\+actual)
+\begin{DoxyCompactList}\small\item\em Lee el joystick y devuelve un valor dependiente del anterior, dado que la serpiente no puede darse media vuelta nunca. \end{DoxyCompactList}\item 
+\textbf{ Punto} \textbf{ trans\+\_\+joy\+\_\+to\+\_\+point} (enum \textbf{ joystick\+\_\+dir} direccion\+\_\+actual)
+\begin{DoxyCompactList}\small\item\em Transforma las direcciones del joycon en puntos, para poder sumar estos como direcciones y trabajar las funciones de movimiento. \end{DoxyCompactList}\item 
+void \textbf{ actualizar\+\_\+logica} (\textbf{ Snake} $\ast$serpiente, \textbf{ Tablero} $\ast$tab, uint16\+\_\+t $\ast$puntuacion, \textbf{ Punto} direccion, bool $\ast$juego\+\_\+terminado)
+\begin{DoxyCompactList}\small\item\em Avanzar en un ciclo la lógica de la partida. \end{DoxyCompactList}\item 
+void \textbf{ renderizar} (\textbf{ Snake} $\ast$serpiente, \textbf{ Tablero} $\ast$tab, uint16\+\_\+t $\ast$puntuacion, enum \textbf{ joystick\+\_\+dir} $\ast$direccion\+\_\+actual)
+\begin{DoxyCompactList}\small\item\em Imprime el escenario inicial por pantalla. \end{DoxyCompactList}\item 
+void \textbf{ renderizar\+Bucle} (\textbf{ Snake} $\ast$snake, \textbf{ Tablero} $\ast$tab, uint16\+\_\+t $\ast$puntuacion, enum \textbf{ joystick\+\_\+dir} $\ast$direccion\+\_\+actual)
+\begin{DoxyCompactList}\small\item\em Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de la puntuación. \end{DoxyCompactList}\item 
+void \textbf{ dibujar\+\_\+cuerpo} (uint8\+\_\+t x, uint8\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Imprime una celda del cuerpo de la serpiente. \end{DoxyCompactList}\item 
+void \textbf{ dibujar\+\_\+cabeza\+\_\+flecha} (uint8\+\_\+t x, uint8\+\_\+t y, enum \textbf{ joystick\+\_\+dir} dir, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Imprime la cabeza de la serpiente mirando en dirección correcta. \end{DoxyCompactList}\item 
+void \textbf{ dibujar\+\_\+fruta} (uint8\+\_\+t x, uint8\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Imprime la fruta. \end{DoxyCompactList}\item 
+void \textbf{ pantalla\+\_\+victoria} (uint16\+\_\+t $\ast$puntuacion)
+\begin{DoxyCompactList}\small\item\em Pantalla de victoria, llamar al ganar la partida. \end{DoxyCompactList}\item 
+void \textbf{ pantalla\+\_\+derrota} (uint16\+\_\+t $\ast$puntuacion)
+\begin{DoxyCompactList}\small\item\em Pantalla de derrota, llamar cuando pierdes la partida. \end{DoxyCompactList}\item 
+\label{snake_8c_a2f8c7da4b89df7b50936209d366f50fe} 
+void {\bfseries pantalla\+\_\+continuar} ()
+\begin{DoxyCompactList}\small\item\em Pantalla que te insta a continuar pulsando el botón central. \end{DoxyCompactList}\item 
+\label{snake_8c_a31ed6f490186ea4b45f178a91b58604e} 
+void {\bfseries pantalla\+\_\+iniciar} ()
+\begin{DoxyCompactList}\small\item\em Pantalla de bienvenida al juego que te insta a pulsar el botón central para continuar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Macros y funciones para jugar al snake en el LPC4088 Developer\textquotesingle{}s Kit con joystick y la pantalla del kit. 
+
+\begin{DoxyAuthor}{Author}
+Miguel López Rodríguez $\vert$ Miguel Catalá Garrido 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2026 
+\end{DoxyDate}
+
+
+\label{snake_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\index{snake.c@{snake.c}!actualizar\_logica@{actualizar\_logica}}
+\index{actualizar\_logica@{actualizar\_logica}!snake.c@{snake.c}}
+\doxysubsubsection{actualizar\_logica()}
+{\footnotesize\ttfamily \label{snake_8c_ae3388ad00263081be5b426713c5ed416} 
+void actualizar\+\_\+logica (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{serpiente}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{, }\item[{uint16\+\_\+t $\ast$}]{puntuacion}{, }\item[{\textbf{ Punto}}]{direccion}{, }\item[{bool $\ast$}]{juego\+\_\+terminado}{}\end{DoxyParamCaption})}
+
+
+
+Avanzar en un ciclo la lógica de la partida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em serpiente} & Puntero a la serpiente \\
+\hline
+\doxymbox{\texttt{in,out}}  & {\em tab} & Puntero al tablero \\
+\hline
+\doxymbox{\texttt{in,out}}  & {\em puntuacion} & Puntero a la puntuación \\
+\hline
+\doxymbox{\texttt{in}}  & {\em direccion} & Dirección en la que pretende moverse la serpiente este ciclo \\
+\hline
+\doxymbox{\texttt{out}}  & {\em juego\+\_\+terminado} & Puntero a la bandera de juego terminado \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_ae3388ad00263081be5b426713c5ed416_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{snake_8c_ae3388ad00263081be5b426713c5ed416_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!dibujar\_cabeza\_flecha@{dibujar\_cabeza\_flecha}}
+\index{dibujar\_cabeza\_flecha@{dibujar\_cabeza\_flecha}!snake.c@{snake.c}}
+\doxysubsubsection{dibujar\_cabeza\_flecha()}
+{\footnotesize\ttfamily \label{snake_8c_a41b84703c6444551a49de5d363045885} 
+void dibujar\+\_\+cabeza\+\_\+flecha (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{, }\item[{enum \textbf{ joystick\+\_\+dir}}]{dir}{, }\item[{uint16\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Imprime la cabeza de la serpiente mirando en dirección correcta. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em x} & Posición x en el tablero de la cabeza \\
+\hline
+\doxymbox{\texttt{in}}  & {\em y} & Posición y en el tablero de la cabeza \\
+\hline
+\doxymbox{\texttt{in}}  & {\em dir} & Dirección para la cabeza \\
+\hline
+\doxymbox{\texttt{in}}  & {\em color} & Color para imprimir la cabeza \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{snake_8c_a41b84703c6444551a49de5d363045885_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_a41b84703c6444551a49de5d363045885_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!dibujar\_cuerpo@{dibujar\_cuerpo}}
+\index{dibujar\_cuerpo@{dibujar\_cuerpo}!snake.c@{snake.c}}
+\doxysubsubsection{dibujar\_cuerpo()}
+{\footnotesize\ttfamily \label{snake_8c_aafa9328b8e7c75350f0755138e08d182} 
+void dibujar\+\_\+cuerpo (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Imprime una celda del cuerpo de la serpiente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em x} & Posición x en el tablero de la celda \\
+\hline
+\doxymbox{\texttt{in}}  & {\em y} & Posición y en el tablero de la celda \\
+\hline
+\doxymbox{\texttt{in}}  & {\em color} & Color para imprimir el cuerpo \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{snake_8c_aafa9328b8e7c75350f0755138e08d182_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_aafa9328b8e7c75350f0755138e08d182_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!dibujar\_fruta@{dibujar\_fruta}}
+\index{dibujar\_fruta@{dibujar\_fruta}!snake.c@{snake.c}}
+\doxysubsubsection{dibujar\_fruta()}
+{\footnotesize\ttfamily \label{snake_8c_acd390c5500b9fc29c9295118cf0d0f57} 
+void dibujar\+\_\+fruta (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x}{, }\item[{uint8\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+
+
+Imprime la fruta. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em x} & Posición x en el tablero de la fruta \\
+\hline
+\doxymbox{\texttt{in}}  & {\em y} & Posición y en el tablero de la fruta \\
+\hline
+\doxymbox{\texttt{in}}  & {\em color} & Color para imprimir la fruta \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{snake_8c_acd390c5500b9fc29c9295118cf0d0f57_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_acd390c5500b9fc29c9295118cf0d0f57_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!generar\_comida@{generar\_comida}}
+\index{generar\_comida@{generar\_comida}!snake.c@{snake.c}}
+\doxysubsubsection{generar\_comida()}
+{\footnotesize\ttfamily \label{snake_8c_acc3d562198ac8b791b982d5b582aa120} 
+void generar\+\_\+comida (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{serpiente}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{}\end{DoxyParamCaption})}
+
+
+
+Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a srand antes que a esta función para generar una semilla como quiera. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em serpiente} & Puntero a la serpiente para ver según su tamaño si hay espacio para generar más frutas \\
+\hline
+\doxymbox{\texttt{in,out}}  & {\em tab} & Puntero al tablero para ver si la posición generada está vacía y poner ahí la fruta \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{snake_8c_acc3d562198ac8b791b982d5b582aa120_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_acc3d562198ac8b791b982d5b582aa120_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!inicializar\_juego@{inicializar\_juego}}
+\index{inicializar\_juego@{inicializar\_juego}!snake.c@{snake.c}}
+\doxysubsubsection{inicializar\_juego()}
+{\footnotesize\ttfamily \label{snake_8c_a22665ff452eb912e82a1c9ee750f942c} 
+void inicializar\+\_\+juego (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{serpiente}{, }\item[{\textbf{ Tablero} $\ast$}]{tablero}{, }\item[{uint16\+\_\+t $\ast$}]{puntuacion}{, }\item[{enum \textbf{ joystick\+\_\+dir} $\ast$}]{direccion\+\_\+actual}{, }\item[{bool $\ast$}]{juego\+\_\+terminado}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la bandera de juego terminado. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em serpiente} & Puntero a la serpiente para inicializarla y usarla en la función del tablero \\
+\hline
+\doxymbox{\texttt{out}}  & {\em tablero} & Puntero al tablero para inicializarlo \\
+\hline
+\doxymbox{\texttt{out}}  & {\em puntuacion} & Puntero a la puntuación para inicializarla a 0 \\
+\hline
+\doxymbox{\texttt{out}}  & {\em direccion\+\_\+actual} & Puntero a la última dirección jugada para forzarla a derecha \\
+\hline
+\doxymbox{\texttt{out}}  & {\em juego\+\_\+terminado} & Puntero a la bandera de juego terminado, que como acaba de empezar se pone a false \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_a22665ff452eb912e82a1c9ee750f942c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{snake_8c_a22665ff452eb912e82a1c9ee750f942c_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!initSnake@{initSnake}}
+\index{initSnake@{initSnake}!snake.c@{snake.c}}
+\doxysubsubsection{initSnake()}
+{\footnotesize\ttfamily \label{snake_8c_a2a38e895d91c248931213be0dc6025ca} 
+void init\+Snake (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{serpi}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em serpi} & Puntero a la serpiente para inicializarla \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{snake_8c_a2a38e895d91c248931213be0dc6025ca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{snake_8c_a2a38e895d91c248931213be0dc6025ca_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!initTablero@{initTablero}}
+\index{initTablero@{initTablero}!snake.c@{snake.c}}
+\doxysubsubsection{initTablero()}
+{\footnotesize\ttfamily \label{snake_8c_ad51a966173731ee073b23be87e8646be} 
+void init\+Tablero (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{snake}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{}\end{DoxyParamCaption})}
+
+
+
+Inicializar todas las posiciones del tablero, incluyendo las de la serpiente y la generación de las frutas. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em snake} & Serpiente para la función de las frutas \\
+\hline
+\doxymbox{\texttt{in,out}}  & {\em tab} & Puntero al tablero a inicializar \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_ad51a966173731ee073b23be87e8646be_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{snake_8c_ad51a966173731ee073b23be87e8646be_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!moveSnake@{moveSnake}}
+\index{moveSnake@{moveSnake}!snake.c@{snake.c}}
+\doxysubsubsection{moveSnake()}
+{\footnotesize\ttfamily \label{snake_8c_a81dab5a93199d281b727a11cb19f95b9} 
+void move\+Snake (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{snake}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{, }\item[{\textbf{ Punto}}]{direccion}{, }\item[{bool}]{ate\+Food}{}\end{DoxyParamCaption})}
+
+
+
+Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas posiciones. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em snake} & Puntero a la serpiente para moverla \\
+\hline
+\doxymbox{\texttt{in,out}}  & {\em tab} & Puntero al tablero para que tenga la nueva posición de la serpiente \\
+\hline
+\doxymbox{\texttt{in}}  & {\em direccion} & Dirección en la que se tendrá que mover la serpiente \\
+\hline
+\doxymbox{\texttt{in}}  & {\em ate\+Food} & Bandera que indica si mover la cola o no en base a haber comido fruta este ciclo \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_a81dab5a93199d281b727a11cb19f95b9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{snake_8c_a81dab5a93199d281b727a11cb19f95b9_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!pantalla\_derrota@{pantalla\_derrota}}
+\index{pantalla\_derrota@{pantalla\_derrota}!snake.c@{snake.c}}
+\doxysubsubsection{pantalla\_derrota()}
+{\footnotesize\ttfamily \label{snake_8c_ae707360517516f6496f0d83a24a8e43a} 
+void pantalla\+\_\+derrota (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{puntuacion}{}\end{DoxyParamCaption})}
+
+
+
+Pantalla de derrota, llamar cuando pierdes la partida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em puntuacion} & Puntero a la puntuación final de la partida \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{snake_8c_ae707360517516f6496f0d83a24a8e43a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{snake_8c_ae707360517516f6496f0d83a24a8e43a_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!pantalla\_victoria@{pantalla\_victoria}}
+\index{pantalla\_victoria@{pantalla\_victoria}!snake.c@{snake.c}}
+\doxysubsubsection{pantalla\_victoria()}
+{\footnotesize\ttfamily \label{snake_8c_a53000cde6c3e0a707115f973a0ef922f} 
+void pantalla\+\_\+victoria (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{puntuacion}{}\end{DoxyParamCaption})}
+
+
+
+Pantalla de victoria, llamar al ganar la partida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em puntuacion} & Puntero a la puntuación final de la partida \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{snake_8c_a53000cde6c3e0a707115f973a0ef922f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{snake_8c_a53000cde6c3e0a707115f973a0ef922f_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!procesar\_entrada@{procesar\_entrada}}
+\index{procesar\_entrada@{procesar\_entrada}!snake.c@{snake.c}}
+\doxysubsubsection{procesar\_entrada()}
+{\footnotesize\ttfamily \label{snake_8c_a8f7fe87ec38d2889f2c2b471a9293840} 
+void procesar\+\_\+entrada (\begin{DoxyParamCaption}\item[{enum \textbf{ joystick\+\_\+dir} $\ast$}]{direccion\+\_\+actual}{}\end{DoxyParamCaption})}
+
+
+
+Lee el joystick y devuelve un valor dependiente del anterior, dado que la serpiente no puede darse media vuelta nunca. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em direccion\+\_\+actual} & Puntero a la última dirección elegida para comparar y si se puede actualizarla la recién leída \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{snake_8c_a8f7fe87ec38d2889f2c2b471a9293840_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{snake_8c_a8f7fe87ec38d2889f2c2b471a9293840_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!renderizar@{renderizar}}
+\index{renderizar@{renderizar}!snake.c@{snake.c}}
+\doxysubsubsection{renderizar()}
+{\footnotesize\ttfamily \label{snake_8c_a982f9d120923030a7b2f590ab4b59e2d} 
+void renderizar (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{serpiente}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{, }\item[{uint16\+\_\+t $\ast$}]{puntuacion}{, }\item[{enum \textbf{ joystick\+\_\+dir} $\ast$}]{direccion\+\_\+actual}{}\end{DoxyParamCaption})}
+
+
+
+Imprime el escenario inicial por pantalla. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em serpiente} & Puntero a la serpiente \\
+\hline
+\doxymbox{\texttt{in}}  & {\em tab} & Puntero al tablero \\
+\hline
+\doxymbox{\texttt{in}}  & {\em puntuacion} & Puntero a la puntuación actual \\
+\hline
+\doxymbox{\texttt{in}}  & {\em direccion\+\_\+actual} & Dirección para la cabeza de la serpiente \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_a982f9d120923030a7b2f590ab4b59e2d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{snake_8c_a982f9d120923030a7b2f590ab4b59e2d_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!renderizarBucle@{renderizarBucle}}
+\index{renderizarBucle@{renderizarBucle}!snake.c@{snake.c}}
+\doxysubsubsection{renderizarBucle()}
+{\footnotesize\ttfamily \label{snake_8c_ab8af81f580f53a1f26e0a8f1c49dff3d} 
+void renderizar\+Bucle (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{snake}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{, }\item[{uint16\+\_\+t $\ast$}]{puntuacion}{, }\item[{enum \textbf{ joystick\+\_\+dir} $\ast$}]{direccion\+\_\+actual}{}\end{DoxyParamCaption})}
+
+
+
+Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de la puntuación. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em snake} & Puntero a la serpiente ~\newline
+ \\
+\hline
+\doxymbox{\texttt{in}}  & {\em tab} & Puntero al tablero \\
+\hline
+\doxymbox{\texttt{in}}  & {\em puntuacion} & Puntero a la puntuación actual \\
+\hline
+\doxymbox{\texttt{in}}  & {\em direccion\+\_\+actual} & Dirección para la cabeza de la serpiente \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_ab8af81f580f53a1f26e0a8f1c49dff3d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{snake_8c_ab8af81f580f53a1f26e0a8f1c49dff3d_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!trans\_joy\_to\_point@{trans\_joy\_to\_point}}
+\index{trans\_joy\_to\_point@{trans\_joy\_to\_point}!snake.c@{snake.c}}
+\doxysubsubsection{trans\_joy\_to\_point()}
+{\footnotesize\ttfamily \label{snake_8c_a62696bc6aeb952b163f6e3d19dd0b63e} 
+\textbf{ Punto} trans\+\_\+joy\+\_\+to\+\_\+point (\begin{DoxyParamCaption}\item[{enum \textbf{ joystick\+\_\+dir}}]{direccion\+\_\+actual}{}\end{DoxyParamCaption})}
+
+
+
+Transforma las direcciones del joycon en puntos, para poder sumar estos como direcciones y trabajar las funciones de movimiento. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em direccion\+\_\+actual} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0,-\/1} & si la dirección es arriba. \\
+\hline
+{\em 0,1} & si la dirección es abajo. \\
+\hline
+{\em -\/1,0} & si la dirección es izquierda. \\
+\hline
+{\em 1,0} & si la dirección es derecha. \\
+\hline
+{\em 1,0} & si la dirección es cualquier otra, por seguridad. \\
+\hline
+\end{DoxyRetVals}
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{snake_8c_a62696bc6aeb952b163f6e3d19dd0b63e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{snake_8c_a62696bc6aeb952b163f6e3d19dd0b63e_icgraph}
+\end{center}
+\end{figure}
+\index{snake.c@{snake.c}!verificarColisionCuerpo@{verificarColisionCuerpo}}
+\index{verificarColisionCuerpo@{verificarColisionCuerpo}!snake.c@{snake.c}}
+\doxysubsubsection{verificarColisionCuerpo()}
+{\footnotesize\ttfamily \label{snake_8c_a1f51a5833595c4dd4133d064a75e0e60} 
+bool verificar\+Colision\+Cuerpo (\begin{DoxyParamCaption}\item[{\textbf{ Snake} $\ast$}]{snake}{, }\item[{\textbf{ Punto}}]{nueva\+Cabeza}{, }\item[{\textbf{ Tablero} $\ast$}]{tab}{}\end{DoxyParamCaption})}
+
+
+
+Comprueba que la serpiente no se vaya a chocar con nada en el siguiente ciclo, eso incluye los bordes de la pantalla y a si misma. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em snake} & Serpiente para comprobar si la nueva posición sería donde está ahora su cola, lo cual sería posición válida porque la cola dejaría paso a la cabeza \\
+\hline
+\doxymbox{\texttt{in}}  & {\em nueva\+Cabeza} & Posición del siguiente ciclo para comprobar las colisiones \\
+\hline
+\doxymbox{\texttt{in}}  & {\em tab} & \doxyref{Tablero}{p.}{struct_tablero} para comprobar que hay en la nueva posición\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{snake_8c_a1f51a5833595c4dd4133d064a75e0e60_icgraph}
+\end{center}
+\end{figure}

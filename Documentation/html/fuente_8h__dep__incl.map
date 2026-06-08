@@ -1,0 +1,11 @@
+<map id="fuente.h" name="fuente.h">
+<area shape="rect" id="Node000001" title="Tipos y constantes para el manejo de las fuentes para la pantalla GLCD." alt="" coords="45,5,114,32"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html" title="Funciones de manejo del LCD de 4.3&quot; desde la tarjeta Embedded Artist Developer&#39;s Kit." alt="" coords="51,80,108,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,45,82,80,77,79,79,50"/>
+<area shape="rect" id="Node000003" href="$snake_8h.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="46,155,113,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,120,82,155,77,154,78,125"/>
+<area shape="rect" id="Node000004" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="5,229,66,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="66,194,45,230,41,227,61,196"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="90,229,157,256"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="96,193,119,229,113,229,94,197"/>
+</map>

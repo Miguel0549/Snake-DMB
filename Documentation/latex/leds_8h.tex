@@ -1,0 +1,162 @@
+\doxysection{leds.\+h File Reference}
+\label{leds_8h}\index{leds.h@{leds.h}}
+
+
+Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088.  
+
+
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+Include dependency graph for leds.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{leds_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{leds_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ leds\+\_\+tarjeta\+\_\+ea} \{ \textbf{ LED1} = 1
+, \textbf{ LED2} = 2
+, \textbf{ LED3} = 3
+, \textbf{ LED4} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Constantes para refererise a los LEDs de la tarjeta Embedded Artist LPC4088. \end{DoxyCompactList}\item 
+enum \textbf{ leds\+\_\+estado} \{ \textbf{ LED\+\_\+\+APAGADO} = FALSE
+, \textbf{ LED\+\_\+\+ENCENDIDO} = TRUE
+, \textbf{ LED\+\_\+\+OFF} = FALSE
+, \textbf{ LED\+\_\+\+ON} = TRUE
+ \}
+\begin{DoxyCompactList}\small\item\em Constantes para el estado de los LEDs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{leds_8h_a02bb175f8fb03f9b74749d33fc106d64} 
+void {\bfseries leds\+\_\+inicializar} (void)
+\item 
+\label{leds_8h_afb79c5c9cd8856205b5624747b4b554e} 
+void {\bfseries leds\+\_\+encender} (uint8\+\_\+t numero\+\_\+led)
+\item 
+\label{leds_8h_ac2dcebb7c183bcd2cc0a96ff9ec25676} 
+void {\bfseries leds\+\_\+apagar} (uint8\+\_\+t numero\+\_\+led)
+\item 
+\label{leds_8h_a28a2d479ba49a7b2ab3250574a7a2eec} 
+void {\bfseries leds\+\_\+invertir} (uint8\+\_\+t numero\+\_\+led)
+\item 
+\label{leds_8h_ac5fe79663f5f08ea3d00a679e47b8e68} 
+void {\bfseries leds\+\_\+ajustar} (uint8\+\_\+t numero\+\_\+led, \textbf{ bool\+\_\+t} estado)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088. 
+
+Los LEDs son activos a nivel bajo:\+ cuando uno de estos pines del microcontrolador se pone a 1 el correspondiente LED se apaga y cuando se pone a 0 el LED se enciende. Las conexiones entre los LEDs de la tarjeta y el microcontrolador son las siguientes:\+
+
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Pin uC  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Nombre  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Color  \\
+P1[5]  &LED1  &ROJO  \\
+P0[14]  &LED2  &VERDE  \\
+P0[13]  &LED3  &VERDE  \\
+P1[18]  &LED4  &VERDE  \\
+\end{DoxyTable}
+
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{leds_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\index{leds.h@{leds.h}!leds\_estado@{leds\_estado}}
+\index{leds\_estado@{leds\_estado}!leds.h@{leds.h}}
+\doxysubsubsection{leds\_estado}
+{\footnotesize\ttfamily \label{leds_8h_a66b490ea20f8b7e82b50b0793c8b3c23} 
+enum \textbf{ leds\+\_\+estado}}
+
+
+
+Constantes para el estado de los LEDs. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_APAGADO@{LED\_APAGADO}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED\_APAGADO@{LED\_APAGADO}}
+}\label{leds_8h_a66b490ea20f8b7e82b50b0793c8b3c23a9848c300863768524fb33db3ba290521} 
+LED\+\_\+\+APAGADO&LED apagado. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_ENCENDIDO@{LED\_ENCENDIDO}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED\_ENCENDIDO@{LED\_ENCENDIDO}}
+}\label{leds_8h_a66b490ea20f8b7e82b50b0793c8b3c23a55e5b263ae22e6dc30ebd99dadb147fa} 
+LED\+\_\+\+ENCENDIDO&LED encendido. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_OFF@{LED\_OFF}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED\_OFF@{LED\_OFF}}
+}\label{leds_8h_a66b490ea20f8b7e82b50b0793c8b3c23afc0ca8cc6cbe215fd3f1ae6d40255b40} 
+LED\+\_\+\+OFF&LED apagado. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_ON@{LED\_ON}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED\_ON@{LED\_ON}}
+}\label{leds_8h_a66b490ea20f8b7e82b50b0793c8b3c23add01b80eb93658fb4cf7eb9aceb89a1d} 
+LED\+\_\+\+ON&LED encendido. \\
+\hline
+
+\end{DoxyEnumFields}
+\index{leds.h@{leds.h}!leds\_tarjeta\_ea@{leds\_tarjeta\_ea}}
+\index{leds\_tarjeta\_ea@{leds\_tarjeta\_ea}!leds.h@{leds.h}}
+\doxysubsubsection{leds\_tarjeta\_ea}
+{\footnotesize\ttfamily \label{leds_8h_a4cfee0478366df0dea11528dd049eb77} 
+enum \textbf{ leds\+\_\+tarjeta\+\_\+ea}}
+
+
+
+Constantes para refererise a los LEDs de la tarjeta Embedded Artist LPC4088. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED1@{LED1}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED1@{LED1}}
+}\label{leds_8h_a4cfee0478366df0dea11528dd049eb77adac6477842247cab1a8c02c65f431b44} 
+LED1&LED rojo conectado al pin P1[5]. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED2@{LED2}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED2@{LED2}}
+}\label{leds_8h_a4cfee0478366df0dea11528dd049eb77a8379bbaa96d151e6adac488b2a147b7a} 
+LED2&LED verde conectado al pin P0[14]. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED3@{LED3}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED3@{LED3}}
+}\label{leds_8h_a4cfee0478366df0dea11528dd049eb77a5dec293e081e0fc78369c842fab8452b} 
+LED3&LED verde conectado al pin P0[13]. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED4@{LED4}!leds.h@{leds.h}}
+\index{leds.h@{leds.h}!LED4@{LED4}}
+}\label{leds_8h_a4cfee0478366df0dea11528dd049eb77ad60e39b8d1701d30aa64f80343217342} 
+LED4&LED verde conectado al pin P1[18]. \\
+\hline
+
+\end{DoxyEnumFields}

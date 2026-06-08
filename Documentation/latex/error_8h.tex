@@ -1,0 +1,117 @@
+\doxysection{error.\+h File Reference}
+\label{error_8h}\index{error.h@{error.h}}
+
+
+Librería para el tratamiento de errores.  
+
+
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+Include dependency graph for error.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{error_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{error_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\label{error_8h_a32586f3b5400397a1daf8466224df5aa} 
+\+\#define {\bfseries EA\+\_\+\+GLCD}
+\begin{DoxyCompactList}\small\item\em Macro para habilitar el envío de los mensajes mediante la pantalla GLCD. \end{DoxyCompactList}\item 
+\label{error_8h_a01476151d34edc4d3b7f83a63de9c432} 
+\+\#define {\bfseries HABILITAR\+\_\+\+ASSERT}~1
+\begin{DoxyCompactList}\small\item\em Macro para habilitar o deshabilitar la función ASSERT. \end{DoxyCompactList}\item 
+\+\#define \textbf{ ERROR}(mensaje)
+\begin{DoxyCompactList}\small\item\em Función para generar un mensaje de error. \end{DoxyCompactList}\item 
+\+\#define \textbf{ ASSERT}(expr,  mensaje)
+\begin{DoxyCompactList}\small\item\em Función de comprobación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{error_8h_aacb1ae8c5b48f2c18ab20855365978bd} 
+void {\bfseries parar\+\_\+con\+\_\+error} (const char $\ast$fichero, const char $\ast$funcion, const uint32\+\_\+t linea, const char $\ast$mensaje)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Librería para el tratamiento de errores. 
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{error_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\index{error.h@{error.h}!ASSERT@{ASSERT}}
+\index{ASSERT@{ASSERT}!error.h@{error.h}}
+\doxysubsubsection{ASSERT}
+{\footnotesize\ttfamily \label{error_8h_a31dda85a4745026ead1219fab33c1634} 
+\+\#define ASSERT(\begin{DoxyParamCaption}\item[{}]{expr}{, }\item[{}]{mensaje}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ if\ (expr)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ ;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ parar\_con\_error(\_\_FILE\_\_,\ \_\_FUNCTION\_\_,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LINE\_\_,\ mensaje);\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+Función de comprobación. 
+
+Verifica si la condición {\ttfamily expr} es falsa y lanza un error indicando el archivo, función y linea donde se llamó a la función junto con un mensaje. Principalmente se utiliza para verificar los parámetros de entrada de las funciones para comprobar que se encuentran en los rangos correctos o se corresponden con los tipos adecuados (por ejemplo, punteros a periféricos).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em expr} & Expresión booleana cuyo resultado sea Verdadero si los parámetros comprobados son correctos. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mensaje} & Mensaje breve y descriptivo de qué ha causado el "{}error"{}. \\
+\hline
+\end{DoxyParams}
+\index{error.h@{error.h}!ERROR@{ERROR}}
+\index{ERROR@{ERROR}!error.h@{error.h}}
+\doxysubsubsection{ERROR}
+{\footnotesize\ttfamily \label{error_8h_a1422add25c88279244d9de40ca4aced2} 
+\+\#define ERROR(\begin{DoxyParamCaption}\item[{}]{mensaje}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{parar\_con\_error(\_\_FILE\_\_,\ \_\_FUNCTION\_\_,\ \_\_LINE\_\_,\ mensaje)}
+
+\end{DoxyCode}
+
+
+Función para generar un mensaje de error. 
+
+Muestra un mensaje de error indicando el archivo, función y linea donde se llamó a la función junto con un mensaje.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em mensaje} & Mensaje breve y descriptivo del "{}error"{}. \\
+\hline
+\end{DoxyParams}

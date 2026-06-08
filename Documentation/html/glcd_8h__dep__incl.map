@@ -1,0 +1,9 @@
+<map id="glcd.h" name="glcd.h">
+<area shape="rect" id="Node000001" title="Funciones de manejo del LCD de 4.3&quot; desde la tarjeta Embedded Artist Developer&#39;s Kit." alt="" coords="51,5,108,32"/>
+<area shape="rect" id="Node000002" href="$snake_8h.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="46,80,113,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,45,82,80,77,79,78,50"/>
+<area shape="rect" id="Node000003" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="5,155,66,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="66,119,45,156,41,153,61,121"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="90,155,157,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="96,118,119,154,113,154,94,122"/>
+</map>

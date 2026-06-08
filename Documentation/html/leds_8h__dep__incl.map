@@ -1,0 +1,5 @@
+<map id="leds.h" name="leds.h">
+<area shape="rect" id="Node000001" title="Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088." alt="" coords="16,5,72,32"/>
+<area shape="rect" id="Node000002" href="$joystick_8c.html" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="5,80,83,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="46,46,47,80,41,79,42,50"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="renderizarBucle" name="renderizarBucle">
+<area shape="rect" id="Node000001" title="Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de l..." alt="" coords="5,107,117,133"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a41b84703c6444551a49de5d363045885" title="Imprime la cabeza de la serpiente mirando en dirección correcta." alt="" coords="165,5,315,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,104,117,77,163,48,191,37,187,40,166,53,120,81,82,108"/>
+<area shape="rect" id="Node000004" href="$glcd_8h.html#abd9afd22e98c2ca005af90cedd3fbe18" title="Dibuja en la pantalla LCD un rectángulo relleno definido por las coordenadas de los vértices de una d..." alt="" coords="363,56,520,83"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="111,104,164,92,258,79,350,73,345,75,259,85,165,97,113,109"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#aafa9328b8e7c75350f0755138e08d182" title="Imprime una celda del cuerpo de la serpiente." alt="" coords="187,107,292,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="116,117,174,119,170,121,118,123"/>
+<area shape="rect" id="Node000006" href="$snake_8c.html#acd390c5500b9fc29c9295118cf0d0f57" title="Imprime la fruta." alt="" coords="194,157,286,184"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="111,131,181,152,176,155,111,137"/>
+<area shape="rect" id="Node000008" href="$glcd_8h.html#aaa82fb16582c7947bfd6f8dd17406028" title="Función parecida a glcd_printf pero pudiendo indicar las coordedadas donde aparece el texto,..." alt="" coords="196,208,284,235"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="78,131,117,162,166,194,184,204,178,203,163,198,114,167,77,136"/>
+<area shape="rect" id="Node000003" href="$glcd_8h.html#a6072040078c30c5b6c38f374ea23266b" title="Dibuja en la pantlla LCD un segmento de línea recta definido por las coordenadas de sus extremos...." alt="" coords="402,5,481,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="315,16,389,18,384,20,316,21"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="296,30,373,51,368,52,296,35"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="292,104,373,86,368,88,294,109"/>
+<area shape="rect" id="Node000007" href="$glcd_8h.html#a8a0cfc7e0a84943f7fe511a04112e7f3" title="Dibuja un circulo relleno en la pantalla LCD. Se dibuja la parte del cículo contenido entre los límit..." alt="" coords="396,157,487,184"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="286,168,383,170,378,171,287,173"/>
+</map>

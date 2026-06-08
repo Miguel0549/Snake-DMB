@@ -1,0 +1,306 @@
+\doxysection{gpio\+\_\+lpc40xx.\+h File Reference}
+\label{gpio__lpc40xx_8h}\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+
+
+Constantes y funciones para manejar los puertos E/\+S digital del LPC40xx.  
+
+
+{\ttfamily \+\#include $<$LPC407x\+\_\+8x\+\_\+177x\+\_\+8x.\+h$>$}\newline
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+Include dependency graph for gpio\+\_\+lpc40xx.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{gpio__lpc40xx_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{gpio__lpc40xx_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define {\bfseries PORT0}~LPC\+\_\+\+GPIO0
+\item 
+\+\#define {\bfseries PORT1}~LPC\+\_\+\+GPIO1
+\item 
+\+\#define {\bfseries PORT2}~LPC\+\_\+\+GPIO2
+\item 
+\+\#define {\bfseries PORT3}~LPC\+\_\+\+GPIO3
+\item 
+\+\#define {\bfseries PORT4}~LPC\+\_\+\+GPIO4
+\item 
+\+\#define {\bfseries PORT5}~LPC\+\_\+\+GPIO5
+\item 
+\+\#define {\bfseries PUERTO0}~PORT0
+\item 
+\+\#define {\bfseries PUERTO1}~PORT1
+\item 
+\+\#define {\bfseries PUERTO2}~PORT2
+\item 
+\+\#define {\bfseries PUERTO3}~PORT3
+\item 
+\+\#define {\bfseries PUERTO4}~PORT4
+\item 
+\+\#define {\bfseries PUERTO5}~PORT5
+\item 
+\label{gpio__lpc40xx_8h_a6c51a16a25657ac6cca6486fc3732e0e} 
+\+\#define {\bfseries GPIO\+\_\+\+NUMERO\+\_\+\+PUERTOS}~6u
+\begin{DoxyCompactList}\small\item\em Número de puertos del LPC4088 (GPIO0-\/\+GPIO5). \end{DoxyCompactList}\item 
+\label{gpio__lpc40xx_8h_ace7ab5af5b70afe70b41f2a554025344} 
+\+\#define {\bfseries GPIO\+\_\+\+MAXIMO\+\_\+\+PINES\+\_\+\+POR\+\_\+\+PUERTO}~32u
+\begin{DoxyCompactList}\small\item\em Número máximo de pines por puerto de GPIO. \end{DoxyCompactList}\item 
+\label{gpio__lpc40xx_8h_a00d24c7231be28dbaf71f5408f30e44c} 
+\+\#define {\bfseries inline}~\+\_\+\+\_\+inline
+\begin{DoxyCompactList}\small\item\em Definición del cualificador inline no disponible en modo C90. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\label{gpio__lpc40xx_8h_a83b8d993181b39ecc8bed7ad535ad136} 
+enum \textbf{ gpio\+\_\+pines} \{ \newline
+{\bfseries PIN0} = (1u $<$$<$ 0)
+, {\bfseries PIN1} = (1u $<$$<$ 1)
+, {\bfseries PIN2} = (1u $<$$<$ 2)
+, {\bfseries PIN3} = (1u $<$$<$ 3)
+, \newline
+{\bfseries PIN4} = (1u $<$$<$ 4)
+, {\bfseries PIN5} = (1u $<$$<$ 5)
+, {\bfseries PIN6} = (1u $<$$<$ 6)
+, {\bfseries PIN7} = (1u $<$$<$ 7)
+, \newline
+{\bfseries PIN8} = (1u $<$$<$ 8)
+, {\bfseries PIN9} = (1u $<$$<$ 9)
+, {\bfseries PIN10} = (1u $<$$<$ 10)
+, {\bfseries PIN11} = (1u $<$$<$ 11)
+, \newline
+{\bfseries PIN12} = (1u $<$$<$ 12)
+, {\bfseries PIN13} = (1u $<$$<$ 13)
+, {\bfseries PIN14} = (1u $<$$<$ 14)
+, {\bfseries PIN15} = (1u $<$$<$ 15)
+, \newline
+{\bfseries PIN16} = (1u $<$$<$ 16)
+, {\bfseries PIN17} = (1u $<$$<$ 17)
+, {\bfseries PIN18} = (1u $<$$<$ 18)
+, {\bfseries PIN19} = (1u $<$$<$ 19)
+, \newline
+{\bfseries PIN20} = (1u $<$$<$ 20)
+, {\bfseries PIN21} = (1u $<$$<$ 21)
+, {\bfseries PIN22} = (1u $<$$<$ 22)
+, {\bfseries PIN23} = (1u $<$$<$ 23)
+, \newline
+{\bfseries PIN24} = (1u $<$$<$ 24)
+, {\bfseries PIN25} = (1u $<$$<$ 25)
+, {\bfseries PIN26} = (1u $<$$<$ 26)
+, {\bfseries PIN27} = (1u $<$$<$ 27)
+, \newline
+{\bfseries PIN28} = (1u $<$$<$ 28)
+, {\bfseries PIN29} = (1u $<$$<$ 29)
+, {\bfseries PIN30} = (1u $<$$<$ 30)
+, {\bfseries PIN31} = (1u $<$$<$ 31)
+ \}
+\begin{DoxyCompactList}\small\item\em Símbolos de las máscaras de los pines. \end{DoxyCompactList}\item 
+\label{gpio__lpc40xx_8h_a09b6f606b86fd52be4280ceac6cfc132} 
+enum \textbf{ gpio\+\_\+direccion} \{ {\bfseries DIR\+\_\+\+IN} = 0u
+, {\bfseries DIR\+\_\+\+OUT} = 1u
+, {\bfseries DIR\+\_\+\+ENTRADA} = 0u
+, {\bfseries DIR\+\_\+\+SALIDA} = 1u
+ \}
+\begin{DoxyCompactList}\small\item\em Constantes para especificar la dirección de un pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ bool\+\_\+t} \textbf{ gpio\+\_\+leer\+\_\+pin} (const LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Lee el estado de un pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ gpio\+\_\+leer\+\_\+puerto} (const LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Lee el estado de un puerto completo. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+escribir\+\_\+pin} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin, \textbf{ bool\+\_\+t} valor)
+\begin{DoxyCompactList}\small\item\em Establece el estado de uno o más pines de salida al mismo estado. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+escribir\+\_\+puerto} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t valor)
+\begin{DoxyCompactList}\small\item\em Establece el estado de todos los pines de salida de un puerto. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+pin\+\_\+a\+\_\+1} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Pone a 1 uno o más pines de salida. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+pin\+\_\+a\+\_\+0} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Pone a 0 uno o más pines de salida. \end{DoxyCompactList}\item 
+void \textbf{ gpio\+\_\+invertir\+\_\+pin} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Invierte el estado de uno o más pines de salida. \end{DoxyCompactList}\item 
+\label{gpio__lpc40xx_8h_a6f2da088c4a4187ec2d2b6a049586c56} 
+void {\bfseries gpio\+\_\+ajustar\+\_\+dir} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin, uint32\+\_\+t direccion)
+\item 
+\label{gpio__lpc40xx_8h_a234a98d5604b6f6e98ff66f74200b2a0} 
+uint32\+\_\+t {\bfseries gpio\+\_\+obtener\+\_\+dir} (const LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constantes y funciones para manejar los puertos E/\+S digital del LPC40xx. 
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{gpio__lpc40xx_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_escribir\_pin@{gpio\_escribir\_pin}}
+\index{gpio\_escribir\_pin@{gpio\_escribir\_pin}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_escribir\_pin()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_aee0fce30754011636d01c10fae93492b} 
+void gpio\+\_\+escribir\+\_\+pin (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{mascara\+\_\+pin}{, }\item[{\textbf{ bool\+\_\+t}}]{valor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Establece el estado de uno o más pines de salida al mismo estado. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mascara\+\_\+pin} & Máscara de selección del pin o pines. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em valor} & FALSE =$>$ poner a 0, TRUE =$>$ poner a 1.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_escribir\_puerto@{gpio\_escribir\_puerto}}
+\index{gpio\_escribir\_puerto@{gpio\_escribir\_puerto}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_escribir\_puerto()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_adbc72df724de34fe3ee56aaf4449a1c6} 
+void gpio\+\_\+escribir\+\_\+puerto (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{valor}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Establece el estado de todos los pines de salida de un puerto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em valor} & Valor a escribir en el puerto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_invertir\_pin@{gpio\_invertir\_pin}}
+\index{gpio\_invertir\_pin@{gpio\_invertir\_pin}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_invertir\_pin()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_a97c2ea3dd2b3695c4fb968af8a6f379d} 
+void gpio\+\_\+invertir\+\_\+pin (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{mascara\+\_\+pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Invierte el estado de uno o más pines de salida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mascara\+\_\+pin} & Máscara de selección del pin o pines.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_leer\_pin@{gpio\_leer\_pin}}
+\index{gpio\_leer\_pin@{gpio\_leer\_pin}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_leer\_pin()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_a311e0d83f9d332bf6ebd6656d7916436} 
+\textbf{ bool\+\_\+t} gpio\+\_\+leer\+\_\+pin (\begin{DoxyParamCaption}\item[{const LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{mascara\+\_\+pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee el estado de un pin. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mascara\+\_\+pin} & Máscara para seleccionar el pin.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em FALSE} & El pin está a 0. TRUE El pin está a 1.\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_leer\_puerto@{gpio\_leer\_puerto}}
+\index{gpio\_leer\_puerto@{gpio\_leer\_puerto}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_leer\_puerto()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_ad40e33b382479466d2c2b5f9f0e4f787} 
+uint32\+\_\+t gpio\+\_\+leer\+\_\+puerto (\begin{DoxyParamCaption}\item[{const LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Lee el estado de un puerto completo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor leído del puerto.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_pin\_a\_0@{gpio\_pin\_a\_0}}
+\index{gpio\_pin\_a\_0@{gpio\_pin\_a\_0}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_pin\_a\_0()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_ad1ccac816483a347b409469b4deb1231} 
+void gpio\+\_\+pin\+\_\+a\+\_\+0 (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{mascara\+\_\+pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pone a 0 uno o más pines de salida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mascara\+\_\+pin} & Máscara de selección del pin o pines.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}
+\index{gpio\_lpc40xx.h@{gpio\_lpc40xx.h}!gpio\_pin\_a\_1@{gpio\_pin\_a\_1}}
+\index{gpio\_pin\_a\_1@{gpio\_pin\_a\_1}!gpio\_lpc40xx.h@{gpio\_lpc40xx.h}}
+\doxysubsubsection{gpio\_pin\_a\_1()}
+{\footnotesize\ttfamily \label{gpio__lpc40xx_8h_a8b340cdd5dac4281397ed25f16c3c2fb} 
+void gpio\+\_\+pin\+\_\+a\+\_\+1 (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$}]{gpio\+\_\+regs}{, }\item[{uint32\+\_\+t}]{mascara\+\_\+pin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pone a 1 uno o más pines de salida. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em gpio\+\_\+regs} & Puntero al bloque de registros del puerto. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mascara\+\_\+pin} & Máscara de selección del pin o pines.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+No se comprueba la validez de los argumentos para que el tiempo de ejecución sea corto y reducir el tamaño de la expansión en línea. 
+\end{DoxyWarning}

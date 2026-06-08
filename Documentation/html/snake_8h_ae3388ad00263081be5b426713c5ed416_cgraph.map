@@ -1,0 +1,21 @@
+<map id="actualizar_logica" name="actualizar_logica">
+<area shape="rect" id="Node000001" title="Avanzar en un ciclo la lógica de la partida." alt="" coords="5,122,124,149"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#acc3d562198ac8b791b982d5b582aa120" title="Generador aleatorio de comidas en el tablero. Queda como responsabilidad del programador llamar a sra..." alt="" coords="193,9,306,36"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,120,214,41,214,46,90,124"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#a81dab5a93199d281b727a11cb19f95b9" title="Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas po..." alt="" coords="205,97,295,124"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,125,192,117,187,120,125,130"/>
+<area shape="rect" id="Node000008" href="$cola_8c.html#aedd9ed435ab2cd29837bd07b0c76c97a" title="Devuelve la suma de dos puntos." alt="" coords="376,173,474,200"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="124,141,362,175,360,180,124,147"/>
+<area shape="rect" id="Node000009" href="$snake_8c.html#a1f51a5833595c4dd4133d064a75e0e60" title="Comprueba que la serpiente no se vaya a chocar con nada en el siguiente ciclo, eso incluye los bordes..." alt="" coords="172,198,328,225"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="100,147,203,190,199,194,99,152"/>
+<area shape="rect" id="Node000003" href="$cola_8c.html#a9ade4050f44e3b7934bb7aeb4d779118" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="522,21,643,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="306,11,386,4,475,6,521,16,516,17,474,12,386,9,308,16"/>
+<area shape="rect" id="Node000005" href="$cola_8c.html#a0feb4362cfefff21a14cda0974c2b195" title="Creas un nodo para la cola." alt="" coords="384,21,466,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="282,94,381,53,376,55,284,99"/>
+<area shape="rect" id="Node000006" href="$cola_8c.html#a83d499a0de317ef6d95feb1c19e04f54" title="Saca el primer nodo de la cola, pop." alt="" coords="382,72,469,98"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="295,101,369,93,364,94,296,106"/>
+<area shape="rect" id="Node000007" href="$cola_8c.html#adda1573073c78572e5e5c8b7cdf0ca85" title="Inserta nodo en la cola, push." alt="" coords="392,122,458,149"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="296,114,380,128,375,129,296,119"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="286,122,329,140,383,166,378,166,327,145,285,127"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="468,68,527,52,522,54,470,74"/>
+</map>

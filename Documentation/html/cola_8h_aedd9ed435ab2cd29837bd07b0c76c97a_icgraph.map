@@ -1,0 +1,10 @@
+<map id="sumarPuntos" name="sumarPuntos">
+<area shape="rect" id="Node000001" title="Devuelve la suma de dos puntos." alt="" coords="407,5,506,32"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#ae3388ad00263081be5b426713c5ed416" title="Avanzar en un ciclo la lógica de la partida." alt="" coords="103,5,221,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,20,222,21,221,16,394,18"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#a81dab5a93199d281b727a11cb19f95b9" title="Una vez se ha confirmado que se puede mover, se actualiza el tablero y la serpiente con sus nuevas po..." alt="" coords="269,31,359,57"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="394,30,360,39,359,33,389,30"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,20,56,21,55,16,89,17"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="251,34,222,31,222,26,256,34"/>
+</map>

@@ -1,0 +1,41 @@
+<map id="tipos.h" name="tipos.h">
+<area shape="rect" id="Node000001" title="Definiciones de tipos para el compilador ARM." alt="" coords="470,5,530,32"/>
+<area shape="rect" id="Node000002" href="$error_8h.html" title="Librería para el tratamiento de errores." alt="" coords="5,80,64,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="452,26,287,46,181,62,75,83,66,85,62,81,74,77,180,57,286,41,456,23"/>
+<area shape="rect" id="Node000004" href="$fuente_8h.html" title="Tipos y constantes para el manejo de las fuentes para la pantalla GLCD." alt="" coords="276,80,345,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,38,345,82,342,77,457,36"/>
+<area shape="rect" id="Node000005" href="$glcd_8h.html" title="Funciones de manejo del LCD de 4.3&quot; desde la tarjeta Embedded Artist Developer&#39;s Kit." alt="" coords="282,155,339,181"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="452,26,345,47,296,62,278,72,266,82,262,90,261,99,267,118,281,137,298,154,292,154,277,140,263,121,255,100,256,89,262,78,275,67,294,57,344,42,457,24"/>
+<area shape="rect" id="Node000009" href="$gpio__lpc40xx_8h.html" title="Constantes y funciones para manejar los puertos E/S digital del LPC40xx." alt="" coords="744,80,853,107"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="545,28,749,79,744,80,545,34"/>
+<area shape="rect" id="Node000010" href="$iocon__lpc40xx_8h.html" title="Configuración de pines del LPC40xx." alt="" coords="694,155,810,181"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="545,25,613,44,649,59,683,78,704,95,722,116,747,155,742,153,718,119,700,99,680,82,647,63,611,49,546,30"/>
+<area shape="rect" id="Node000011" href="$joystick_8c.html" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="537,155,614,181"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="525,41,553,79,569,119,576,155,572,153,563,121,548,81,523,46"/>
+<area shape="rect" id="Node000012" href="$joystick_8h.html" title="Función básica de lectura del joystick integrado en la tarjeta Embedded Artist LPC4088." alt="" coords="461,80,538,107"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="501,46,502,81,497,78,498,50"/>
+<area shape="rect" id="Node000013" href="$leds_8h.html" title="Funciones para manejar cuatro de los LEDs de la tarjeta Embedded Artist LPC4088." alt="" coords="613,80,669,107"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="538,37,619,79,614,80,538,42"/>
+<area shape="rect" id="Node000014" href="$sdram_8h.html" title="Funciones para utilizar la SDRAM con la pantalla LCD de EA para el LPC4088." alt="" coords="368,80,437,107"/>
+<area shape="poly" id="edge18_Node000001_Node000014" title=" " alt="" coords="473,40,421,82,418,77,469,43"/>
+<area shape="rect" id="Node000015" href="$timer__lpc40xx_8h.html" title="Funciones de uso de los timers del LPC40xx." alt="" coords="87,80,200,107"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="453,31,202,83,200,78,456,27"/>
+<area shape="rect" id="Node000016" href="$uart__lpc40xx_8h.html" title="Funciones de manejo de las UARTs del LPC40xx." alt="" coords="877,80,984,107"/>
+<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="546,25,866,77,879,82,874,82,865,83,546,30"/>
+<area shape="rect" id="Node000003" href="$timer__lpc40xx_8c.html" title="Funciones para el uso de los timers del LPC40xx." alt="" coords="6,155,119,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="45,119,60,154,55,155,45,124"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="312,120,313,155,308,153,309,125"/>
+<area shape="rect" id="Node000006" href="$snake_8h.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="277,229,344,256"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="312,195,313,230,308,228,309,199"/>
+<area shape="rect" id="Node000007" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="154,304,214,331"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="278,263,207,306,205,301,273,264"/>
+<area shape="rect" id="Node000008" href="$snake_8c.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="277,304,344,331"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="312,270,313,305,308,302,309,274"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="784,118,761,156,758,152,780,121"/>
+<area shape="poly" id="edge15_Node000012_Node000006" title=" " alt="" coords="474,116,328,231,325,227,469,117"/>
+<area shape="poly" id="edge14_Node000012_Node000011" title=" " alt="" coords="525,115,565,155,560,154,523,120"/>
+<area shape="poly" id="edge17_Node000013_Node000011" title=" " alt="" coords="622,117,589,156,586,152,617,120"/>
+<area shape="poly" id="edge19_Node000014_Node000005" title=" " alt="" coords="377,115,328,156,325,152,372,118"/>
+<area shape="poly" id="edge22_Node000015_Node000003" title=" " alt="" coords="117,119,79,156,74,153,120,115"/>
+<area shape="poly" id="edge21_Node000015_Node000007" title=" " alt="" coords="151,121,184,304,179,303,147,123"/>
+</map>

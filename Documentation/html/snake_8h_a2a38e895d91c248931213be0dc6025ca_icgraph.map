@@ -1,0 +1,7 @@
+<map id="initSnake" name="initSnake">
+<area shape="rect" id="Node000001" title="Inicializa la serpiente, su posición, tamaño y futuros movimientos de la cola." alt="" coords="264,5,339,32"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a22665ff452eb912e82a1c9ee750f942c" title="Inicializa todo el juego, incluyendo la serpiente, el tablero, los puntos, la última dirección elegida y la ..." alt="" coords="103,5,216,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,19,217,21,217,16,251,19"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,19,55,21,55,16,90,18"/>
+</map>

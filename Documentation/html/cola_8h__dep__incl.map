@@ -1,0 +1,11 @@
+<map id="cola.h" name="cola.h">
+<area shape="rect" id="Node000001" title="Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica...." alt="" coords="48,5,104,32"/>
+<area shape="rect" id="Node000002" href="$cola_8c.html" title="Tipos de datos necesarios para el snake. Adaptación de la cola de c++ a c usando memoria dinámica...." alt="" coords="5,80,62,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,48,43,81,38,78,62,43"/>
+<area shape="rect" id="Node000003" href="$snake_8h.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="85,80,152,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="92,43,114,79,109,80,91,48"/>
+<area shape="rect" id="Node000004" href="$main_8c.html" title="Main para probar las funciones del juego snake." alt="" coords="45,155,105,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,119,84,156,80,153,101,121"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html" title="Macros y funciones para jugar al snake en el LPC4088 Developer&#39;s Kit con joystick y la pantalla del k..." alt="" coords="129,155,196,181"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="136,118,158,155,153,154,133,122"/>
+</map>

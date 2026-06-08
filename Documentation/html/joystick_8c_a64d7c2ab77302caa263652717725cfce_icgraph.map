@@ -1,0 +1,8 @@
+<map id="joystick_leer2" name="joystick_leer2">
+<area shape="rect" id="Node000001" title="Leer el joystick externo y retornar un número diferente según la dirección que se esté pulsando." alt="" coords="272,5,373,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,21,55,21,55,16,257,16"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html#a8f7fe87ec38d2889f2c2b471a9293840" title="Lee el joystick y devuelve un valor dependiente del anterior, dado que la serpiente no puede darse me..." alt="" coords="103,31,224,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,29,225,37,224,32,254,29"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="85,31,55,26,55,21,90,28"/>
+</map>

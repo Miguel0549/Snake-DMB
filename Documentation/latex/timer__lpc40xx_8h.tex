@@ -1,0 +1,370 @@
+\doxysection{timer\+\_\+lpc40xx.\+h File Reference}
+\label{timer__lpc40xx_8h}\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+
+
+Funciones de uso de los timers del LPC40xx.  
+
+
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+{\ttfamily \+\#include $<$LPC407x\+\_\+8x\+\_\+177x\+\_\+8x.\+h$>$}\newline
+Include dependency graph for timer\+\_\+lpc40xx.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{timer__lpc40xx_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{timer__lpc40xx_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define {\bfseries TIMER0}~LPC\+\_\+\+TIM0
+\item 
+\+\#define {\bfseries TIMER1}~LPC\+\_\+\+TIM1
+\item 
+\+\#define {\bfseries TIMER2}~LPC\+\_\+\+TIM2
+\item 
+\+\#define {\bfseries TIMER3}~LPC\+\_\+\+TIM3
+\item 
+\+\#define {\bfseries LPC\+\_\+\+TIMER0}~LPC\+\_\+\+TIM0
+\item 
+\+\#define {\bfseries LPC\+\_\+\+TIMER1}~LPC\+\_\+\+TIM1
+\item 
+\+\#define {\bfseries LPC\+\_\+\+TIMER2}~LPC\+\_\+\+TIM2
+\item 
+\+\#define {\bfseries LPC\+\_\+\+TIMER3}~LPC\+\_\+\+TIM3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ timer\+\_\+inicializar} (const LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Inicializa el TIMER indicado habilitándo su alimentación en el registro de control de consumo de periféricos PCONP. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+retardo\+\_\+ms} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs, uint32\+\_\+t retardo\+\_\+en\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Configura un TIMER para que genere un retardo del número de milisegundos indicado. La función no retorna hasta que transcurre este tiempo. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+retardo\+\_\+us} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs, uint32\+\_\+t retardo\+\_\+en\+\_\+us)
+\begin{DoxyCompactList}\small\item\em Configura un TIMER para que genere un retardo del número de microsegundos indicado. La función no retorna hasta que transcurre este tiempo. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+iniciar\+\_\+ciclos\+\_\+ms} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs, uint32\+\_\+t periodo\+\_\+en\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Programa un TIMER para que realice ciclos del número de milisegundos indicado. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+iniciar\+\_\+ciclos\+\_\+us} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs, uint32\+\_\+t periodo\+\_\+en\+\_\+us)
+\begin{DoxyCompactList}\small\item\em Programa un TIMER para que realice ciclos del número de microsegundos indicado. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+esperar\+\_\+fin\+\_\+ciclo} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Espera a que el bit de petición de interrupción del match 0 de un TIMER se ponga a 1. Cuando esto ocurra, ponerlo a 0 y retornar. \end{DoxyCompactList}\item 
+bool \textbf{ timer\+\_\+fin\+\_\+ciclo} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Devuelve si el bit de interrupción del match 0 de un timer está a 1. Para cuando quieres hacer algo mientras esperas en un bucle. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+iniciar\+\_\+conteo\+\_\+ms} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Programa un TIMER para que se incremente indefinidamente una vez por milisegundo. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+iniciar\+\_\+conteo\+\_\+us} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Programa un TIMER para que se incremente indefinidamente una vez por microsegundo. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ timer\+\_\+leer} (const LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Leer el valor del registro TC de un TIMER. \end{DoxyCompactList}\item 
+void \textbf{ timer\+\_\+poner\+\_\+contador\+\_\+a\+\_\+0} (LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$timer\+\_\+regs)
+\begin{DoxyCompactList}\small\item\em Reinicia la cuenta de un TIMER. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funciones de uso de los timers del LPC40xx. 
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{timer__lpc40xx_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_esperar\_fin\_ciclo@{timer\_esperar\_fin\_ciclo}}
+\index{timer\_esperar\_fin\_ciclo@{timer\_esperar\_fin\_ciclo}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_esperar\_fin\_ciclo()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a84b2d4848ef91270eca8d4c7bacef79c} 
+void timer\+\_\+esperar\+\_\+fin\+\_\+ciclo (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Espera a que el bit de petición de interrupción del match 0 de un TIMER se ponga a 1. Cuando esto ocurra, ponerlo a 0 y retornar. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{timer__lpc40xx_8h_a84b2d4848ef91270eca8d4c7bacef79c_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_fin\_ciclo@{timer\_fin\_ciclo}}
+\index{timer\_fin\_ciclo@{timer\_fin\_ciclo}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_fin\_ciclo()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a17e9d37f3cddc1f33b1dd8dce711d88b} 
+bool timer\+\_\+fin\+\_\+ciclo (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Devuelve si el bit de interrupción del match 0 de un timer está a 1. Para cuando quieres hacer algo mientras esperas en un bucle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{timer__lpc40xx_8h_a17e9d37f3cddc1f33b1dd8dce711d88b_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_inicializar@{timer\_inicializar}}
+\index{timer\_inicializar@{timer\_inicializar}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_inicializar()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a05f06a89bff3fce44d7b6bae8bb2dbb5} 
+void timer\+\_\+inicializar (\begin{DoxyParamCaption}\item[{const LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el TIMER indicado habilitándo su alimentación en el registro de control de consumo de periféricos PCONP. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER a inicializar. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{timer__lpc40xx_8h_a05f06a89bff3fce44d7b6bae8bb2dbb5_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_iniciar\_ciclos\_ms@{timer\_iniciar\_ciclos\_ms}}
+\index{timer\_iniciar\_ciclos\_ms@{timer\_iniciar\_ciclos\_ms}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_iniciar\_ciclos\_ms()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a129ecd91e53099c4f5837303296feb9c} 
+void timer\+\_\+iniciar\+\_\+ciclos\+\_\+ms (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{, }\item[{uint32\+\_\+t}]{periodo\+\_\+en\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Programa un TIMER para que realice ciclos del número de milisegundos indicado. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em periodo\+\_\+en\+\_\+ms} & Duración de cada ciclo en milisegundos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+¡\+Atención! El registro de preescala se configura para que se incremente cada 0.\+1 milisegundos para aumentar la resolución y permitir realizar ciclos de 1 milisegundo. 
+\end{DoxyNote}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{timer__lpc40xx_8h_a129ecd91e53099c4f5837303296feb9c_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_iniciar\_ciclos\_us@{timer\_iniciar\_ciclos\_us}}
+\index{timer\_iniciar\_ciclos\_us@{timer\_iniciar\_ciclos\_us}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_iniciar\_ciclos\_us()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a43131501d618697635d52d279ffbdc88} 
+void timer\+\_\+iniciar\+\_\+ciclos\+\_\+us (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{, }\item[{uint32\+\_\+t}]{periodo\+\_\+en\+\_\+us}{}\end{DoxyParamCaption})}
+
+
+
+Programa un TIMER para que realice ciclos del número de microsegundos indicado. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em periodo\+\_\+en\+\_\+us} & Duración de cada ciclo en microsegundos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+¡\+Atención! El registro de preescala se configura para que se incremente cada 0.\+1 microsegundos para aumentar la resolución y permitir realizar ciclos de 1 microsegundo. 
+\end{DoxyNote}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_iniciar\_conteo\_ms@{timer\_iniciar\_conteo\_ms}}
+\index{timer\_iniciar\_conteo\_ms@{timer\_iniciar\_conteo\_ms}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_iniciar\_conteo\_ms()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a374d4d1e084798f679988095806ae9d1} 
+void timer\+\_\+iniciar\+\_\+conteo\+\_\+ms (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Programa un TIMER para que se incremente indefinidamente una vez por milisegundo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{timer__lpc40xx_8h_a374d4d1e084798f679988095806ae9d1_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_iniciar\_conteo\_us@{timer\_iniciar\_conteo\_us}}
+\index{timer\_iniciar\_conteo\_us@{timer\_iniciar\_conteo\_us}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_iniciar\_conteo\_us()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_af23940ebc3c2159f5ea2b43bf25b7312} 
+void timer\+\_\+iniciar\+\_\+conteo\+\_\+us (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Programa un TIMER para que se incremente indefinidamente una vez por microsegundo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_leer@{timer\_leer}}
+\index{timer\_leer@{timer\_leer}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_leer()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a3a52907e71afa053a8a598a267f027ea} 
+uint32\+\_\+t timer\+\_\+leer (\begin{DoxyParamCaption}\item[{const LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Leer el valor del registro TC de un TIMER. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor actual del registro TC del TIMER seleccionado.
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{timer__lpc40xx_8h_a3a52907e71afa053a8a598a267f027ea_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_poner\_contador\_a\_0@{timer\_poner\_contador\_a\_0}}
+\index{timer\_poner\_contador\_a\_0@{timer\_poner\_contador\_a\_0}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_poner\_contador\_a\_0()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a3e65145c0ba99c63520a0649c0b5f74e} 
+void timer\+\_\+poner\+\_\+contador\+\_\+a\+\_\+0 (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{}\end{DoxyParamCaption})}
+
+
+
+Reinicia la cuenta de un TIMER. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función. 
+\end{DoxyPrecond}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_retardo\_ms@{timer\_retardo\_ms}}
+\index{timer\_retardo\_ms@{timer\_retardo\_ms}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_retardo\_ms()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_a772bfd29d37b2e8924e95c20f695cf94} 
+void timer\+\_\+retardo\+\_\+ms (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{, }\item[{uint32\+\_\+t}]{retardo\+\_\+en\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Configura un TIMER para que genere un retardo del número de milisegundos indicado. La función no retorna hasta que transcurre este tiempo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em retardo\+\_\+en\+\_\+ms} & Número de milisegundos de duración del retardo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+¡\+Atención! El registro de preescala se configura para que se incremente cada 0.\+1 milisegundos para aumentar la resolución y permitir realizar retardos de 1 milisegundo.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Función bloqueante. 
+\end{DoxyWarning}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{timer__lpc40xx_8h_a772bfd29d37b2e8924e95c20f695cf94_icgraph}
+\end{center}
+\end{figure}
+\index{timer\_lpc40xx.h@{timer\_lpc40xx.h}!timer\_retardo\_us@{timer\_retardo\_us}}
+\index{timer\_retardo\_us@{timer\_retardo\_us}!timer\_lpc40xx.h@{timer\_lpc40xx.h}}
+\doxysubsubsection{timer\_retardo\_us()}
+{\footnotesize\ttfamily \label{timer__lpc40xx_8h_ab0963414455cdaf7b9f102a8a4e9b4ac} 
+void timer\+\_\+retardo\+\_\+us (\begin{DoxyParamCaption}\item[{LPC\+\_\+\+TIM\+\_\+\+Type\+Def $\ast$}]{timer\+\_\+regs}{, }\item[{uint32\+\_\+t}]{retardo\+\_\+en\+\_\+us}{}\end{DoxyParamCaption})}
+
+
+
+Configura un TIMER para que genere un retardo del número de microsegundos indicado. La función no retorna hasta que transcurre este tiempo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+regs} & Ptr. al bloque de registros del TIMER. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em retardo\+\_\+en\+\_\+us} & Número de microsegundos de duración del retardo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El TIMER debe estar inicializado antes de invocar esta función.
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+¡\+Atención! El registro de preescala se configura para que se incremente cada 0.\+1 microsegundos para aumentar la resolución y permitir realizar retardos de 1 microsegundo.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Función bloqueante. 
+\end{DoxyWarning}

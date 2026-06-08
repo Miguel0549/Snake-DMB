@@ -1,0 +1,25 @@
+<map id="renderizar" name="renderizar">
+<area shape="rect" id="Node000001" title="Imprime el escenario inicial por pantalla." alt="" coords="5,56,84,83"/>
+<area shape="rect" id="Node000002" href="$glcd_8h.html#aeef99bde10486881fdf9d1ba36dea33c" title="Borra la pantalla LCD rellenándola con el color indicado." alt="" coords="145,5,230,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,53,136,36,132,40,86,58"/>
+<area shape="rect" id="Node000003" href="$glcd_8h.html#adb0885aacc0ae45d024b4f3cb7fd0315" title="Dibuja en la pantalla LCD un rectángulo definido por las coordenadas de los vértices de una diagonal...." alt="" coords="132,56,244,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="83,67,118,68,114,71,85,72"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#ab8af81f580f53a1f26e0a8f1c49dff3d" title="Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de l..." alt="" coords="132,107,244,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="84,81,136,100,132,102,85,86"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#a41b84703c6444551a49de5d363045885" title="Imprime la cabeza de la serpiente mirando en dirección correcta." alt="" coords="292,5,442,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,104,242,93,266,71,290,49,315,38,311,40,294,53,270,75,246,97,225,108"/>
+<area shape="rect" id="Node000007" href="$glcd_8h.html#abd9afd22e98c2ca005af90cedd3fbe18" title="Dibuja en la pantalla LCD un rectángulo relleno definido por las coordenadas de los vértices de una d..." alt="" coords="490,56,648,83"/>
+<area shape="poly" id="edge11_Node000004_Node000007" title=" " alt="" coords="238,104,292,92,386,79,478,74,472,75,386,85,292,97,240,109"/>
+<area shape="rect" id="Node000008" href="$snake_8c.html#aafa9328b8e7c75350f0755138e08d182" title="Imprime una celda del cuerpo de la serpiente." alt="" coords="314,107,420,133"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="244,117,302,119,297,121,245,123"/>
+<area shape="rect" id="Node000009" href="$snake_8c.html#acd390c5500b9fc29c9295118cf0d0f57" title="Imprime la fruta." alt="" coords="321,157,413,184"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="238,131,309,153,304,154,238,137"/>
+<area shape="rect" id="Node000011" href="$glcd_8h.html#aaa82fb16582c7947bfd6f8dd17406028" title="Función parecida a glcd_printf pero pudiendo indicar las coordedadas donde aparece el texto,..." alt="" coords="323,208,411,235"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="205,131,244,162,293,194,311,204,306,203,291,198,241,167,204,136"/>
+<area shape="rect" id="Node000006" href="$glcd_8h.html#a6072040078c30c5b6c38f374ea23266b" title="Dibuja en la pantlla LCD un segmento de línea recta definido por las coordenadas de sus extremos...." alt="" coords="529,5,609,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="442,16,517,18,511,19,443,21"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="423,30,501,51,495,52,423,35"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="420,104,501,86,496,88,421,109"/>
+<area shape="rect" id="Node000010" href="$glcd_8h.html#a8a0cfc7e0a84943f7fe511a04112e7f3" title="Dibuja un circulo relleno en la pantalla LCD. Se dibuja la parte del cículo contenido entre los límit..." alt="" coords="524,157,614,184"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="414,168,511,170,505,171,414,173"/>
+</map>

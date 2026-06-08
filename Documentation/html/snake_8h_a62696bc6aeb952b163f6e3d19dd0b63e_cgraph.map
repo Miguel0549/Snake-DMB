@@ -1,0 +1,5 @@
+<map id="trans_joy_to_point" name="trans_joy_to_point">
+<area shape="rect" id="Node000001" title="Transforma las direcciones del joycon en puntos, para poder sumar estos como direcciones y trabajar l..." alt="" coords="5,5,133,32"/>
+<area shape="rect" id="Node000002" href="$cola_8c.html#a9ade4050f44e3b7934bb7aeb4d779118" title="Devuelve un punto con un valor x y uno y para inicializar otros." alt="" coords="181,5,301,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,168,18,162,19,133,21"/>
+</map>

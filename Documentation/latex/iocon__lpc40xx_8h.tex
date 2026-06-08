@@ -1,0 +1,564 @@
+\doxysection{iocon\+\_\+lpc40xx.\+h File Reference}
+\label{iocon__lpc40xx_8h}\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+
+
+Configuración de pines del LPC40xx.  
+
+
+{\ttfamily \+\#include $<$LPC407x\+\_\+8x\+\_\+177x\+\_\+8x.\+h$>$}\newline
+{\ttfamily \+\#include "{}tipos.\+h"{}}\newline
+{\ttfamily \+\#include "{}gpio\+\_\+lpc40xx.\+h"{}}\newline
+Include dependency graph for iocon\+\_\+lpc40xx.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{iocon__lpc40xx_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ configuracion\+\_\+funcion\+\_\+pin\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Estructura para describir la configuración de la función de un pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\label{iocon__lpc40xx_8h_a5516e7ce32eca9d04dc8467461066325} 
+\+\#define {\bfseries IOCON\+\_\+\+MAXIMO\+\_\+\+FUNCIONES\+\_\+\+POR\+\_\+\+PIN}~8
+\begin{DoxyCompactList}\small\item\em Número máximo de funciones en cada pin del LPC40xx. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ iocon\+\_\+configuracion\+\_\+es} \{ \newline
+\textbf{ IOCON\+\_\+\+NO\+\_\+\+PULL\+\_\+\+UP\+\_\+\+NO\+\_\+\+PULL\+\_\+\+DOWN} = 0
+, \textbf{ IOCON\+\_\+\+PULL\+\_\+\+DOWN} = (1u $<$$<$ 3)
+, \textbf{ IOCON\+\_\+\+PULL\+\_\+\+UP} = (1u $<$$<$ 4)
+, \textbf{ IOCON\+\_\+\+REPEATER\+\_\+\+MODE} = (3u $<$$<$ 3)
+, \newline
+\textbf{ IOCON\+\_\+\+HYS} = (1u $<$$<$ 5)
+, \textbf{ IOCON\+\_\+\+INV} = (1u $<$$<$ 6)
+, \textbf{ IOCON\+\_\+\+ADMODE} = (1u $<$$<$ 7)
+, \textbf{ IOCON\+\_\+\+FILTER} = (1u $<$$<$ 8)
+, \newline
+\textbf{ IOCON\+\_\+\+HS} = (1u $<$$<$ 8)
+, \textbf{ IOCON\+\_\+\+SLEW} = (1u $<$$<$ 9)
+, \textbf{ IOCON\+\_\+\+HIDRIVE} = (1u $<$$<$ 9)
+, \textbf{ IOCON\+\_\+\+OD} = (1u $<$$<$ 10)
+, \newline
+\textbf{ IOCON\+\_\+\+DACEN} = (1u $<$$<$ 16)
+ \}
+\begin{DoxyCompactList}\small\item\em Máscaras para seleccionar la configuración de la etapa de entrada o salida de un pin. \end{DoxyCompactList}\item 
+\label{iocon__lpc40xx_8h_af762562f2613a0563168f4ddb51fb7ea} 
+enum \textbf{ funcion\+\_\+pin\+\_\+t} \{ \newline
+{\bfseries GPIO}
+, {\bfseries AD0\+\_\+0}
+, {\bfseries AD0\+\_\+1}
+, {\bfseries AD0\+\_\+2}
+, \newline
+{\bfseries AD0\+\_\+3}
+, {\bfseries AD0\+\_\+4}
+, {\bfseries AD0\+\_\+5}
+, {\bfseries AD0\+\_\+6}
+, \newline
+{\bfseries AD0\+\_\+7}
+, {\bfseries CAN\+\_\+\+RD1}
+, {\bfseries CAN\+\_\+\+RD2}
+, {\bfseries CAN\+\_\+\+TD1}
+, \newline
+{\bfseries CAN\+\_\+\+TD2}
+, {\bfseries CLKOUT}
+, {\bfseries CMP\+\_\+\+RESET}
+, {\bfseries CMP\+\_\+\+ROSC}
+, \newline
+{\bfseries CMP\+\_\+\+VREF}
+, {\bfseries CMP0\+\_\+\+IN\+\_\+1}
+, {\bfseries CMP0\+\_\+\+IN\+\_\+2}
+, {\bfseries CMP0\+\_\+\+IN\+\_\+3}
+, \newline
+{\bfseries CMP0\+\_\+\+IN\+\_\+4}
+, {\bfseries CMP0\+\_\+\+OUT}
+, {\bfseries CMP1\+\_\+\+IN\+\_\+1}
+, {\bfseries CMP1\+\_\+\+IN\+\_\+2}
+, \newline
+{\bfseries CMP1\+\_\+\+IN\+\_\+3}
+, {\bfseries CMP1\+\_\+\+IN\+\_\+4}
+, {\bfseries CMP1\+\_\+\+OUT}
+, {\bfseries DAC\+\_\+\+OUT}
+, \newline
+{\bfseries EINT0}
+, {\bfseries EINT1}
+, {\bfseries EINT2}
+, {\bfseries EINT3}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+0}
+, {\bfseries EMC\+\_\+\+A\+\_\+1}
+, {\bfseries EMC\+\_\+\+A\+\_\+2}
+, {\bfseries EMC\+\_\+\+A\+\_\+3}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+4}
+, {\bfseries EMC\+\_\+\+A\+\_\+5}
+, {\bfseries EMC\+\_\+\+A\+\_\+6}
+, {\bfseries EMC\+\_\+\+A\+\_\+7}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+8}
+, {\bfseries EMC\+\_\+\+A\+\_\+9}
+, {\bfseries EMC\+\_\+\+A\+\_\+10}
+, {\bfseries EMC\+\_\+\+A\+\_\+11}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+12}
+, {\bfseries EMC\+\_\+\+A\+\_\+13}
+, {\bfseries EMC\+\_\+\+A\+\_\+14}
+, {\bfseries EMC\+\_\+\+A\+\_\+15}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+16}
+, {\bfseries EMC\+\_\+\+A\+\_\+17}
+, {\bfseries EMC\+\_\+\+A\+\_\+18}
+, {\bfseries EMC\+\_\+\+A\+\_\+19}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+20}
+, {\bfseries EMC\+\_\+\+A\+\_\+21}
+, {\bfseries EMC\+\_\+\+A\+\_\+22}
+, {\bfseries EMC\+\_\+\+A\+\_\+23}
+, \newline
+{\bfseries EMC\+\_\+\+A\+\_\+24}
+, {\bfseries EMC\+\_\+\+A\+\_\+25}
+, {\bfseries EMC\+\_\+\+BLS0}
+, {\bfseries EMC\+\_\+\+BLS1}
+, \newline
+{\bfseries EMC\+\_\+\+BLS2}
+, {\bfseries EMC\+\_\+\+BLS3}
+, {\bfseries EMC\+\_\+\+CAS}
+, {\bfseries EMC\+\_\+\+CKE0}
+, \newline
+{\bfseries EMC\+\_\+\+CKE1}
+, {\bfseries EMC\+\_\+\+CKE2}
+, {\bfseries EMC\+\_\+\+CKE3}
+, {\bfseries EMC\+\_\+\+CLK0}
+, \newline
+{\bfseries EMC\+\_\+\+CLK1}
+, {\bfseries EMC\+\_\+\+CS0}
+, {\bfseries EMC\+\_\+\+CS1}
+, {\bfseries EMC\+\_\+\+CS2}
+, \newline
+{\bfseries EMC\+\_\+\+CS3}
+, {\bfseries EMC\+\_\+\+D\+\_\+0}
+, {\bfseries EMC\+\_\+\+D\+\_\+1}
+, {\bfseries EMC\+\_\+\+D\+\_\+2}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+3}
+, {\bfseries EMC\+\_\+\+D\+\_\+4}
+, {\bfseries EMC\+\_\+\+D\+\_\+5}
+, {\bfseries EMC\+\_\+\+D\+\_\+6}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+7}
+, {\bfseries EMC\+\_\+\+D\+\_\+8}
+, {\bfseries EMC\+\_\+\+D\+\_\+9}
+, {\bfseries EMC\+\_\+\+D\+\_\+10}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+11}
+, {\bfseries EMC\+\_\+\+D\+\_\+12}
+, {\bfseries EMC\+\_\+\+D\+\_\+13}
+, {\bfseries EMC\+\_\+\+D\+\_\+14}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+15}
+, {\bfseries EMC\+\_\+\+D\+\_\+16}
+, {\bfseries EMC\+\_\+\+D\+\_\+17}
+, {\bfseries EMC\+\_\+\+D\+\_\+18}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+19}
+, {\bfseries EMC\+\_\+\+D\+\_\+20}
+, {\bfseries EMC\+\_\+\+D\+\_\+21}
+, {\bfseries EMC\+\_\+\+D\+\_\+22}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+23}
+, {\bfseries EMC\+\_\+\+D\+\_\+24}
+, {\bfseries EMC\+\_\+\+D\+\_\+25}
+, {\bfseries EMC\+\_\+\+D\+\_\+26}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+27}
+, {\bfseries EMC\+\_\+\+D\+\_\+28}
+, {\bfseries EMC\+\_\+\+D\+\_\+29}
+, {\bfseries EMC\+\_\+\+D\+\_\+30}
+, \newline
+{\bfseries EMC\+\_\+\+D\+\_\+31}
+, {\bfseries EMC\+\_\+\+DQM0}
+, {\bfseries EMC\+\_\+\+DQM1}
+, {\bfseries EMC\+\_\+\+DQM2}
+, \newline
+{\bfseries EMC\+\_\+\+DQM3}
+, {\bfseries EMC\+\_\+\+DYCS0}
+, {\bfseries EMC\+\_\+\+DYCS1}
+, {\bfseries EMC\+\_\+\+DYCS2}
+, \newline
+{\bfseries EMC\+\_\+\+DYCS3}
+, {\bfseries EMC\+\_\+\+OE}
+, {\bfseries EMC\+\_\+\+RAS}
+, {\bfseries EMC\+\_\+\+WE}
+, \newline
+{\bfseries ENET\+\_\+\+COL}
+, {\bfseries ENET\+\_\+\+CRS}
+, {\bfseries ENET\+\_\+\+MDC}
+, {\bfseries ENET\+\_\+\+MDIO}
+, \newline
+{\bfseries ENET\+\_\+\+RX\+\_\+\+CLK}
+, {\bfseries ENET\+\_\+\+RX\+\_\+\+DV}
+, {\bfseries ENET\+\_\+\+RX\+\_\+\+ER}
+, {\bfseries ENET\+\_\+\+RXD0}
+, \newline
+{\bfseries ENET\+\_\+\+RXD1}
+, {\bfseries ENET\+\_\+\+RXD2}
+, {\bfseries ENET\+\_\+\+RXD3}
+, {\bfseries ENET\+\_\+\+TX\+\_\+\+CLK}
+, \newline
+{\bfseries ENET\+\_\+\+TX\+\_\+\+EN}
+, {\bfseries ENET\+\_\+\+TX\+\_\+\+ER}
+, {\bfseries ENET\+\_\+\+TXD0}
+, {\bfseries ENET\+\_\+\+TXD1}
+, \newline
+{\bfseries ENET\+\_\+\+TXD2}
+, {\bfseries ENET\+\_\+\+TXD3}
+, {\bfseries I2\+C0\+\_\+\+SCL}
+, {\bfseries I2\+C0\+\_\+\+SDA}
+, \newline
+{\bfseries I2\+C1\+\_\+\+SCL}
+, {\bfseries I2\+C1\+\_\+\+SDA}
+, {\bfseries I2\+C2\+\_\+\+SCL}
+, {\bfseries I2\+C2\+\_\+\+SDA}
+, \newline
+{\bfseries I2\+S\+\_\+\+RX\+\_\+\+MCLK}
+, {\bfseries I2\+S\+\_\+\+RX\+\_\+\+SCK}
+, {\bfseries I2\+S\+\_\+\+RX\+\_\+\+SDA}
+, {\bfseries I2\+S\+\_\+\+RX\+\_\+\+WS}
+, \newline
+{\bfseries I2\+S\+\_\+\+TX\+\_\+\+MCLK}
+, {\bfseries I2\+S\+\_\+\+TX\+\_\+\+SCK}
+, {\bfseries I2\+S\+\_\+\+TX\+\_\+\+SDA}
+, {\bfseries I2\+S\+\_\+\+TX\+\_\+\+WS}
+, \newline
+{\bfseries LCD\+\_\+\+CLKIN}
+, {\bfseries LCD\+\_\+\+DCLK}
+, {\bfseries LCD\+\_\+\+ENAB\+\_\+M}
+, {\bfseries LCD\+\_\+\+FP}
+, \newline
+{\bfseries LCD\+\_\+\+LE}
+, {\bfseries LCD\+\_\+\+LP}
+, {\bfseries LCD\+\_\+\+PWR}
+, {\bfseries LCD\+\_\+\+VD\+\_\+0}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+1}
+, {\bfseries LCD\+\_\+\+VD\+\_\+2}
+, {\bfseries LCD\+\_\+\+VD\+\_\+3}
+, {\bfseries LCD\+\_\+\+VD\+\_\+4}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+5}
+, {\bfseries LCD\+\_\+\+VD\+\_\+6}
+, {\bfseries LCD\+\_\+\+VD\+\_\+7}
+, {\bfseries LCD\+\_\+\+VD\+\_\+8}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+9}
+, {\bfseries LCD\+\_\+\+VD\+\_\+10}
+, {\bfseries LCD\+\_\+\+VD\+\_\+11}
+, {\bfseries LCD\+\_\+\+VD\+\_\+12}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+13}
+, {\bfseries LCD\+\_\+\+VD\+\_\+14}
+, {\bfseries LCD\+\_\+\+VD\+\_\+15}
+, {\bfseries LCD\+\_\+\+VD\+\_\+16}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+17}
+, {\bfseries LCD\+\_\+\+VD\+\_\+18}
+, {\bfseries LCD\+\_\+\+VD\+\_\+19}
+, {\bfseries LCD\+\_\+\+VD\+\_\+20}
+, \newline
+{\bfseries LCD\+\_\+\+VD\+\_\+21}
+, {\bfseries LCD\+\_\+\+VD\+\_\+22}
+, {\bfseries LCD\+\_\+\+VD\+\_\+23}
+, {\bfseries MC\+\_\+0A}
+, \newline
+{\bfseries MC\+\_\+0B}
+, {\bfseries MC\+\_\+1A}
+, {\bfseries MC\+\_\+1B}
+, {\bfseries MC\+\_\+2A}
+, \newline
+{\bfseries MC\+\_\+2B}
+, {\bfseries MC\+\_\+\+ABORT}
+, {\bfseries MC\+\_\+\+FB0}
+, {\bfseries MC\+\_\+\+FB1}
+, \newline
+{\bfseries MC\+\_\+\+FB2}
+, {\bfseries NMI}
+, {\bfseries PWM0\+\_\+1}
+, {\bfseries PWM0\+\_\+2}
+, \newline
+{\bfseries PWM0\+\_\+3}
+, {\bfseries PWM0\+\_\+4}
+, {\bfseries PWM0\+\_\+5}
+, {\bfseries PWM0\+\_\+6}
+, \newline
+{\bfseries PWM0\+\_\+\+CAP0}
+, {\bfseries PWM1\+\_\+1}
+, {\bfseries PWM1\+\_\+2}
+, {\bfseries PWM1\+\_\+3}
+, \newline
+{\bfseries PWM1\+\_\+4}
+, {\bfseries PWM1\+\_\+5}
+, {\bfseries PWM1\+\_\+6}
+, {\bfseries PWM1\+\_\+\+CAP0}
+, \newline
+{\bfseries PWM1\+\_\+\+CAP1}
+, {\bfseries QEI\+\_\+\+IDX}
+, {\bfseries QEI\+\_\+\+PHA}
+, {\bfseries QEI\+\_\+\+PHB}
+, \newline
+{\bfseries RTC\+\_\+\+EV0}
+, {\bfseries RTC\+\_\+\+EV1}
+, {\bfseries RTC\+\_\+\+EV2}
+, {\bfseries SD\+\_\+\+CLK}
+, \newline
+{\bfseries SD\+\_\+\+CMD}
+, {\bfseries SD\+\_\+\+DAT\+\_\+0}
+, {\bfseries SD\+\_\+\+DAT\+\_\+1}
+, {\bfseries SD\+\_\+\+DAT\+\_\+2}
+, \newline
+{\bfseries SD\+\_\+\+DAT\+\_\+3}
+, {\bfseries SD\+\_\+\+PWR}
+, {\bfseries SPIFI\+\_\+\+CLK}
+, {\bfseries SPIFI\+\_\+\+CS}
+, \newline
+{\bfseries SPIFI\+\_\+\+IO\+\_\+0}
+, {\bfseries SPIFI\+\_\+\+IO\+\_\+1}
+, {\bfseries SPIFI\+\_\+\+IO\+\_\+2}
+, {\bfseries SPIFI\+\_\+\+IO\+\_\+3}
+, \newline
+{\bfseries SSP0\+\_\+\+MISO}
+, {\bfseries SSP0\+\_\+\+MOSI}
+, {\bfseries SSP0\+\_\+\+SCK}
+, {\bfseries SSP0\+\_\+\+SSEL}
+, \newline
+{\bfseries SSP1\+\_\+\+MISO}
+, {\bfseries SSP1\+\_\+\+MOSI}
+, {\bfseries SSP1\+\_\+\+SCK}
+, {\bfseries SSP1\+\_\+\+SSEL}
+, \newline
+{\bfseries SSP2\+\_\+\+MISO}
+, {\bfseries SSP2\+\_\+\+MOSI}
+, {\bfseries SSP2\+\_\+\+SCK}
+, {\bfseries SSP2\+\_\+\+SSEL}
+, \newline
+{\bfseries STCLK}
+, {\bfseries T0\+\_\+\+CAP0}
+, {\bfseries T0\+\_\+\+CAP1}
+, {\bfseries T0\+\_\+\+MAT0}
+, \newline
+{\bfseries T0\+\_\+\+MAT1}
+, {\bfseries T1\+\_\+\+CAP0}
+, {\bfseries T1\+\_\+\+CAP1}
+, {\bfseries T1\+\_\+\+MAT0}
+, \newline
+{\bfseries T1\+\_\+\+MAT1}
+, {\bfseries T1\+\_\+\+MAT2}
+, {\bfseries T2\+\_\+\+CAP0}
+, {\bfseries T2\+\_\+\+CAP1}
+, \newline
+{\bfseries T2\+\_\+\+MAT0}
+, {\bfseries T2\+\_\+\+MAT1}
+, {\bfseries T2\+\_\+\+MAT2}
+, {\bfseries T2\+\_\+\+MAT3}
+, \newline
+{\bfseries T3\+\_\+\+CAP0}
+, {\bfseries T3\+\_\+\+CAP1}
+, {\bfseries T3\+\_\+\+MAT0}
+, {\bfseries T3\+\_\+\+MAT1}
+, \newline
+{\bfseries T3\+\_\+\+MAT2}
+, {\bfseries T3\+\_\+\+MAT3}
+, {\bfseries TRACECLK}
+, {\bfseries TRACEDATA\+\_\+0}
+, \newline
+{\bfseries TRACEDATA\+\_\+1}
+, {\bfseries TRACEDATA\+\_\+2}
+, {\bfseries TRACEDATA\+\_\+3}
+, {\bfseries U0\+\_\+\+OE}
+, \newline
+{\bfseries U0\+\_\+\+RXD}
+, {\bfseries U0\+\_\+\+TXD}
+, {\bfseries U1\+\_\+\+CTS}
+, {\bfseries U1\+\_\+\+DCD}
+, \newline
+{\bfseries U1\+\_\+\+DSR}
+, {\bfseries U1\+\_\+\+DTR}
+, {\bfseries U1\+\_\+\+RI}
+, {\bfseries U1\+\_\+\+RTS}
+, \newline
+{\bfseries U1\+\_\+\+RXD}
+, {\bfseries U1\+\_\+\+TXD}
+, {\bfseries U2\+\_\+\+OE}
+, {\bfseries U2\+\_\+\+RXD}
+, \newline
+{\bfseries U2\+\_\+\+TXD}
+, {\bfseries U3\+\_\+\+OE}
+, {\bfseries U3\+\_\+\+RXD}
+, {\bfseries U3\+\_\+\+TXD}
+, \newline
+{\bfseries U4\+\_\+\+OE}
+, {\bfseries U4\+\_\+\+RXD}
+, {\bfseries U4\+\_\+\+SCLK}
+, {\bfseries U4\+\_\+\+TXD}
+, \newline
+{\bfseries USB\+\_\+\+CONNECT1}
+, {\bfseries USB\+\_\+\+CONNECT2}
+, {\bfseries USB\+\_\+\+DM1}
+, {\bfseries USB\+\_\+\+DP1}
+, \newline
+{\bfseries USB\+\_\+\+DP2}
+, {\bfseries USB\+\_\+\+HSTEN1}
+, {\bfseries USB\+\_\+\+HSTEN2}
+, {\bfseries USB\+\_\+\+INT1}
+, \newline
+{\bfseries USB\+\_\+\+LS1}
+, {\bfseries USB\+\_\+\+OVRCR1}
+, {\bfseries USB\+\_\+\+OVRCR2}
+, {\bfseries USB\+\_\+\+PPWR1}
+, \newline
+{\bfseries USB\+\_\+\+PPWR2}
+, {\bfseries USB\+\_\+\+PWRD1}
+, {\bfseries USB\+\_\+\+PWRD2}
+, {\bfseries USB\+\_\+\+RCV1}
+, \newline
+{\bfseries USB\+\_\+\+RX\+\_\+\+DM1}
+, {\bfseries USB\+\_\+\+RX\+\_\+\+DP1}
+, {\bfseries USB\+\_\+\+SCL1}
+, {\bfseries USB\+\_\+\+SDA1}
+, \newline
+{\bfseries USB\+\_\+\+SSPND1}
+, {\bfseries USB\+\_\+\+TX\+\_\+\+DM1}
+, {\bfseries USB\+\_\+\+TX\+\_\+\+DP1}
+, {\bfseries USB\+\_\+\+TX\+\_\+\+E1}
+, \newline
+{\bfseries USB\+\_\+\+UP\+\_\+\+LED1}
+, {\bfseries USB\+\_\+\+UP\+\_\+\+LED2}
+, {\bfseries USB\+\_\+\+VBUS}
+, {\bfseries RESERVED}
+ \}
+\begin{DoxyCompactList}\small\item\em Funciones posibles de los pines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{iocon__lpc40xx_8h_a4aeb1f33a0f3351f386e86b225bbbbb3} 
+void {\bfseries iocon\+\_\+configurar\+\_\+pin} (LPC\+\_\+\+GPIO\+\_\+\+Type\+Def $\ast$gpio\+\_\+regs, uint32\+\_\+t mascara\+\_\+pin, \textbf{ funcion\+\_\+pin\+\_\+t} funcion, uint32\+\_\+t configuracion\+\_\+es)
+\item 
+\label{iocon__lpc40xx_8h_ad237045d62f6575308ff215c9fdfc23b} 
+void {\bfseries iocon\+\_\+configurar\+\_\+grupo\+\_\+pines} (const \textbf{ configuracion\+\_\+funcion\+\_\+pin\+\_\+t} $\ast$pf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuración de pines del LPC40xx. 
+
+\begin{DoxyAuthor}{Author}
+Alejandro Lara Doña -\/ {\texttt{alejandro.\+lara@uca.\+es}} $\vert$ Eduardo Romero 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014/\+2025 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+2.\+0
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+GNU General Public License version 3 or later 
+\end{DoxyCopyright}
+
+
+\label{iocon__lpc40xx_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!iocon\_configuracion\_es@{iocon\_configuracion\_es}}
+\index{iocon\_configuracion\_es@{iocon\_configuracion\_es}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\doxysubsubsection{iocon\_configuracion\_es}
+{\footnotesize\ttfamily \label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1} 
+enum \textbf{ iocon\+\_\+configuracion\+\_\+es}}
+
+
+
+Máscaras para seleccionar la configuración de la etapa de entrada o salida de un pin. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_NO\_PULL\_UP\_NO\_PULL\_DOWN@{IOCON\_NO\_PULL\_UP\_NO\_PULL\_DOWN}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_NO\_PULL\_UP\_NO\_PULL\_DOWN@{IOCON\_NO\_PULL\_UP\_NO\_PULL\_DOWN}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1aef2e2704baeb82e695354fa34eb441ea} 
+IOCON\+\_\+\+NO\+\_\+\+PULL\+\_\+\+UP\+\_\+\+NO\+\_\+\+PULL\+\_\+\+DOWN&No se habilita ninguna resistencia de pull-\/up/\+pull-\/down. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_PULL\_DOWN@{IOCON\_PULL\_DOWN}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_PULL\_DOWN@{IOCON\_PULL\_DOWN}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a26d614fd3fa03453be1dbae823698892} 
+IOCON\+\_\+\+PULL\+\_\+\+DOWN&Habilitar pull-\/down. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_PULL\_UP@{IOCON\_PULL\_UP}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_PULL\_UP@{IOCON\_PULL\_UP}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a1e312835f75665f8bd88fcba025bee50} 
+IOCON\+\_\+\+PULL\+\_\+\+UP&Habilitar pull-\/up. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_REPEATER\_MODE@{IOCON\_REPEATER\_MODE}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_REPEATER\_MODE@{IOCON\_REPEATER\_MODE}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1af9e4cf5e1c0fa00f37f73106be489682} 
+IOCON\+\_\+\+REPEATER\+\_\+\+MODE&Habilitar modo repetidor. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_HYS@{IOCON\_HYS}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_HYS@{IOCON\_HYS}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1ab708fe58727c871d5b574700d3073d03} 
+IOCON\+\_\+\+HYS&Habilitar histéresis. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_INV@{IOCON\_INV}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_INV@{IOCON\_INV}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a73c249c040f67a0700eff9df61b8d707} 
+IOCON\+\_\+\+INV&Habilitar modo invertido (entrada). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_ADMODE@{IOCON\_ADMODE}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_ADMODE@{IOCON\_ADMODE}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a09319cf192131d17faac30c9b01a2fa9} 
+IOCON\+\_\+\+ADMODE&Habilitar modo analógico. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_FILTER@{IOCON\_FILTER}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_FILTER@{IOCON\_FILTER}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a882bffa42d2797ed9db52f90b8c80db3} 
+IOCON\+\_\+\+FILTER&Habilitar filtro de glitch. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_HS@{IOCON\_HS}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_HS@{IOCON\_HS}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a806e994628b3b6420eb323c15ea6a2d4} 
+IOCON\+\_\+\+HS&Habilitar modo HS para modos estándar del I2C. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_SLEW@{IOCON\_SLEW}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_SLEW@{IOCON\_SLEW}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a1761166b554f8033307f2ad8e0ae77ab} 
+IOCON\+\_\+\+SLEW&Habilitar control del slew rate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_HIDRIVE@{IOCON\_HIDRIVE}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_HIDRIVE@{IOCON\_HIDRIVE}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1ae2dc7d8eaf22d9fc79d58d4d1e5cf01e} 
+IOCON\+\_\+\+HIDRIVE&Habilitar HIDRIVE para modo Fast Mode Plus de I2C. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_OD@{IOCON\_OD}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_OD@{IOCON\_OD}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1ab9bba64166c386e726e465417e57c120} 
+IOCON\+\_\+\+OD&Habilitar modo Open Drain. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IOCON\_DACEN@{IOCON\_DACEN}!iocon\_lpc40xx.h@{iocon\_lpc40xx.h}}
+\index{iocon\_lpc40xx.h@{iocon\_lpc40xx.h}!IOCON\_DACEN@{IOCON\_DACEN}}
+}\label{iocon__lpc40xx_8h_a0dc99b4c27563ffc7ad14f86c1171ea1a730fecf2170bbfbe2722633a98e924a3} 
+IOCON\+\_\+\+DACEN&Habilitar salida del DAC. \\
+\hline
+
+\end{DoxyEnumFields}

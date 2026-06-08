@@ -1,0 +1,16 @@
+<map id="glcd_rectangulo_relleno" name="glcd_rectangulo_relleno">
+<area shape="rect" id="Node000001" title="Dibuja en la pantalla LCD un rectángulo relleno definido por las coordenadas de los vértices de una d..." alt="" coords="587,56,744,83"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a41b84703c6444551a49de5d363045885" title="Imprime la cabeza de la serpiente mirando en dirección correcta." alt="" coords="388,5,539,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="592,52,519,35,520,30,597,52"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html#ab8af81f580f53a1f26e0a8f1c49dff3d" title="Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de l..." alt="" coords="229,56,340,83"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="569,70,341,72,340,67,574,69"/>
+<area shape="rect" id="Node000006" href="$snake_8c.html#aafa9328b8e7c75350f0755138e08d182" title="Imprime una celda del cuerpo de la serpiente." alt="" coords="411,107,516,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="597,87,517,109,516,104,592,87"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,36,335,58,334,53,397,37"/>
+<area shape="rect" id="Node000004" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="213,72,55,72,55,67,214,67"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#a982f9d120923030a7b2f590ab4b59e2d" title="Imprime el escenario inicial por pantalla." alt="" coords="103,81,181,108"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="211,83,182,90,181,85,216,81"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="85,84,55,77,55,72,90,81"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="397,102,334,86,335,81,402,102"/>
+</map>

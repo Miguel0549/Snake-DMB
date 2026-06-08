@@ -1,0 +1,8 @@
+<map id="renderizarBucle" name="renderizarBucle">
+<area shape="rect" id="Node000001" title="Imprime las partes que cambian cada ciclo del escenario, como el interior del tablero o el valor de l..." alt="" coords="229,5,340,32"/>
+<area shape="rect" id="Node000002" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,21,55,21,55,16,214,16"/>
+<area shape="rect" id="Node000003" href="$snake_8c.html#a982f9d120923030a7b2f590ab4b59e2d" title="Imprime el escenario inicial por pantalla." alt="" coords="103,31,181,57"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,31,182,40,181,34,211,32"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="85,33,55,27,55,21,90,30"/>
+</map>

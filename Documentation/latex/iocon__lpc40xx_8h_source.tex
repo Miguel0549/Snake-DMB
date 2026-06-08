@@ -1,0 +1,135 @@
+\doxysection{iocon\+\_\+lpc40xx.\+h}
+\label{iocon__lpc40xx_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ IOCON\_LPC40XX\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ IOCON\_LPC40XX\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <LPC407x\_8x\_177x\_8x.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}tipos.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}gpio\_lpc40xx.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ =====\ IOCON\ -\/\ Constantes\ Publicas\ =====}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ IOCON\_MAXIMO\_FUNCIONES\_POR\_PIN\ \ 8}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ =====\ IOCON\ -\/\ Tipos\ Publicos\ =====}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{enum}\ iocon\_configuracion\_es\{}
+\DoxyCodeLine{00033\ \ \ IOCON\_NO\_PULL\_UP\_NO\_PULL\_DOWN\ =\ 0,\ \ }
+\DoxyCodeLine{00034\ \ \ IOCON\_PULL\_DOWN\ =\ (1u\ <<\ 3),\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ IOCON\_PULL\_UP\ =\ (1u\ <<\ 4),\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ IOCON\_REPEATER\_MODE\ =\ (3u\ <<\ 3),\ \ \ \ }
+\DoxyCodeLine{00037\ \ \ IOCON\_HYS\ =\ (1u\ <<\ 5),\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ IOCON\_INV\ =\ (1u\ <<\ 6),\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ IOCON\_ADMODE\ =\ (1u\ <<\ 7),\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ IOCON\_FILTER\ =\ (1u\ <<\ 8),\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ IOCON\_HS\ =\ (1u\ <<\ 8),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ IOCON\_SLEW\ =\ (1u\ <<\ 9),\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ IOCON\_HIDRIVE\ =\ (1u\ <<\ 9),\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ IOCON\_OD\ =\ (1u\ <<\ 10),\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ IOCON\_DACEN\ =\ (1u\ <<\ 16)\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00053\ \ \ GPIO,}
+\DoxyCodeLine{00054\ \ \ AD0\_0,\ AD0\_1,\ AD0\_2,\ AD0\_3,\ AD0\_4,\ AD0\_5,\ AD0\_6,\ AD0\_7,}
+\DoxyCodeLine{00055\ \ \ CAN\_RD1,\ CAN\_RD2,\ CAN\_TD1,\ CAN\_TD2,}
+\DoxyCodeLine{00056\ \ \ CLKOUT,}
+\DoxyCodeLine{00057\ \ \ CMP\_RESET,\ CMP\_ROSC,\ CMP\_VREF,}
+\DoxyCodeLine{00058\ \ \ CMP0\_IN\_1,\ CMP0\_IN\_2,\ CMP0\_IN\_3,\ CMP0\_IN\_4,\ CMP0\_OUT,}
+\DoxyCodeLine{00059\ \ \ CMP1\_IN\_1,\ CMP1\_IN\_2,\ CMP1\_IN\_3,\ CMP1\_IN\_4,\ CMP1\_OUT,}
+\DoxyCodeLine{00060\ \ \ DAC\_OUT,}
+\DoxyCodeLine{00061\ \ \ EINT0,\ EINT1,\ EINT2,\ EINT3,}
+\DoxyCodeLine{00062\ \ \ EMC\_A\_0,\ EMC\_A\_1,\ EMC\_A\_2,\ EMC\_A\_3,}
+\DoxyCodeLine{00063\ \ \ EMC\_A\_4,\ EMC\_A\_5,\ EMC\_A\_6,\ EMC\_A\_7,}
+\DoxyCodeLine{00064\ \ \ EMC\_A\_8,\ EMC\_A\_9,\ EMC\_A\_10,\ EMC\_A\_11,}
+\DoxyCodeLine{00065\ \ \ EMC\_A\_12,\ EMC\_A\_13,\ EMC\_A\_14,EMC\_A\_15,}
+\DoxyCodeLine{00066\ \ \ EMC\_A\_16,\ EMC\_A\_17,\ EMC\_A\_18,\ EMC\_A\_19,}
+\DoxyCodeLine{00067\ \ \ EMC\_A\_20,\ EMC\_A\_21,\ EMC\_A\_22,\ EMC\_A\_23,}
+\DoxyCodeLine{00068\ \ \ EMC\_A\_24,\ EMC\_A\_25,}
+\DoxyCodeLine{00069\ \ \ EMC\_BLS0,\ EMC\_BLS1,\ EMC\_BLS2,\ EMC\_BLS3,}
+\DoxyCodeLine{00070\ \ \ EMC\_CAS,}
+\DoxyCodeLine{00071\ \ \ EMC\_CKE0,\ EMC\_CKE1,\ EMC\_CKE2,\ EMC\_CKE3,}
+\DoxyCodeLine{00072\ \ \ EMC\_CLK0,\ EMC\_CLK1,}
+\DoxyCodeLine{00073\ \ \ EMC\_CS0,\ EMC\_CS1,\ EMC\_CS2,\ EMC\_CS3,}
+\DoxyCodeLine{00074\ \ \ EMC\_D\_0,\ EMC\_D\_1,\ EMC\_D\_2,\ EMC\_D\_3,}
+\DoxyCodeLine{00075\ \ \ EMC\_D\_4,\ EMC\_D\_5,\ EMC\_D\_6,\ EMC\_D\_7,}
+\DoxyCodeLine{00076\ \ \ EMC\_D\_8,\ EMC\_D\_9,\ EMC\_D\_10,\ EMC\_D\_11,}
+\DoxyCodeLine{00077\ \ \ EMC\_D\_12,\ EMC\_D\_13,\ EMC\_D\_14,\ EMC\_D\_15,}
+\DoxyCodeLine{00078\ \ \ EMC\_D\_16,\ EMC\_D\_17,\ EMC\_D\_18,\ EMC\_D\_19,}
+\DoxyCodeLine{00079\ \ \ EMC\_D\_20,\ EMC\_D\_21,\ EMC\_D\_22,\ EMC\_D\_23,}
+\DoxyCodeLine{00080\ \ \ EMC\_D\_24,\ EMC\_D\_25,\ EMC\_D\_26,\ EMC\_D\_27,}
+\DoxyCodeLine{00081\ \ \ EMC\_D\_28,\ EMC\_D\_29,\ EMC\_D\_30,\ EMC\_D\_31,}
+\DoxyCodeLine{00082\ \ \ EMC\_DQM0,\ EMC\_DQM1,\ EMC\_DQM2,\ EMC\_DQM3,}
+\DoxyCodeLine{00083\ \ \ EMC\_DYCS0,\ EMC\_DYCS1,\ EMC\_DYCS2,\ EMC\_DYCS3,}
+\DoxyCodeLine{00084\ \ \ EMC\_OE,}
+\DoxyCodeLine{00085\ \ \ EMC\_RAS,}
+\DoxyCodeLine{00086\ \ \ EMC\_WE,}
+\DoxyCodeLine{00087\ \ \ ENET\_COL,\ ENET\_CRS,\ ENET\_MDC,\ ENET\_MDIO,}
+\DoxyCodeLine{00088\ \ \ ENET\_RX\_CLK,\ ENET\_RX\_DV,\ ENET\_RX\_ER,}
+\DoxyCodeLine{00089\ \ \ ENET\_RXD0,\ ENET\_RXD1,\ ENET\_RXD2,\ ENET\_RXD3,}
+\DoxyCodeLine{00090\ \ \ ENET\_TX\_CLK,\ ENET\_TX\_EN,\ ENET\_TX\_ER,}
+\DoxyCodeLine{00091\ \ \ ENET\_TXD0,\ ENET\_TXD1,\ ENET\_TXD2,\ ENET\_TXD3,}
+\DoxyCodeLine{00092\ \ \ I2C0\_SCL,\ I2C0\_SDA,\ I2C1\_SCL,\ I2C1\_SDA,\ I2C2\_SCL,\ I2C2\_SDA,}
+\DoxyCodeLine{00093\ \ \ I2S\_RX\_MCLK,\ I2S\_RX\_SCK,\ I2S\_RX\_SDA,\ I2S\_RX\_WS,\ I2S\_TX\_MCLK,\ I2S\_TX\_SCK,}
+\DoxyCodeLine{00094\ \ \ I2S\_TX\_SDA,\ I2S\_TX\_WS,}
+\DoxyCodeLine{00095\ \ \ LCD\_CLKIN,\ LCD\_DCLK,\ LCD\_ENAB\_M,\ LCD\_FP,\ LCD\_LE,\ LCD\_LP,\ LCD\_PWR,}
+\DoxyCodeLine{00096\ \ \ LCD\_VD\_0,\ LCD\_VD\_1,\ LCD\_VD\_2,\ LCD\_VD\_3,}
+\DoxyCodeLine{00097\ \ \ LCD\_VD\_4,\ LCD\_VD\_5,\ LCD\_VD\_6,\ LCD\_VD\_7,}
+\DoxyCodeLine{00098\ \ \ LCD\_VD\_8,\ LCD\_VD\_9,\ LCD\_VD\_10,\ LCD\_VD\_11,}
+\DoxyCodeLine{00099\ \ \ LCD\_VD\_12,\ LCD\_VD\_13,\ LCD\_VD\_14,\ LCD\_VD\_15,}
+\DoxyCodeLine{00100\ \ \ LCD\_VD\_16,\ LCD\_VD\_17,\ LCD\_VD\_18,\ LCD\_VD\_19,}
+\DoxyCodeLine{00101\ \ \ LCD\_VD\_20,\ LCD\_VD\_21,\ LCD\_VD\_22,\ LCD\_VD\_23,}
+\DoxyCodeLine{00102\ \ \ MC\_0A,\ MC\_0B,\ MC\_1A,\ MC\_1B,\ MC\_2A,\ MC\_2B,}
+\DoxyCodeLine{00103\ \ \ MC\_ABORT,\ MC\_FB0,\ MC\_FB1,\ MC\_FB2,}
+\DoxyCodeLine{00104\ \ \ NMI,}
+\DoxyCodeLine{00105\ \ \ PWM0\_1,\ PWM0\_2,\ PWM0\_3,\ PWM0\_4,\ PWM0\_5,\ PWM0\_6,\ PWM0\_CAP0,}
+\DoxyCodeLine{00106\ \ \ PWM1\_1,\ PWM1\_2,\ PWM1\_3,\ PWM1\_4,\ PWM1\_5,\ PWM1\_6,\ PWM1\_CAP0,\ PWM1\_CAP1,}
+\DoxyCodeLine{00107\ \ \ QEI\_IDX,\ QEI\_PHA,\ QEI\_PHB,}
+\DoxyCodeLine{00108\ \ \ RTC\_EV0,\ RTC\_EV1,\ RTC\_EV2,}
+\DoxyCodeLine{00109\ \ \ SD\_CLK,\ SD\_CMD,\ SD\_DAT\_0,\ SD\_DAT\_1,\ SD\_DAT\_2,\ SD\_DAT\_3,\ SD\_PWR,}
+\DoxyCodeLine{00110\ \ \ SPIFI\_CLK,\ SPIFI\_CS,\ SPIFI\_IO\_0,\ SPIFI\_IO\_1,\ SPIFI\_IO\_2,\ SPIFI\_IO\_3,}
+\DoxyCodeLine{00111\ \ \ SSP0\_MISO,\ SSP0\_MOSI,\ SSP0\_SCK,\ SSP0\_SSEL,}
+\DoxyCodeLine{00112\ \ \ SSP1\_MISO,\ SSP1\_MOSI,\ SSP1\_SCK,\ SSP1\_SSEL,}
+\DoxyCodeLine{00113\ \ \ SSP2\_MISO,\ SSP2\_MOSI,\ SSP2\_SCK,\ SSP2\_SSEL,}
+\DoxyCodeLine{00114\ \ \ STCLK,}
+\DoxyCodeLine{00115\ \ \ T0\_CAP0,\ T0\_CAP1,\ T0\_MAT0,\ T0\_MAT1,\ T1\_CAP0,\ T1\_CAP1,}
+\DoxyCodeLine{00116\ \ \ T1\_MAT0,\ T1\_MAT1,\ T1\_MAT2,}
+\DoxyCodeLine{00117\ \ \ T2\_CAP0,\ T2\_CAP1,\ T2\_MAT0,\ T2\_MAT1,\ T2\_MAT2,\ T2\_MAT3,}
+\DoxyCodeLine{00118\ \ \ T3\_CAP0,\ T3\_CAP1,\ T3\_MAT0,\ T3\_MAT1,\ T3\_MAT2,\ T3\_MAT3,}
+\DoxyCodeLine{00119\ \ \ TRACECLK,\ TRACEDATA\_0,\ TRACEDATA\_1,\ TRACEDATA\_2,\ TRACEDATA\_3,}
+\DoxyCodeLine{00120\ \ \ U0\_OE,\ U0\_RXD,\ U0\_TXD,}
+\DoxyCodeLine{00121\ \ \ U1\_CTS,\ U1\_DCD,\ U1\_DSR,\ U1\_DTR,\ U1\_RI,\ U1\_RTS,\ U1\_RXD,\ U1\_TXD,}
+\DoxyCodeLine{00122\ \ \ U2\_OE,\ U2\_RXD,\ U2\_TXD,}
+\DoxyCodeLine{00123\ \ \ U3\_OE,\ U3\_RXD,\ U3\_TXD,}
+\DoxyCodeLine{00124\ \ \ U4\_OE,\ U4\_RXD,\ U4\_SCLK,\ U4\_TXD,}
+\DoxyCodeLine{00125\ \ \ USB\_CONNECT1,\ USB\_CONNECT2,\ USB\_DM1,\ USB\_DP1,\ USB\_DP2,}
+\DoxyCodeLine{00126\ \ \ USB\_HSTEN1,\ USB\_HSTEN2,}
+\DoxyCodeLine{00127\ \ \ USB\_INT1,\ USB\_LS1,\ USB\_OVRCR1,\ USB\_OVRCR2,}
+\DoxyCodeLine{00128\ \ \ USB\_PPWR1,\ USB\_PPWR2,\ USB\_PWRD1,\ USB\_PWRD2,}
+\DoxyCodeLine{00129\ \ \ USB\_RCV1,\ USB\_RX\_DM1,\ USB\_RX\_DP1,}
+\DoxyCodeLine{00130\ \ \ USB\_SCL1,\ USB\_SDA1,\ USB\_SSPND1,}
+\DoxyCodeLine{00131\ \ \ USB\_TX\_DM1,}
+\DoxyCodeLine{00132\ \ \ USB\_TX\_DP1,\ USB\_TX\_E1,}
+\DoxyCodeLine{00133\ \ \ USB\_UP\_LED1,\ USB\_UP\_LED2,}
+\DoxyCodeLine{00134\ \ \ USB\_VBUS,}
+\DoxyCodeLine{00135\ \ \ RESERVED}
+\DoxyCodeLine{00136\ \}\ funcion\_pin\_t;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00143\ \ \ LPC\_GPIO\_TypeDef\ \ *gpio\_regs;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ mascara\_pin;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ funcion\_pin\_t\ \ \ \ \ funcion;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00151\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ configuracion\_es;}
+\DoxyCodeLine{00152\ \}\ configuracion\_funcion\_pin\_t;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ =====\ IOCON\ -\/\ Funciones\ Publicas\ =====}}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ iocon\_configurar\_pin(LPC\_GPIO\_TypeDef\ *gpio\_regs,\ uint32\_t\ mascara\_pin,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ funcion\_pin\_t\ funcion,\ uint32\_t\ configuracion\_es);}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ iocon\_configurar\_grupo\_pines(\textcolor{keyword}{const}\ configuracion\_funcion\_pin\_t\ *pf);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ IOCON\_LPC40XX\_H}}
+
+\end{DoxyCode}

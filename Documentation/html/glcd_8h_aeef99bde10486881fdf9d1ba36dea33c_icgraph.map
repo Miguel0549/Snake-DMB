@@ -1,0 +1,19 @@
+<map id="glcd_borrar" name="glcd_borrar">
+<area shape="rect" id="Node000001" title="Borra la pantalla LCD rellenándola con el color indicado." alt="" coords="277,107,362,133"/>
+<area shape="rect" id="Node000002" href="$snake_8c.html#a2f8c7da4b89df7b50936209d366f50fe" title="Pantalla que te insta a continuar pulsando el botón central." alt="" coords="103,5,229,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,96,263,71,228,46,207,35,206,30,230,42,266,67,297,96"/>
+<area shape="rect" id="Node000004" href="$snake_8c.html#ae707360517516f6496f0d83a24a8e43a" title="Pantalla de derrota, llamar cuando pierdes la partida." alt="" coords="109,56,222,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="260,102,209,86,209,81,265,100"/>
+<area shape="rect" id="Node000005" href="$snake_8c.html#a31ed6f490186ea4b45f178a91b58604e" title="Pantalla de bienvenida al juego que te insta a pulsar el botón central para continuar." alt="" coords="112,107,220,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="259,121,221,123,220,117,264,119"/>
+<area shape="rect" id="Node000006" href="$snake_8c.html#a53000cde6c3e0a707115f973a0ef922f" title="Pantalla de victoria, llamar al ganar la partida." alt="" coords="108,157,224,184"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="260,140,210,159,208,154,265,138"/>
+<area shape="rect" id="Node000007" href="$snake_8c.html#a982f9d120923030a7b2f590ab4b59e2d" title="Imprime el escenario inicial por pantalla." alt="" coords="127,208,205,235"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="297,143,266,173,230,198,206,210,204,205,228,194,263,169,292,145"/>
+<area shape="rect" id="Node000003" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,107,55,133"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,41,104,46,69,78,43,108,39,105,65,74,101,42,112,37"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="112,91,56,113,54,109,115,86"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="95,122,56,123,54,117,99,118"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="111,153,55,132,55,126,116,150"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="110,202,101,198,65,166,40,136,42,131,69,162,104,194,115,202"/>
+</map>
